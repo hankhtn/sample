@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 21.0.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="NewTask" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
+<style type="text/css">
+	.Green{fill:#76A797;}
+	.Yellow{fill:#EAB54F;}
+	.Grey{fill:#838383;}
+</style>
+<polygon class="Grey" points="18,2 18,0 12,0 12,2 10,2 10,4 20,4 20,2 "/>
+<path class="Yellow" d="M16,25c0-5,4-9,9-9c0.3,0,0.7,0,1,0.1V2h-4v4H8V2H4v26h12.5C16.2,27.1,16,26.1,16,25z"/>
+<path class="Green" d="M25,18c-3.9,0-7,3.1-7,7s3.1,7,7,7s7-3.1,7-7S28.9,18,25,18z M26,26v4h-2v-4h-4v-2h4v-4h2v4h4v2H26z"/>
+</svg>

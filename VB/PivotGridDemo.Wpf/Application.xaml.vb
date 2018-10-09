@@ -1,0 +1,24 @@
+Imports System
+Imports System.Globalization
+Imports System.Linq
+Imports System.Threading
+Imports System.Windows
+Imports DevExpress.Xpf.Core
+Imports DevExpress.Xpf.DemoBase
+
+Namespace PivotGridDemo
+    Partial Public Class App
+        Inherits Application
+
+        Shared Sub New()
+            ApplicationThemeHelper.ApplicationThemeName = (If(DemoBaseControl.DefaultTheme, Theme.Office2016ColorfulSE)).Name
+        End Sub
+#If DEBUG Then
+        Public ReadOnly Property IsDebug() As Boolean
+            Get
+                Return True
+            End Get
+        End Property
+#End If
+    End Class
+End Namespace

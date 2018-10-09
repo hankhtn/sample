@@ -1,0 +1,133 @@
+﻿<local:SchedulingDemoModule x:Class="SchedulingDemo.TimelineScalesDemoModule"
+                            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                            xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+                            xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+                            xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"
+                            xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
+                            xmlns:dxsch="http://schemas.devexpress.com/winfx/2008/xaml/scheduling"
+                            xmlns:dxschcore="http://schemas.devexpress.com/winfx/2008/xaml/scheduling/core"
+                            xmlns:local="clr-namespace:SchedulingDemo"
+                            xmlns:vm="clr-namespace:SchedulingDemo.ViewModels"
+                            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                            mc:Ignorable="d"
+                            d:DesignWidth="800"
+                            d:DesignHeight="600"
+                            DataContext="{dxmvvm:ViewModelSource vm:TimelineScalesDemoViewModel}">
+
+    <local:SchedulingDemoModule.Resources>
+        <Style x:Key="LayoutItem.AppointmentMinWidth" TargetType="dxlc:LayoutItem">
+            <Setter Property="LabelTemplate">
+                <Setter.Value>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal" ToolTip="Enabled when Snap To Cells Mode is Never">
+                            <Image Source="{dx:DXImage Image=Info_16x16.png}" Stretch="None" VerticalAlignment="Center" Margin="0,0,3,0" Cursor="Hand" />
+                            <ContentPresenter Content="{Binding}" VerticalAlignment="Center" />
+                        </StackPanel>
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <DataTemplate x:Key="scaleOptionsHeaderTemplate">
+            <Grid Margin="0,0,0,4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="80" />
+                    <ColumnDefinition Width="80" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="1" Text="Is Enabled" HorizontalAlignment="Center" />
+                <TextBlock Grid.Column="2" Text="Show Headers" HorizontalAlignment="Center" />
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="scaleOptionsTemplate">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="80" />
+                    <ColumnDefinition Width="80" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Text="{Binding Caption}" VerticalAlignment="Center" />
+                <CheckBox Grid.Column="1" IsChecked="{Binding IsEnabled}" HorizontalAlignment="Center" />
+                <CheckBox Grid.Column="2" IsChecked="{Binding ShowHeaders}" HorizontalAlignment="Center" />
+            </Grid>
+        </DataTemplate>
+    </local:SchedulingDemoModule.Resources>
+    <DockPanel>
+        <dxlc:LayoutControl Name="PART_Options" DockPanel.Dock="Right" Orientation="Vertical" Padding="0,0,0,12" MinWidth="210" dx:ScrollBarExtensions.ScrollBarMode="TouchOverlap">
+            <dxe:DateNavigator VerticalAlignment="Top" dxlc:LayoutControl.AllowVerticalSizing="True">
+                <dxe:DateNavigator.StyleSettings>
+                    <dxsch:SchedulerDateNavigatorStyleSettings Scheduler="{Binding ElementName=scheduler}" />
+                </dxe:DateNavigator.StyleSettings>
+            </dxe:DateNavigator>
+            <GroupBox Header="View" VerticalAlignment="Top" Margin="12,1,12,0">
+                <dxlc:LayoutControl Padding="0" Orientation="Vertical">
+                    <dxlc:LayoutItem Label="Grouping: ">
+                        <dxe:ComboBoxEdit EditValue="{DXBinding '@ElementName(scheduler).GroupType', UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                              ItemsSource="{dxe:EnumItemsSource EnumType=dxschcore:SchedulerGroupType}" />
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutItem Label="Interval Count: ">
+                        <dxe:SpinEdit Value="{DXBinding '@ElementName(timelineView).IntervalCount', Mode=TwoWay}" MinValue="1" MaxValue="100" IsFloatValue="False" />
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutItem Label="Snap To Cells Mode: ">
+                        <dxe:ComboBoxEdit EditValue="{DXBinding '@ElementName(timelineView).SnapToCellsMode', UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                              ItemsSource="{dxe:EnumItemsSource EnumType=dxsch:SnapToCellsMode}"
+                                              IsTextEditable="False" />
+                    </dxlc:LayoutItem>
+                    <dxlc:LayoutControl Padding="0" Orientation="Vertical">
+                        <dxlc:LayoutItem Label="Appointment Min Height: ">
+                            <dxe:SpinEdit Value="{DXBinding '@ElementName(timelineView).AppointmentMinHeight', Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                        </dxlc:LayoutItem>
+                        <dxlc:LayoutItem Label="Appointment Min Width: " Style="{StaticResource LayoutItem.AppointmentMinWidth}">
+                            <dxe:SpinEdit Value="{DXBinding '@ElementName(timelineView).AppointmentMinWidth', Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                              MinValue="0"
+                                              IsEnabled="{DXBinding '@ElementName(timelineView).SnapToCellsMode != $dxsch:SnapToCellsMode.Always'}" />
+                        </dxlc:LayoutItem>
+                    </dxlc:LayoutControl>
+                </dxlc:LayoutControl>
+            </GroupBox>
+            <GroupBox Header="Time Scales" VerticalAlignment="Top" Margin="12,1,12,0">
+                <StackPanel>
+                    <ContentPresenter ContentTemplate="{StaticResource scaleOptionsHeaderTemplate}" />
+                    <ItemsControl ItemsSource="{DXBinding '@ElementName(timelineView).TimeScales'}" ItemTemplate="{StaticResource scaleOptionsTemplate}" />
+                </StackPanel>
+            </GroupBox>
+        </dxlc:LayoutControl>
+        <dxsch:SchedulerControl x:Name="scheduler" GroupType="None" Start="{Binding Start, Mode=TwoWay}" AllowAppointmentConflicts="True">
+            <dxsch:TimelineView x:Name="timelineView">
+                <dxsch:TimelineView.TimeScales>
+                    <dxsch:TimeScaleYear x:Name="scaleYear" IsEnabled="False" />
+                    <dxsch:TimeScaleQuarter x:Name="scaleQuarter" IsEnabled="False" />
+                    <dxsch:TimeScaleMonth x:Name="scaleMonth" IsEnabled="False" />
+                    <dxsch:TimeScaleWeek x:Name="scaleWeek" IsEnabled="True" />
+                    <dxsch:TimeScaleDay x:Name="scaleDay" IsEnabled="True" />
+                    <dxsch:TimeScaleWorkDay x:Name="scaleWorkDay" IsEnabled="False" />
+                    <dxsch:TimeScaleHour x:Name="scaleHour" IsEnabled="False" />
+                    <dxsch:TimeScaleWorkHour x:Name="scaleWorkHour" IsEnabled="False" />
+                    <dxsch:FixedTimeScale x:Name="scale15minutes" Scale="0:15:0" IsEnabled="False" />
+                </dxsch:TimelineView.TimeScales>
+            </dxsch:TimelineView>
+            <dxsch:SchedulerControl.DataSource>
+                <dxsch:DataSource AppointmentsSource="{Binding Appointments}" ResourcesSource="{Binding Calendars}">
+                    <dxsch:DataSource.AppointmentMappings>
+                        <dxsch:AppointmentMappings Id="Id"
+                                                   AllDay="AllDay"
+                                                   Type="AppointmentType"
+                                                   Start="Start"
+                                                   End="End"
+                                                   Subject="Subject"
+                                                   Description="Description"
+                                                   Location="Location"
+                                                   ResourceId="CalendarId"
+                                                   RecurrenceInfo="RecurrenceInfo"
+                                                   StatusId="Status"
+                                                   LabelId="Label" />
+                    </dxsch:DataSource.AppointmentMappings>
+                    <dxsch:DataSource.ResourceMappings>
+                        <dxsch:ResourceMappings Id="Id" Caption="Name" />
+                    </dxsch:DataSource.ResourceMappings>
+                </dxsch:DataSource>
+            </dxsch:SchedulerControl.DataSource>
+        </dxsch:SchedulerControl>
+    </DockPanel>
+</local:SchedulingDemoModule>

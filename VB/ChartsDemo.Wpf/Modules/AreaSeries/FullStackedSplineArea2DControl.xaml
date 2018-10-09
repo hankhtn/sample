@@ -1,0 +1,107 @@
+﻿<local:ChartsDemoModule x:Class="ChartsDemo.FullStackedSplineArea2DControl"
+                        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+                        xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
+                        xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts"
+                        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+                        xmlns:local="clr-namespace:ChartsDemo"
+                        ModuleLoaded="ChartsDemoModule_ModuleLoaded">
+    <local:ChartsDemoModule.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/ChartsDemo;component/Themes/Common.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <dxmvvm:BooleanNegationConverter x:Key="InvertedBoolConverter" />
+        </ResourceDictionary>
+    </local:ChartsDemoModule.Resources>
+    <DockPanel>
+        <local:ChartsDemoRibbon DockPanel.Dock="Top" Chart="{x:Reference chart}" />
+        <ScrollViewer HorizontalScrollBarVisibility="Disabled"
+                      VerticalScrollBarVisibility="Auto"
+                      Name="PART_Options"
+                      DockPanel.Dock="Right"
+                      dx:ScrollBarExtensions.ScrollBarMode="TouchOverlap"
+                      Focusable="False">
+            <StackPanel Margin="12,8,12,12" MinWidth="210">
+                <dxe:CheckEdit Name="chbVisible" Content="Show Labels" IsChecked="True" />
+                <dxe:CheckEdit Name="chbPercent"
+                               Margin="0,4,0,0"
+                               Content="Values as Percent"
+                               Checked="chbPercent_Checked"
+                               Unchecked="chbPercent_UnChecked"
+                               IsChecked="True"
+                               IsEnabled="{Binding ElementName=chbVisible, Path=IsChecked}" />
+                <GroupBox Header="Transparency" Margin="0,5,0,0">
+                    <StackPanel>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Text="0" HorizontalAlignment="Left" />
+                            <TextBlock Grid.Column="1" Text="0.5" HorizontalAlignment="Center" />
+                            <TextBlock Grid.Column="2" Text="1" HorizontalAlignment="Right" />
+                        </Grid>
+                        <dxe:TrackBarEdit Name="slTransparency" Value="0.3" Minimum="0" Maximum="1" SmallStep="0.01" LargeStep="0.1" TickPlacement="None" />
+                    </StackPanel>
+                </GroupBox>
+                <GroupBox Header="Line Tension" Margin="0,5,0,0">
+                    <StackPanel>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Text="0" HorizontalAlignment="Left" />
+                            <TextBlock Grid.Column="1" Text="0.5" HorizontalAlignment="Center" />
+                            <TextBlock Grid.Column="2" Text="1.0" HorizontalAlignment="Right" />
+                        </Grid>
+                        <dxe:TrackBarEdit Name="slLineTension" Value="0.8" Minimum="0" Maximum="1.0" SmallStep="0.1" TickPlacement="None" />
+                    </StackPanel>
+                </GroupBox>
+            </StackPanel>
+        </ScrollViewer>
+        <dxc:ChartControl Name="chart"
+                          AnimationMode="OnLoad"
+                          BorderThickness="0"
+                          CrosshairEnabled="{Binding ElementName=chbVisible, Path=IsChecked, Converter={StaticResource InvertedBoolConverter}}"
+                          DataSource="{Binding Data}">
+            <dxc:ChartControl.DataContext>
+                <local:DevAVBranchesSales />
+            </dxc:ChartControl.DataContext>
+            <dxc:ChartControl.Diagram>
+                <dxc:XYDiagram2D SeriesDataMember="Company">
+                    <dxc:XYDiagram2D.AxisY>
+                        <dxc:AxisY2D>
+                            <dxc:AxisY2D.WholeRange>
+                                <dxc:Range AutoSideMargins="False" SideMarginsValue="0" />
+                            </dxc:AxisY2D.WholeRange>
+                        </dxc:AxisY2D>
+                    </dxc:XYDiagram2D.AxisY>
+                    <dxc:XYDiagram2D.SeriesTemplate>
+                        <dxc:SplineAreaFullStackedSeries2D CrosshairLabelPattern="{}{S}: {VP:P2}"
+                                                           ArgumentDataMember="Year"
+                                                           ValueDataMember="Sales"
+                                                           LineTension="{Binding ElementName=slLineTension, Path=Value}"
+                                                           Transparency="{Binding ElementName=slTransparency, Path=Value}"
+                                                           AnimationAutoStartMode="SetStartState"
+                                                           LabelsVisibility="{Binding ElementName=chbVisible, Path=IsChecked}">
+                            <dxc:SplineAreaFullStackedSeries2D.Label>
+                                <dxc:SeriesLabel ResolveOverlappingMode="Default" TextPattern="{}{VP:P2}" />
+                            </dxc:SplineAreaFullStackedSeries2D.Label>
+                        </dxc:SplineAreaFullStackedSeries2D>
+                    </dxc:XYDiagram2D.SeriesTemplate>
+                </dxc:XYDiagram2D>
+            </dxc:ChartControl.Diagram>
+            <dxc:ChartControl.Legend>
+                <dxc:Legend HorizontalPosition="Center" VerticalPosition="BottomOutside" Orientation="Horizontal" />
+            </dxc:ChartControl.Legend>
+            <dxc:ChartControl.Titles>
+                <dxc:Title Dock="Top" HorizontalAlignment="Center" Content="Market Share Over Time" />
+            </dxc:ChartControl.Titles>
+        </dxc:ChartControl>
+    </DockPanel>
+</local:ChartsDemoModule>

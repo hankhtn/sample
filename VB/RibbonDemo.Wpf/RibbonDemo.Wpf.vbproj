@@ -1,0 +1,704 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7CE58B34-3C1F-4240-A742-A5C8710D3380}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <BaseIntermediateOutputPath>obj.Wpf</BaseIntermediateOutputPath>
+    <RootNamespace></RootNamespace>
+    <AssemblyName>RibbonDemo</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
+    <SignManifests>true</SignManifests>
+    <ManifestCertificateThumbprint>C4A0B3465F3AEA184F308AE032C4B9F4F88E966C</ManifestCertificateThumbprint>
+    <MinFrameworkVersionRequired>3.5</MinFrameworkVersionRequired>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <StartupObject>Sub Main</StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>false</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>false</MapFileExtensions>
+    <PublisherName>DevExpress</PublisherName>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>false</BootstrapperEnabled>
+    <OptionExplicit>On</OptionExplicit>
+    <OptionCompare>Binary</OptionCompare>
+    <OptionStrict>Off</OptionStrict>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <DefineConstants>WPF=True</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <PlatformTarget>x86</PlatformTarget>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <DefineConstants>WPF=True</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <PlatformTarget>x86</PlatformTarget>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'ClickOnce Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <IntermediateOutputPath>.\obj\ClickOnce Debug\</IntermediateOutputPath>
+    <OutputPath>.\bin\ClickOnce Debug\</OutputPath>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <DefineConstants>WPF=True, CLICKONCE=True</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'ClickOnce Release|AnyCPU' ">
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+    <IntermediateOutputPath>.\obj\ClickOnce Release\</IntermediateOutputPath>
+    <OutputPath>.\bin\ClickOnce Release\</OutputPath>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <DefineConstants>WPF=True, CLICKONCE=True</DefineConstants>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DebugTest|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\DebugTest\</OutputPath>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <DefineConstants>WPF=True, DEBUGTEST=True</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>demoicon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <NoWin32Manifest>true</NoWin32Manifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="DevExpress.Build.XamlResourceProcessing.targets" />
+    <Content Include="Dll\EntityFramework.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Images\RibbonStyle\Office2007.png" />
+    <Resource Include="Images\RibbonStyle\Office2010.png" />
+    <Resource Include="Images\RibbonStyle\TabletOffice.png" />
+    <Resource Include="Images\RibbonStyle\OfficeSlim.png" />
+    <Content Include="Themes.WPF.targets" />
+    <Reference Include="DevExpress.Data.v18.1"><HintPath></HintPath><Private>False</Private></Reference>
+    <Reference Include="DevExpress.DemoData.v18.1.Core"><HintPath></HintPath><Private>False</Private></Reference>
+    <Reference Include="DevExpress.DemoData.v18.1"><HintPath></HintPath><Private>False</Private></Reference>
+    <Reference Include="DevExpress.Images.v18.1"><HintPath></HintPath><Private>False</Private></Reference>
+    <Reference Include="DevExpress.Xpf.Core.v18.1"><HintPath></HintPath><Private>False</Private></Reference>
+    <Reference Include="nunit.framework" Condition=" '$(Configuration)' == 'DebugTest' ">
+      <HintPath></HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    <Private>False</Private></Reference>
+    <Reference Include="DevExpress.Xpf.Ribbon.v18.1"><HintPath></HintPath><Private>False</Private></Reference>
+    <Reference Include="DevExpress.Xpf.DemoBase.v18.1"><HintPath></HintPath><Private>False</Private></Reference>
+    <Reference Include="DevExpress.Xpf.Docking.v18.1"><HintPath></HintPath><Private>False</Private></Reference>
+    <Reference Include="DevExpress.Xpf.Layout.v18.1.Core"><HintPath></HintPath><Private>False</Private></Reference>
+    <Reference Include="DevExpress.Xpf.LayoutControl.v18.1"><HintPath></HintPath><Private>False</Private></Reference>
+    <Reference Include="DevExpress.Mvvm.v18.1"><HintPath></HintPath><Private>False</Private></Reference>
+    <Reference Include="System"><Private>False</Private></Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations"><Private>False</Private></Reference>
+    <Reference Include="System.Data"><Private>False</Private></Reference>
+    <Reference Include="System.Drawing"><Private>False</Private></Reference>
+    <Reference Include="System.Xml"><Private>False</Private></Reference>
+    <Reference Include="System.Windows.Forms"><Private>False</Private></Reference>
+    <Reference Include="System.Core"><Private>False</Private></Reference>
+    <Reference Include="System.Xml.Linq"><Private>False</Private></Reference>
+    <Reference Include="System.Data.DataSetExtensions"><Private>False</Private></Reference>
+    <Reference Include="System.Xaml"><Private>False</Private></Reference>
+    <Reference Include="UIAutomationProvider"><Private>False</Private></Reference>
+    <Reference Include="UIAutomationTypes"><Private>False</Private></Reference>
+    <Reference Include="WindowsBase"><Private>False</Private></Reference>
+    <Reference Include="PresentationCore"><Private>False</Private></Reference>
+    <Reference Include="PresentationFramework"><Private>False</Private></Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Windows.Controls" />
+    <Import Include="System.Windows.Data" />
+    <Import Include="System.Windows.Shapes" />
+    <Import Include="System.Windows.Documents" />
+    <Import Include="System.Windows.Input" />
+    <Import Include="System.Windows.Media.Imaging" />
+    <Import Include="System.Windows.Media" />
+    <Import Include="System.Windows.Navigation" />
+    <Import Include="System.Windows" />
+    <Import Include="System" />
+  </ItemGroup>
+  <!--Main-->
+  <ItemGroup>
+    <AppDesigner Include="My Project\" />
+    <Compile Include="Application.xaml.vb">
+      <DependentUpon>Application.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\DemoTextBox.vb" />
+    <Compile Include="Controls\InlineImage.vb" />
+    <Compile Include="Controls\PaintControl.xaml.vb">
+      <DependentUpon>PaintControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ThemedContentControl.vb" />
+    <Compile Include="Helpers\CateroryColorIsEnabledConverter.vb" />
+    <Compile Include="Helpers\EditWidthConverter.vb" />
+    <Compile Include="Helpers\GlyphHelper.vb" />
+    <Compile Include="MainWindow.xaml.vb">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\MVVMRibbon\ViewModels\MVVMRibbonServices.vb" />
+    <Compile Include="Modules\MVVMRibbon\Views\MVVMRibbon.xaml.vb">
+      <DependentUpon>MVVMRibbon.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\RibbonMerging\Converters\PointToStringConverter.vb" />
+    <Compile Include="Modules\RibbonMerging\ViewModels\PaintPanelViewModel.vb" />
+    <Compile Include="Modules\RibbonMerging\ViewModels\PanelViewModel.vb" />
+    <Compile Include="Modules\RibbonMerging\ViewModels\RibbonMergingViewModel.vb" />
+    <Compile Include="Modules\RibbonMerging\ViewModels\TextPanelViewModel.vb" />
+    <Compile Include="Modules\RibbonMerging\Views\PaintUserControl.xaml.vb">
+      <DependentUpon>PaintUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\RibbonMerging\Views\RibbonMergingUserControl.xaml.vb">
+      <DependentUpon>RibbonMergingUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\RibbonMerging\Views\TextUserControl.xaml.vb">
+      <DependentUpon>TextUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\RibbonOffice2007\RibbonOffice2007.vb" />
+    <Compile Include="Modules\RibbonOffice2010\RibbonOffice2010.vb" />
+    <Compile Include="Modules\RibbonSimplePad\Converters\EnumToIndexConverter.vb" />
+    <Compile Include="Modules\RibbonSimplePad\Converters\EnumValueToDisplayValueConverter.vb" />
+    <Compile Include="Modules\RibbonSimplePad\Converters\ImageScaleValueConverter.vb" />
+    <Compile Include="Modules\RibbonSimplePad\Converters\EnumValueToImageSourceConverter.vb" />
+    <Compile Include="Modules\RibbonSimplePad\Services\BackstageViewService.vb" />
+    <Compile Include="Modules\RibbonSimplePad\Services\InlineImageService.vb" />
+    <Compile Include="Modules\RibbonSimplePad\TemplateSelectors\InlineImageContentTemplateSelector.vb" />
+    <Compile Include="Modules\RibbonSimplePad\TemplateSelectors\TemplateSelectorDictionary.vb" />
+    <Compile Include="Modules\RibbonSimplePad\TemplateSelectors\TextMarkerStyleTemplateSelector.vb" />
+    <Compile Include="Modules\RibbonSimplePad\ViewModels\InlineImageViewModel.vb" />
+    <Compile Include="Modules\RibbonSimplePad\ViewModels\RecentItemViewModel.vb" />
+    <Compile Include="Modules\RibbonSimplePad\ViewModels\RibbonSimplePadOptionsViewModel.vb" />
+    <Compile Include="Modules\RibbonSimplePad\ViewModels\RibbonToolbarShowModeBehavior.vb" />
+    <Compile Include="Modules\RibbonSimplePad\ViewModels\SimplePadViewModel.vb" />
+    <Compile Include="Modules\RibbonSimplePad\Views\RibbonSimplePad.xaml.vb">
+      <DependentUpon>RibbonSimplePad.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\RibbonTabletOfficeSlim\RibbonTabletOfficeSlim.vb" />
+    <Compile Include="Modules\RibbonTabletOffice\RibbonTabletOffice.vb" />
+    <Compile Include="Modules\RibbonWindow\Services\CloseWindowService.vb" />
+    <Compile Include="Modules\RibbonWindow\ViewModels\PainterWindowViewModel.vb" />
+    <Compile Include="Modules\MVVMRibbon\ViewModels\MVVMRibbonCommands.vb" />
+    <Compile Include="Modules\MVVMRibbon\ViewModels\MVVMRibbonViewModel.vb" />
+    <Compile Include="Helpers\SelectedTextBehavior.vb" />
+    <Compile Include="Modules\RibbonWindow\Views\RibbonWindow.xaml.vb">
+      <DependentUpon>RibbonWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\RibbonWindow\Views\PainterWindow.xaml.vb">
+      <DependentUpon>PainterWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <EmbeddedResource Include="My Project\Resources.resx" />
+    <Compile Include="My Project\Resources.Designer.vb">
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="DemoTesting\Fixtures.vb" />
+    <EmbeddedResource Include="clickonce.txt" />
+  </ItemGroup>
+  <!--Controls-->
+  <ItemGroup>
+    <Compile Include="Controls\DemoModuleControl.vb" />
+    <Compile Include="Controls\DemoRichTextBox.vb" />
+  </ItemGroup>
+  <!--Demo modules-->
+  <ItemGroup>
+    <ApplicationDefinition Include="Application.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="Controls\PaintControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\MVVMRibbon\Views\MVVMRibbon.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\RibbonMerging\Views\PaintUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\RibbonMerging\Views\RibbonMergingUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\RibbonMerging\Views\TextUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\RibbonSimplePad\Views\BackstageViewCommonStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\RibbonSimplePad\Views\BackstageViewPanes.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\RibbonSimplePad\Views\RibbonSimplePad.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\RibbonSimplePad\Views\TemplateSelectors.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\RibbonWindow\Views\RibbonWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\RibbonWindow\Views\PainterWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <!--Themes-->
+  <!--Resources ThemeIcons-->
+  <ItemGroup>
+    <Resource Include="Images\ThemeIcons\DeepBlue_16x16.png" />
+    <Resource Include="Images\ThemeIcons\DeepBlue_48x48.png" />
+    <Resource Include="Images\ThemeIcons\LightGray_16x16.png" />
+    <Resource Include="Images\ThemeIcons\LightGray_48x48.png" />
+    <Resource Include="Images\ThemeIcons\Office2007Black_16x16.png" />
+    <Resource Include="Images\ThemeIcons\Office2007Black_48x48.png" />
+    <Resource Include="Images\ThemeIcons\Office2007Blue_16x16.png" />
+    <Resource Include="Images\ThemeIcons\Office2007Blue_48x48.png" />
+    <Resource Include="Images\ThemeIcons\Office2007Silver_16x16.png" />
+    <Resource Include="Images\ThemeIcons\Office2007Silver_48x48.png" />
+  </ItemGroup>
+  <!--Resources Images-->
+  <ItemGroup>
+    <Resource Include="demoicon.ico" />
+    <Resource Include="Images\ribbon-application-32x32.png" />
+    <Resource Include="Images\online.gif" />
+    <Resource Include="Images\about.png" />
+    <Resource Include="Images\background.jpg" />
+    <Resource Include="Images\Ribbon.png" />
+    <Resource Include="Images\demo-logo.png" />
+    <Resource Include="Images\description.png" />
+    <Resource Include="Images\dx-logo.png" />
+    <Resource Include="Images\ProductSmallLogo.png" />
+  </ItemGroup>
+  <!--Resources Clipart-->
+  <ItemGroup>
+    <Resource Include="Images\Clipart\caCompClient.png" />
+    <Resource Include="Images\Clipart\caCompClientEnabled.png" />
+    <Resource Include="Images\Clipart\caDatabaseBlue.png" />
+    <Resource Include="Images\Clipart\caDataBaseDisabled.png" />
+    <Resource Include="Images\Clipart\caDatabaseGreen.png" />
+    <Resource Include="Images\Clipart\caDataBaseViolet.png" />
+    <Resource Include="Images\Clipart\caInet.png" />
+    <Resource Include="Images\Clipart\caInetSearch.png" />
+    <Resource Include="Images\Clipart\caModem.png" />
+    <Resource Include="Images\Clipart\caModemEnabled.png" />
+    <Resource Include="Images\Clipart\caNetCard.png" />
+    <Resource Include="Images\Clipart\caNetwork.png" />
+    <Resource Include="Images\Clipart\caNetworkEnabled.png" />
+    <Resource Include="Images\Clipart\caServer.png" />
+    <Resource Include="Images\Clipart\caServerEnabled.png" />
+    <Resource Include="Images\Clipart\caWebCam.png" />
+  </ItemGroup>
+  <!--Resources GalleryDemoIcons-->
+  <!--Resources Photos Cars-->
+  <!--Resources Photos Person-->
+  <!--Resources Photos Las Vegas-->
+  <!--Resources Icons-->
+  <ItemGroup>
+    <Resource Include="Images\Icons\bold-16x16.png" />
+    <Resource Include="Images\Icons\bullets-16x16.png" />
+    <Resource Include="Images\Icons\bullets-32x32.png" />
+    <Resource Include="Images\Icons\center-align-16x16.png" />
+    <Resource Include="Images\Icons\close-16x16.png" />
+    <Resource Include="Images\Icons\close-32x32.png" />
+    <Resource Include="Images\Icons\copy-16x16.png" />
+    <Resource Include="Images\Icons\copy-32x32.png" />
+    <Resource Include="Images\Icons\cut-16x16.png" />
+    <Resource Include="Images\Icons\cut-32x32.png" />
+    <Resource Include="Images\Icons\find-16x16.png" />
+    <Resource Include="Images\Icons\font-16x16.png" />
+    <Resource Include="Images\Icons\font-color-16x16.png" />
+    <Resource Include="Images\Icons\font-color-32x32.png" />
+    <Resource Include="Images\Icons\info-16x16.png" />
+    <Resource Include="Images\Icons\info-32x32.png" />
+    <Resource Include="Images\Icons\italic-16x16.png" />
+    <Resource Include="Images\Icons\left-align-16x16.png" />
+    <Resource Include="Images\Icons\new-16x16.png" />
+    <Resource Include="Images\Icons\new-32x32.png" />
+    <Resource Include="Images\Icons\open-16x16.png" />
+    <Resource Include="Images\Icons\open-32x32.png" />
+    <Resource Include="Images\Icons\paste-16x16.png" />
+    <Resource Include="Images\Icons\paste-32x32.png" />
+    <Resource Include="Images\Icons\print-16x16.png" />
+    <Resource Include="Images\Icons\print-32x32.png" />
+    <Resource Include="Images\Icons\redo-16x16.png" />
+    <Resource Include="Images\Icons\redo-32x32.png" />
+    <Resource Include="Images\Icons\replace-16x16.png" />
+    <Resource Include="Images\Icons\right-align-16x16.png" />
+    <Resource Include="Images\Icons\save-16x16.png" />
+    <Resource Include="Images\Icons\save-32x32.png" />
+    <Resource Include="Images\Icons\save-as-16x16.png" />
+    <Resource Include="Images\Icons\save-as-32x32.png" />
+    <Resource Include="Images\Icons\underline-16x16.png" />
+    <Resource Include="Images\Icons\undo-16x16.png" />
+    <Resource Include="Images\Icons\undo-32x32.png" />
+    <Resource Include="Images\Icons\Find_32x32.png" />
+    <Resource Include="Images\Icons\Delete_16x16.png" />
+    <Resource Include="Images\Icons\Font_16x16.png" />
+    <Resource Include="Images\Icons\Attach_32x32.png" />
+    <Resource Include="Images\Icons\FontSizeDecrease_16x16.png" />
+    <Resource Include="Images\Icons\FontSizeDecrease_32x32.png" />
+    <Resource Include="Images\Icons\FontSizeIncrease_16x16.png" />
+    <Resource Include="Images\Icons\FontSizeIncrease_32x32.png" />
+    <Resource Include="Images\Icons\IndentDecrease_16x16.png" />
+    <Resource Include="Images\Icons\IndentDecrease_32x32.png" />
+    <Resource Include="Images\Icons\IndentIncrease_16x16.png" />
+    <Resource Include="Images\Icons\IndentIncrease_32x32.png" />
+    <Resource Include="Images\Icons\Subscript_16x16.png" />
+    <Resource Include="Images\Icons\Subscript_32x32.png" />
+    <Resource Include="Images\Icons\Superscript_16x16.png" />
+    <Resource Include="Images\Icons\Superscript_32x32.png" />
+    <Resource Include="Images\Icons\ListBullets_16x16.png" />
+    <Resource Include="Images\Icons\ListBullets_32x32.png" />
+    <Resource Include="Images\Icons\Replace_32x32.png" />
+    <Resource Include="Images\Icons\Strikeout_16x16.png" />
+    <Resource Include="Images\Icons\Strikeout_32x32.png" />
+    <Resource Include="Images\Icons\Highlight_16x16.png" />
+    <Resource Include="Images\Icons\Highlight_32x32.png" />
+    <Resource Include="Images\Icons\AlignJustify_16x16.png" />
+    <Resource Include="Images\Icons\AlignJustify_32x32.png" />
+    <Resource Include="Images\Icons\Bullets-Box-76x76.png" />
+    <Resource Include="Images\Icons\Bullets-Circle-76x76.png" />
+    <Resource Include="Images\Icons\Bullets-Decimal-76x76.png" />
+    <Resource Include="Images\Icons\Bullets-Disc-76x76.png" />
+    <Resource Include="Images\Icons\Bullets-LowerLatin-76x76.png" />
+    <Resource Include="Images\Icons\Bullets-LowerRoman-76x76.png" />
+    <Resource Include="Images\Icons\Bullets-None-76x76.png" />
+    <Resource Include="Images\Icons\Bullets-Square-76x76.png" />
+    <Resource Include="Images\Icons\Bullets-UpperLatin-76x76.png" />
+    <Resource Include="Images\Icons\Bullets-UpperRoman-76x76.png" />
+    <Resource Include="Images\Icons\InsertPicture-32x32.png" />
+    <Resource Include="Images\Icons\EditHeight-16x16.png" />
+    <Resource Include="Images\Icons\EditWidth-16x16.png" />
+  </ItemGroup>
+  <!--Resources Layouts-->
+  <ItemGroup>
+    <Resource Include="Images\Info_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons\Scaling_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons\Thickness_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons\Pinned.png" />
+    <Resource Include="Images\Icons\Unpinned.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons\SelectAll_16x16.png" />
+    <Resource Include="Images\Icons\SelectAll_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Code_Central.png" />
+    <Resource Include="Images\Contact_Us.png" />
+    <Resource Include="Images\DXRibbon.png" />
+    <Resource Include="Images\Online_Help.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Shapes\ShapeCircle.png" />
+    <Resource Include="Images\Shapes\ShapeDownArrow.png" />
+    <Resource Include="Images\Shapes\ShapeLeftArrow.png" />
+    <Resource Include="Images\Shapes\ShapeNone.png" />
+    <Resource Include="Images\Shapes\ShapeRectangle.png" />
+    <Resource Include="Images\Shapes\ShapeRightArrow.png" />
+    <Resource Include="Images\Shapes\ShapeStar.png" />
+    <Resource Include="Images\Shapes\ShapeTriangle.png" />
+    <Resource Include="Images\Shapes\ShapeUpArrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons\Add_16x16.png" />
+    <Resource Include="Images\Icons\Add_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons\NewViaWizard_16x16.png" />
+    <Resource Include="Images\Icons\NewViaWizard_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons\PenTool.png" />
+    <Resource Include="Images\Icons\TextTool.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons\Delete_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ThemeIcons\Office2010Black_48x48.png" />
+    <Resource Include="Images\ThemeIcons\Seven_48x48.png" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ThemeIcons\Office2013_48x48.png" />
+    <Resource Include="Images\ThemeIcons\Office2010Blue_48x48.png" />
+    <Resource Include="Images\ThemeIcons\Office2010Silver_48x48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ThemeIcons\DXStyle.png" />
+    <Resource Include="Images\ThemeIcons\MetropolisDark.png" />
+    <Resource Include="Images\ThemeIcons\MetropolisLight.png" />
+    <Resource Include="Images\ThemeIcons\VS2010.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <PublishFile Include="DevExpress.Xpf.Themes.DXStyle.v18.1">
+      <Visible>False</Visible>
+      <Group>DevExpress.Xpf.Themes.DXStyle.v18.1</Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="DevExpress.Xpf.Themes.HybridApp.v18.1">
+      <Visible>False</Visible>
+      <Group>DevExpress.Xpf.Themes.HybridApp.v18.1</Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="DevExpress.Xpf.Themes.LightGray.v18.1">
+      <Visible>False</Visible>
+      <Group>DevExpress.Xpf.Themes.LightGray.v18.1</Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="DevExpress.Xpf.Themes.MetropolisDark.v18.1">
+      <Visible>False</Visible>
+      <Group>DevExpress.Xpf.Themes.MetropolisDark.v18.1</Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="DevExpress.Xpf.Themes.MetropolisLight.v18.1">
+      <Visible>False</Visible>
+      <Group>DevExpress.Xpf.Themes.MetropolisLight.v18.1</Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="DevExpress.Xpf.Themes.Office2007Black.v18.1">
+      <Visible>False</Visible>
+      <Group>DevExpress.Xpf.Themes.Office2007Black.v18.1</Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="DevExpress.Xpf.Themes.Office2007Blue.v18.1">
+      <Visible>False</Visible>
+      <Group>DevExpress.Xpf.Themes.Office2007Blue.v18.1</Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="DevExpress.Xpf.Themes.Office2007Silver.v18.1">
+      <Visible>False</Visible>
+      <Group>DevExpress.Xpf.Themes.Office2007Silver.v18.1</Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="DevExpress.Xpf.Themes.Office2010Black.v18.1">
+      <Visible>False</Visible>
+      <Group>DevExpress.Xpf.Themes.Office2010Black.v18.1</Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="DevExpress.Xpf.Themes.Office2010Blue.v18.1">
+      <Visible>False</Visible>
+      <Group>DevExpress.Xpf.Themes.Office2010Blue.v18.1</Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="DevExpress.Xpf.Themes.Office2010Silver.v18.1">
+      <Visible>False</Visible>
+      <Group>DevExpress.Xpf.Themes.Office2010Silver.v18.1</Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="DevExpress.Xpf.Themes.Office2013.v18.1">
+      <Visible>False</Visible>
+      <Group>DevExpress.Xpf.Themes.Office2013.v18.1</Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="DevExpress.Xpf.Themes.Office2013DarkGray.v18.1">
+      <Visible>False</Visible>
+      <Group>DevExpress.Xpf.Themes.Office2013DarkGray.v18.1</Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="DevExpress.Xpf.Themes.Office2013LightGray.v18.1">
+      <Visible>False</Visible>
+      <Group>DevExpress.Xpf.Themes.Office2013LightGray.v18.1</Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="DevExpress.Xpf.Themes.Office2016White.v18.1">
+      <Visible>False</Visible>
+      <Group>DevExpress.Xpf.Themes.Office2016White.v18.1</Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="DevExpress.Xpf.Themes.Seven.v18.1">
+      <Visible>False</Visible>
+      <Group>DevExpress.Xpf.Themes.Seven.v18.1</Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="DevExpress.Xpf.Themes.TouchlineDark.v18.1">
+      <Visible>False</Visible>
+      <Group>DevExpress.Xpf.Themes.TouchlineDark.v18.1</Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="DevExpress.Xpf.Themes.VS2010.v18.1">
+      <Visible>False</Visible>
+      <Group>DevExpress.Xpf.Themes.VS2010.v18.1</Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <Import Project="DevExpress.Build.XamlResourceProcessing.targets" />
+  <ItemGroup><PublishFile Include="DevExpress.Xpf.Themes.LightGray.v18.1"><Visible>False</Visible><Group>DevExpress.Xpf.Themes.LightGray.v18.1</Group><TargetPath /><PublishState>Include</PublishState><IncludeHash>True</IncludeHash><FileType>Assembly</FileType></PublishFile><PublishFile Include="DevExpress.Xpf.Themes.MetropolisDark.v18.1"><Visible>False</Visible><Group>DevExpress.Xpf.Themes.MetropolisDark.v18.1</Group><TargetPath /><PublishState>Include</PublishState><IncludeHash>True</IncludeHash><FileType>Assembly</FileType></PublishFile><PublishFile Include="DevExpress.Xpf.Themes.TouchlineDark.v18.1"><Visible>False</Visible><Group>DevExpress.Xpf.Themes.TouchlineDark.v18.1</Group><TargetPath /><PublishState>Include</PublishState><IncludeHash>True</IncludeHash><FileType>Assembly</FileType></PublishFile><PublishFile Include="DevExpress.Xpf.Themes.Office2013.v18.1"><Visible>False</Visible><Group>DevExpress.Xpf.Themes.Office2013.v18.1</Group><TargetPath /><PublishState>Include</PublishState><IncludeHash>True</IncludeHash><FileType>Assembly</FileType></PublishFile><PublishFile Include="DevExpress.Xpf.Themes.HybridApp.v18.1"><Visible>False</Visible><Group>DevExpress.Xpf.Themes.HybridApp.v18.1</Group><TargetPath /><PublishState>Include</PublishState><IncludeHash>True</IncludeHash><FileType>Assembly</FileType></PublishFile><PublishFile Include="DevExpress.Xpf.Themes.MetropolisLight.v18.1"><Visible>False</Visible><Group>DevExpress.Xpf.Themes.MetropolisLight.v18.1</Group><TargetPath /><PublishState>Include</PublishState><IncludeHash>True</IncludeHash><FileType>Assembly</FileType></PublishFile><PublishFile Include="DevExpress.Xpf.Themes.Office2013LightGray.v18.1"><Visible>False</Visible><Group>DevExpress.Xpf.Themes.Office2013LightGray.v18.1</Group><TargetPath /><PublishState>Include</PublishState><IncludeHash>True</IncludeHash><FileType>Assembly</FileType></PublishFile><PublishFile Include="DevExpress.Xpf.Themes.Office2016White.v18.1"><Visible>False</Visible><Group>DevExpress.Xpf.Themes.Office2016White.v18.1</Group><TargetPath /><PublishState>Include</PublishState><IncludeHash>True</IncludeHash><FileType>Assembly</FileType></PublishFile><PublishFile Include="DevExpress.Xpf.Themes.Office2013DarkGray.v18.1"><Visible>False</Visible><Group>DevExpress.Xpf.Themes.Office2013DarkGray.v18.1</Group><TargetPath /><PublishState>Include</PublishState><IncludeHash>True</IncludeHash><FileType>Assembly</FileType></PublishFile><PublishFile Include="DevExpress.Xpf.Themes.Office2007Black.v18.1"><Visible>False</Visible><Group>DevExpress.Xpf.Themes.Office2007Black.v18.1</Group><TargetPath /><PublishState>Include</PublishState><IncludeHash>True</IncludeHash><FileType>Assembly</FileType></PublishFile><PublishFile Include="DevExpress.Xpf.Themes.Office2007Blue.v18.1"><Visible>False</Visible><Group>DevExpress.Xpf.Themes.Office2007Blue.v18.1</Group><TargetPath /><PublishState>Include</PublishState><IncludeHash>True</IncludeHash><FileType>Assembly</FileType></PublishFile><PublishFile Include="DevExpress.Xpf.Themes.Office2007Silver.v18.1"><Visible>False</Visible><Group>DevExpress.Xpf.Themes.Office2007Silver.v18.1</Group><TargetPath /><PublishState>Include</PublishState><IncludeHash>True</IncludeHash><FileType>Assembly</FileType></PublishFile><PublishFile Include="DevExpress.Xpf.Themes.Office2010Black.v18.1"><Visible>False</Visible><Group>DevExpress.Xpf.Themes.Office2010Black.v18.1</Group><TargetPath /><PublishState>Include</PublishState><IncludeHash>True</IncludeHash><FileType>Assembly</FileType></PublishFile><PublishFile Include="DevExpress.Xpf.Themes.Office2010Blue.v18.1"><Visible>False</Visible><Group>DevExpress.Xpf.Themes.Office2010Blue.v18.1</Group><TargetPath /><PublishState>Include</PublishState><IncludeHash>True</IncludeHash><FileType>Assembly</FileType></PublishFile><PublishFile Include="DevExpress.Xpf.Themes.Office2010Silver.v18.1"><Visible>False</Visible><Group>DevExpress.Xpf.Themes.Office2010Silver.v18.1</Group><TargetPath /><PublishState>Include</PublishState><IncludeHash>True</IncludeHash><FileType>Assembly</FileType></PublishFile><PublishFile Include="DevExpress.Xpf.Themes.Seven.v18.1"><Visible>False</Visible><Group>DevExpress.Xpf.Themes.Seven.v18.1</Group><TargetPath /><PublishState>Include</PublishState><IncludeHash>True</IncludeHash><FileType>Assembly</FileType></PublishFile><PublishFile Include="DevExpress.Xpf.Themes.VS2010.v18.1"><Visible>False</Visible><Group>DevExpress.Xpf.Themes.VS2010.v18.1</Group><TargetPath /><PublishState>Include</PublishState><IncludeHash>True</IncludeHash><FileType>Assembly</FileType></PublishFile><PublishFile Include="DevExpress.Xpf.Themes.DXStyle.v18.1"><Visible>False</Visible><Group>DevExpress.Xpf.Themes.DXStyle.v18.1</Group><TargetPath /><PublishState>Include</PublishState><IncludeHash>True</IncludeHash><FileType>Assembly</FileType></PublishFile></ItemGroup><ItemGroup><Reference Include="DevExpress.Xpf.Themes.LightGray.v18.1"><Private>True</Private><HintPath></HintPath></Reference><Reference Include="DevExpress.Xpf.Themes.Office2007Black.v18.1"><Private>True</Private><HintPath></HintPath></Reference><Reference Include="DevExpress.Xpf.Themes.Office2007Blue.v18.1"><Private>True</Private><HintPath></HintPath></Reference><Reference Include="DevExpress.Xpf.Themes.Office2007Silver.v18.1"><Private>True</Private><HintPath></HintPath></Reference><Reference Include="DevExpress.Xpf.Themes.Seven.v18.1"><Private>True</Private><HintPath></HintPath></Reference><Reference Include="DevExpress.Xpf.Themes.Office2010Black.v18.1"><Private>True</Private><HintPath></HintPath></Reference><Reference Include="DevExpress.Xpf.Themes.Office2010Blue.v18.1"><Private>True</Private><HintPath></HintPath></Reference><Reference Include="DevExpress.Xpf.Themes.Office2010Silver.v18.1"><Private>True</Private><HintPath></HintPath></Reference><Reference Include="DevExpress.Xpf.Themes.MetropolisDark.v18.1"><Private>True</Private><HintPath></HintPath></Reference><Reference Include="DevExpress.Xpf.Themes.TouchlineDark.v18.1"><Private>True</Private><HintPath></HintPath></Reference><Reference Include="DevExpress.Xpf.Themes.Office2013.v18.1"><Private>True</Private><HintPath></HintPath></Reference><Reference Include="DevExpress.Xpf.Themes.Office2016White.v18.1"><Private>True</Private><HintPath></HintPath></Reference><Reference Include="DevExpress.Xpf.Themes.HybridApp.v18.1"><Private>True</Private><HintPath></HintPath></Reference><Reference Include="DevExpress.Xpf.Themes.MetropolisLight.v18.1"><Private>True</Private><HintPath></HintPath></Reference><Reference Include="DevExpress.Xpf.Themes.Office2013LightGray.v18.1"><Private>True</Private><HintPath></HintPath></Reference><Reference Include="DevExpress.Xpf.Themes.Office2013DarkGray.v18.1"><Private>True</Private><HintPath></HintPath></Reference><Reference Include="DevExpress.Xpf.Themes.VS2010.v18.1"><Private>True</Private><HintPath></HintPath></Reference><Reference Include="DevExpress.Xpf.Themes.DXStyle.v18.1"><Private>True</Private><HintPath></HintPath></Reference></ItemGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+  </PropertyGroup>
+</Project>

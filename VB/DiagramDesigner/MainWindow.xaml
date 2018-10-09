@@ -1,0 +1,20 @@
+﻿<dx:ThemedWindow x:Class="DiagramDesigner.MainWindow"
+                 xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                 xmlns:local="clr-namespace:DiagramDesigner"
+                 xmlns:dxdiag="http://schemas.devexpress.com/winfx/2008/xaml/diagram"
+                 xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
+                 mc:Ignorable="d" UseLayoutRounding="True"
+                 dx:ThemeManager.ThemeName="Office2016ColorfulSE"
+                 WindowStartupLocation="CenterScreen"
+                 MinWidth="800" MinHeight="550" Width="1280" Height="860">
+    <dxdiag:DiagramDesignerControl SelectedStencils="BasicShapes, ArrowShapes, DecorativeShapes"
+                                   PropertiesPanelVisibility="Visible">
+        <dxmvvm:Interaction.Behaviors>
+            <dxdiag:AttachToWindowBehavior />
+        </dxmvvm:Interaction.Behaviors>
+    </dxdiag:DiagramDesignerControl>
+</dx:ThemedWindow>

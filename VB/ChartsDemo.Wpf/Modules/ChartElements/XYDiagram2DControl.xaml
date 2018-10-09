@@ -1,0 +1,169 @@
+﻿<local:ChartsDemoModule x:Class="ChartsDemo.XYDiagram2DControl"
+                        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                        xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts"
+                        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+                        xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
+                        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+                        xmlns:local="clr-namespace:ChartsDemo"
+                        ModuleLoaded="ChartsDemoModule_ModuleLoaded">
+    <!--#region Resources-->
+    <local:ChartsDemoModule.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/ChartsDemo;component/Themes/Common.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <dxmvvm:BooleanNegationConverter x:Key="InvertedBoolConverter" />
+        </ResourceDictionary>
+    </local:ChartsDemoModule.Resources>
+    <!--#endregion-->
+    <DockPanel>
+        <local:ChartsDemoRibbon DockPanel.Dock="Top" Chart="{x:Reference chart}" />
+        <!--#region Options-->
+        <ScrollViewer HorizontalScrollBarVisibility="Disabled"
+                      VerticalScrollBarVisibility="Auto"
+                      Name="PART_Options"
+                      DockPanel.Dock="Right"
+                      dx:ScrollBarExtensions.ScrollBarMode="TouchOverlap"
+                      Focusable="False">
+            <StackPanel Margin="12,8,12,12" MinWidth="210">
+                <dxe:CheckEdit Name="chbVisible" Content="Show Series Labels" IsChecked="True" />
+                <dxe:CheckEdit Name="chbRotated" Content="Rotated Diagram" Margin="0,4,0,0" IsChecked="False" />
+                <GroupBox Header="Axis X" Margin="0,5,0,0">
+                    <StackPanel>
+                        <dxe:CheckEdit Name="chbAxisXVisible" Content="Visible" Margin="0,0,0,2" IsChecked="True" />
+                        <dxe:CheckEdit Name="chbAxisXReverse" Content="Reverse" Margin="0,2,0,2" IsChecked="False" />
+                        <dxe:CheckEdit Name="chbAxisXStaggered"
+                                       Content="Staggered Labels"
+                                       Margin="0,2,0,0"
+                                       IsChecked="False"
+                                       IsEnabled="{Binding ElementName=chbAxisXVisible, Path=IsChecked}" />
+                    </StackPanel>
+                </GroupBox>
+                <GroupBox Header="Axis Y" Margin="0,5,0,0">
+                    <StackPanel>
+                        <dxe:CheckEdit Name="chbAxisYVisible" Content="Visible" Margin="0,0,0,2" IsChecked="True" />
+                        <dxe:CheckEdit Name="chbAxisYReverse" Content="Reverse" Margin="0,2,0,2" IsChecked="False" />
+                        <dxe:CheckEdit Name="chbAxisYStaggered"
+                                       Content="Staggered Labels"
+                                       Margin="0,2,0,0"
+                                       IsChecked="False"
+                                       IsEnabled="{Binding ElementName=chbAxisYVisible, Path=IsChecked}" />
+                    </StackPanel>
+                </GroupBox>
+                <GroupBox Header="Mirror Height" Margin="0,5,0,0">
+                    <StackPanel>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Text="0" HorizontalAlignment="Left" />
+                            <TextBlock Grid.Column="1" Text="100" HorizontalAlignment="Center" />
+                            <TextBlock Grid.Column="2" Text="200" HorizontalAlignment="Right" />
+                        </Grid>
+                        <dxe:TrackBarEdit Name="slMirrorHeight" Value="100" Minimum="0" Maximum="200" TickPlacement="None" />
+                    </StackPanel>
+                </GroupBox>
+            </StackPanel>
+        </ScrollViewer>
+        <!--#endregion-->
+        <dxc:ChartControl Name="chart"
+                          BorderThickness="0"
+                          CrosshairEnabled="{Binding ElementName=chbVisible, Path=IsChecked, Converter={StaticResource InvertedBoolConverter}}"
+                          AnimationMode="OnLoad">
+            <dxc:ChartControl.CrosshairOptions>
+                <dxc:CrosshairOptions GroupHeaderPattern="{}Year: {A}" />
+            </dxc:ChartControl.CrosshairOptions>
+            <dxc:ChartControl.Diagram>
+                <dxc:XYDiagram2D Rotated="{Binding ElementName=chbRotated, Path=IsChecked}">
+                    <dxc:XYDiagram2D.DefaultPane>
+                        <dxc:Pane MirrorHeight="{Binding ElementName=slMirrorHeight, Path=Value}" />
+                    </dxc:XYDiagram2D.DefaultPane>
+                    <dxc:XYDiagram2D.AxisY>
+                        <dxc:AxisY2D Visible="{Binding ElementName=chbAxisYVisible, Path=IsChecked}"
+                                     Reverse="{Binding ElementName=chbAxisYReverse, Path=IsChecked}"
+                                     GridLinesMinorVisible="True">
+                            <dxc:AxisY2D.WholeRange>
+                                <dxc:Range dxc:AxisY2D.AlwaysShowZeroLevel="True" SideMarginsValue="0" />
+                            </dxc:AxisY2D.WholeRange>
+                            <dxc:AxisY2D.Label>
+                                <dxc:AxisLabel FontSize="10" Staggered="{Binding ElementName=chbAxisYStaggered, Path=IsChecked}" />
+                            </dxc:AxisY2D.Label>
+                        </dxc:AxisY2D>
+                    </dxc:XYDiagram2D.AxisY>
+                    <dxc:XYDiagram2D.AxisX>
+                        <dxc:AxisX2D Visible="{Binding ElementName=chbAxisXVisible, Path=IsChecked}"
+                                     Reverse="{Binding ElementName=chbAxisXReverse, Path=IsChecked}"
+                                     GridLinesVisible="True">
+                            <dxc:AxisX2D.Label>
+                                <dxc:AxisLabel FontSize="10" Staggered="{Binding ElementName=chbAxisXStaggered, Path=IsChecked}" />
+                            </dxc:AxisX2D.Label>
+                        </dxc:AxisX2D>
+                    </dxc:XYDiagram2D.AxisX>
+                    <dxc:XYDiagram2D.Series>
+                        <dxc:AreaSeries2D x:Name="areaSeries"
+                                          ArgumentScaleType="Qualitative"
+                                          MarkerSize="25"
+                                          Transparency="0.7"
+                                          DisplayName="Summary"
+                                          AnimationAutoStartMode="SetStartState"
+                                          CrosshairLabelPattern="{}Revenue: {V}">
+                            <dxc:AreaSeries2D.SeriesAnimation>
+                                <dxc:Area2DStretchFromFarAnimation />
+                            </dxc:AreaSeries2D.SeriesAnimation>
+                            <dxc:AreaSeries2D.PointAnimation>
+                                <dxc:Marker2DFadeInAnimation PointOrder="Inverted" />
+                            </dxc:AreaSeries2D.PointAnimation>
+                            <dxc:AreaSeries2D.MarkerModel>
+                                <dxc:PolygonMarker2DModel />
+                            </dxc:AreaSeries2D.MarkerModel>
+                            <dxc:AreaSeries2D.Label>
+                                <dxc:SeriesLabel dxc:MarkerSeries2D.Angle="60"
+                                                 Indent="25"
+                                                 ResolveOverlappingMode="Default"
+                                                 Visible="{Binding ElementName=chbVisible, Path=IsChecked}" />
+                            </dxc:AreaSeries2D.Label>
+                            <dxc:AreaSeries2D.Points>
+                                <dxc:SeriesPoint Argument="2011" Value="69.943" />
+                                <dxc:SeriesPoint Argument="2012" Value="143.666" />
+                                <dxc:SeriesPoint Argument="2013" Value="221.515" />
+                                <dxc:SeriesPoint Argument="2014" Value="308.348" />
+                                <dxc:SeriesPoint Argument="2015" Value="401.928" />
+                            </dxc:AreaSeries2D.Points>
+                        </dxc:AreaSeries2D>
+                        <dxc:BarSideBySideSeries2D x:Name="barSeries"
+                                                   DisplayName="Annual"
+                                                   AnimationAutoStartMode="SetStartState"
+                                                   ArgumentScaleType="Qualitative"
+                                                   CrosshairLabelPattern="{}Revenue: {V}">
+                            <dxc:BarSideBySideSeries2D.PointAnimation>
+                                <dxc:Bar2DSlideFromRightAnimation BeginTime="00:00:00.200" />
+                            </dxc:BarSideBySideSeries2D.PointAnimation>
+                            <dxc:BarSideBySideSeries2D.Label>
+                                <dxc:SeriesLabel ResolveOverlappingMode="Default" Visible="{Binding ElementName=chbVisible, Path=IsChecked}" />
+                            </dxc:BarSideBySideSeries2D.Label>
+                            <dxc:BarSideBySideSeries2D.Points>
+                                <dxc:SeriesPoint Argument="2011" Value="69.943" />
+                                <dxc:SeriesPoint Argument="2012" Value="73.723" />
+                                <dxc:SeriesPoint Argument="2013" Value="77.849" />
+                                <dxc:SeriesPoint Argument="2014" Value="86.833" />
+                                <dxc:SeriesPoint Argument="2015" Value="93.580" />
+                            </dxc:BarSideBySideSeries2D.Points>
+                        </dxc:BarSideBySideSeries2D>
+                    </dxc:XYDiagram2D.Series>
+                </dxc:XYDiagram2D>
+            </dxc:ChartControl.Diagram>
+            <dxc:ChartControl.Legend>
+                <dxc:Legend HorizontalPosition="Left" VerticalPosition="Top" />
+            </dxc:ChartControl.Legend>
+            <dxc:ChartControl.Titles>
+                <dxc:Title Dock="Top" HorizontalAlignment="Center">Microsoft Corp. Annual Revenue ($M)</dxc:Title>
+                <dxc:Title Dock="Bottom" HorizontalAlignment="Right" FontSize="12" Foreground="Silver" Margin="0,10,0,0">
+                    From www.microsoft.com
+                </dxc:Title>
+            </dxc:ChartControl.Titles>
+        </dxc:ChartControl>
+    </DockPanel>
+</local:ChartsDemoModule>

@@ -1,0 +1,53 @@
+﻿<local:ChartsDemoModule x:Class="ChartsDemo.NumericDataAggregation"
+                        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                        xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts"
+                        xmlns:local="clr-namespace:ChartsDemo">
+    <!--#region Resources-->
+    <local:ChartsDemoModule.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/ChartsDemo;component/Themes/Common.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </local:ChartsDemoModule.Resources>
+    <!--#endregion-->
+    <DockPanel>
+        <local:ChartsDemoRibbon DockPanel.Dock="Top" Chart="{x:Reference chart}" />
+        <dxc:ChartControl Name="chart" BorderThickness="0" IsManipulationEnabled="True">
+            <dxc:ChartControl.Diagram>
+                <dxc:XYDiagram2D EnableAxisXNavigation="True">
+                    <dxc:XYDiagram2D.AxisX>
+                        <dxc:AxisX2D x:Name="AxisX">
+                            <dxc:AxisX2D.NumericScaleOptions>
+                                <dxc:AutomaticNumericScaleOptions />
+                            </dxc:AxisX2D.NumericScaleOptions>
+                            <dxc:AxisX2D.WholeRange>
+                                <dxc:Range SideMarginsValue="0" />
+                            </dxc:AxisX2D.WholeRange>
+                        </dxc:AxisX2D>
+                    </dxc:XYDiagram2D.AxisX>
+                    <dxc:XYDiagram2D.Series>
+                        <dxc:LineSeries2D DataSource="{x:Static local:NumericPointData.Data}"
+                                          ArgumentDataMember="Argument"
+                                          ValueDataMember="Value"
+                                          ArgumentScaleType="Numerical"
+                                          MarkerVisible="False"
+                                          DisplayName="Random data"
+                                          CrosshairLabelPattern="{}{A} : {V:n2}" />
+                    </dxc:XYDiagram2D.Series>
+                </dxc:XYDiagram2D>
+            </dxc:ChartControl.Diagram>
+            <dxc:ChartControl.Legend>
+                <dxc:Legend HorizontalPosition="Right" VerticalPosition="Top" />
+            </dxc:ChartControl.Legend>
+            <dxc:ChartControl.Titles>
+                <dxc:Title HorizontalAlignment="Center">
+                    <dxc:Title.Content>
+                        <TextBlock Margin="0,6,0,3" Text="Data Aggregation (100000 points)" />
+                    </dxc:Title.Content>
+                </dxc:Title>
+            </dxc:ChartControl.Titles>
+        </dxc:ChartControl>
+    </DockPanel>
+</local:ChartsDemoModule>

@@ -1,0 +1,97 @@
+﻿<local:ChartsDemoModule x:Class="ChartsDemo.OverlappedRangeBar2DControl"
+                        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+                        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+                        xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts"
+                        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+                        xmlns:local="clr-namespace:ChartsDemo"
+                        ModuleLoaded="ChartsDemoModule_ModuleLoaded">
+    <!--#region Resources-->
+    <local:ChartsDemoModule.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/ChartsDemo;component/Themes/Common.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <sys:String x:Key="toolTipPointPattern" xml:space="preserve">{S}
+Month: {A:MMMM}
+Min Price: ${V1:0.00}
+Max Price: ${V2:0.00}</sys:String>
+        </ResourceDictionary>
+    </local:ChartsDemoModule.Resources>
+    <!--#endregion-->
+    <DockPanel>
+        <local:ChartsDemoRibbon DockPanel.Dock="Top" Chart="{x:Reference chart}" />
+        <!--#region Options-->
+        <ScrollViewer HorizontalScrollBarVisibility="Disabled"
+                      VerticalScrollBarVisibility="Auto"
+                      Name="PART_Options"
+                      DockPanel.Dock="Right"
+                      dx:ScrollBarExtensions.ScrollBarMode="TouchOverlap"
+                      Focusable="False">
+            <GroupBox Header="Model" Margin="12,5,12,12" MinWidth="210" VerticalAlignment="Top">
+                <dxe:ListBoxEdit Name="lbModel"
+                                     Background="{x:Null}"
+                                     ShowBorder="False"
+                                     DisplayMember="ModelName"
+                                     ItemsSource="{x:Static local:DemoValuesProvider.PredefinedRangeBar2DModels}"
+                                     SelectedItem="{x:Static local:DemoValuesProvider.PredefinedOutsetRangeBar2DModel}">
+                    <dxe:ListBoxEdit.StyleSettings>
+                        <dxe:RadioListBoxEditStyleSettings />
+                    </dxe:ListBoxEdit.StyleSettings>
+                </dxe:ListBoxEdit>
+            </GroupBox>
+        </ScrollViewer>
+        <!--#endregion-->
+        <dxc:ChartControl Name="chart" AnimationMode="OnLoad" BorderThickness="0" ToolTipEnabled="True" CrosshairEnabled="False">
+            <dxc:ChartControl.Diagram>
+                <dxc:XYDiagram2D SeriesItemsSource="{x:Static local:OilPrices.DataSource}">
+                    <dxc:XYDiagram2D.AxisY>
+                        <dxc:AxisY2D>
+                            <dxc:AxisY2D.WholeRange>
+                                <dxc:Range dxc:AxisY2D.AlwaysShowZeroLevel="False" />
+                            </dxc:AxisY2D.WholeRange>
+                            <dxc:AxisY2D.Title>
+                                <dxc:AxisTitle Content="$ per barrel" />
+                            </dxc:AxisY2D.Title>
+                        </dxc:AxisY2D>
+                    </dxc:XYDiagram2D.AxisY>
+                    <dxc:XYDiagram2D.AxisX>
+                        <dxc:AxisX2D GridLinesVisible="True">
+                            <dxc:AxisX2D.DateTimeScaleOptions>
+                                <dxc:ManualDateTimeScaleOptions MeasureUnit="Month" />
+                            </dxc:AxisX2D.DateTimeScaleOptions>
+                            <dxc:AxisX2D.Label>
+                                <dxc:AxisLabel TextPattern="{}{A:MMMM}" />
+                            </dxc:AxisX2D.Label>
+                        </dxc:AxisX2D>
+                    </dxc:XYDiagram2D.AxisX>
+                    <dxc:XYDiagram2D.SeriesItemTemplate>
+                        <DataTemplate DataType="{x:Type local:OilPricesByCompany}">
+                            <dxc:RangeBarOverlappedSeries2D x:Name="series"
+                                                            DisplayName="{Binding CompanyName}"
+                                                            DataSource="{Binding Prices}"
+                                                            ArgumentDataMember="Timestamp"
+                                                            ValueDataMember="MinValue"
+                                                            Value2DataMember="MaxValue"
+                                                            ArgumentScaleType="DateTime"
+                                                            Model="{Binding Path=SelectedItem, Source={x:Reference Name=lbModel}}"
+                                                            BarWidth="{DXBinding Expr='CompanyName == `OK WTI` ? 0.2 : 0.6'}"
+                                                            ToolTipPointPattern="{StaticResource toolTipPointPattern}"
+                                                            AnimationAutoStartMode="SetStartState" />
+                        </DataTemplate>
+                    </dxc:XYDiagram2D.SeriesItemTemplate>
+                </dxc:XYDiagram2D>
+            </dxc:ChartControl.Diagram>
+            <dxc:ChartControl.Legend>
+                <dxc:Legend HorizontalPosition="Right" VerticalPosition="Top" Orientation="Horizontal" />
+            </dxc:ChartControl.Legend>
+            <dxc:ChartControl.Titles>
+                <dxc:Title Dock="Top" HorizontalAlignment="Center">Crude Oil Prices in 2015</dxc:Title>
+                <dxc:Title Dock="Bottom" HorizontalAlignment="Right" FontSize="12" Foreground="Silver" Margin="0,10,0,0">
+                    www.eia.gov
+                </dxc:Title>
+            </dxc:ChartControl.Titles>
+        </dxc:ChartControl>
+    </DockPanel>
+</local:ChartsDemoModule>

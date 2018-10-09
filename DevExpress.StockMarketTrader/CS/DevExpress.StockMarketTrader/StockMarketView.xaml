@@ -1,0 +1,508 @@
+﻿<UserControl x:Class="DevExpress.StockMarketTrader.StockMarketView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+        xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+        xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts"
+        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+        xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
+        xmlns:dxdo="http://schemas.devexpress.com/winfx/2008/xaml/docking"
+        xmlns:dxgt="http://schemas.devexpress.com/winfx/2008/xaml/grid/themekeys"
+        xmlns:dxgi="http://schemas.devexpress.com/winfx/2008/xaml/grid/internal"
+        xmlns:local="clr-namespace:DevExpress.StockMarketTrader"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib" UseLayoutRounding="True">
+    <UserControl.Resources>
+        <local:StringToGridLengthConverter x:Key="StringToGridLengthConverter"/>
+        <SolidColorBrush x:Key="metroThemeOrangeBrush" Color="#F78A09"/>
+        <local:TotalCellTemplateSelector x:Key="TotalRiseTemplate"/>
+        <local:BoolReverseConverter x:Key="BoolReverseConverter"/>
+        <local:DecimalToBoolConverter x:Key="DecimalToBoolConverter"/>
+        <local:DecimalToStringConverter x:Key="DecimalToStringConverter"/>
+        <local:IntToBrushConverter x:Key="IntToBrushConverter"/>
+        <local:IntToOpacityConverter x:Key="IntToOpacityConverter"/>
+        <local:BoolToOpacityConverter x:Key="BoolToOpacityConverter"/>
+        <Style x:Key="TransactionGridCellStyle" TargetType="{x:Type dxg:LightweightCellEditor}">
+            <Setter Property="BorderBrush" Value="{DynamicResource {dxgt:GridRowThemeKey ResourceKey=GridDataRowDelimiterBrush}}" />
+            <Style.Triggers>
+                <Trigger Property="dxg:GridViewBase.IsFocusedRow" Value="False">
+                    <Setter Property="Foreground" Value="{Binding RowData.Row.Ask, Converter={StaticResource IntToBrushConverter}, Mode=OneWay}"/>
+                </Trigger>
+                <Trigger Property="SelectionState" Value="CellMerge">
+                    <Setter Property="Background" Value="{DynamicResource {dxgt:GridRowThemeKey ResourceKey=CellMergeNoneBrush}}" />
+                </Trigger>
+                <Trigger Property="SelectionState" Value="Focused">
+                    <Setter Property="Background" Value="{DynamicResource {dxgt:GridRowThemeKey ResourceKey=CellBorderFocusedBrush}}" />
+                    <Setter Property="TextBlock.Foreground" Value="{DynamicResource {dxgt:GridRowThemeKey ResourceKey=CellTextFocusedBrush}}" />
+                </Trigger>
+                <Trigger Property="SelectionState" Value="Selected">
+                    <Setter Property="Background" Value="{DynamicResource {dxgt:GridRowThemeKey ResourceKey=BorderSelectedBrush}}" />
+                    <Setter Property="TextBlock.Foreground" Value="{DynamicResource {dxgt:GridRowThemeKey ResourceKey=TextRowSelectedBrush}}" />
+                </Trigger>
+                <Trigger Property="SelectionState" Value="FocusedAndSelected">
+                    <Setter Property="Background" Value="{DynamicResource {dxgt:GridRowThemeKey ResourceKey=BorderFocusedBrush}}" />
+                    <Setter Property="TextBlock.Foreground" Value="{DynamicResource {dxgt:GridRowThemeKey ResourceKey=TextFocusedBrush}}" />
+                </Trigger>
+                <Trigger Property="RowSelectionState" Value="Focused">
+                    <Setter Property="BorderBrush" Value="{DynamicResource {dxgt:GridRowThemeKey ResourceKey=CellBorderFocusedBorderBrush}}" />
+                </Trigger>
+                <DataTrigger Binding="{Binding Value}" Value="0">
+                    <Setter Property="Foreground" >
+                        <Setter.Value>
+                            <SolidColorBrush/>
+                        </Setter.Value>
+                    </Setter>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        <SolidColorBrush x:Key="MetroOrangeBrush">
+            <SolidColorBrush.Color>
+                <Color A="255" R="247" G="138" B="9"/>
+            </SolidColorBrush.Color>
+        </SolidColorBrush>
+        <ItemsPanelTemplate x:Key="panesTemplate">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="{Binding ChartScale, Converter={StaticResource StringToGridLengthConverter}, ConverterParameter=Candle, Mode=OneWay}"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="{Binding ChartScale, Converter={StaticResource StringToGridLengthConverter}, ConverterParameter=Bar, Mode=OneWay}"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="{Binding ChartScale, Converter={StaticResource StringToGridLengthConverter}, ConverterParameter=Indicator, Mode=OneWay}"/>
+                </Grid.RowDefinitions>
+            </Grid>
+        </ItemsPanelTemplate>
+        <Border Background="{StaticResource metroThemeOrangeBrush}" x:Key="customLabels">
+            <TextBlock x:Name="PriceLabelText" Foreground="White" Padding="2,0,4,0" Text="$1.0" />
+        </Border>
+    </UserControl.Resources>
+    <Grid Margin="15,10,15,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Margin="0,0,0,10">
+            <Image HorizontalAlignment="Left" VerticalAlignment="Center"  Height="48" Width="279" Source="/DevExpress.StockMarketTrader;component/Images/LogoStockMarket.png"/>
+            <Image HorizontalAlignment="Right" Margin="0,5,7,0" Stretch="None" VerticalAlignment="Center" Height="28" Width="232" Source="/DevExpress.StockMarketTrader;component/Images/DevExpress-Logo-Medium-White-Powered.png"/>
+        </Grid>
+        <dxb:BarManager dx:DXSerializer.SerializationID="manager1" Grid.Row="1" x:Name="barManager" AllowCustomization="False" AllowHotCustomization="False" AllowQuickCustomization="False" CreateStandardLayout="False">
+            <dxb:BarManager.Categories>
+                <dxb:BarManagerCategory Name="Workspaces"/>
+                <dxb:BarManagerCategory Name="View"/>
+                <dxb:BarManagerCategory Name="Help"/>
+                <dxb:BarManagerCategory Name="BuiltInMenus" Caption="Built-in Menus" />
+            </dxb:BarManager.Categories>
+            <dxb:BarManager.Items>
+                <dxb:BarStaticItem x:Name="bStatusBar" Hint="Connection status" Content="{Binding NetworkState}" ShowBorder="False"/>
+                <dxb:BarCheckItem Name="bCheck1" IsChecked="True" Content="WatchList" />
+                <dxb:BarCheckItem Name="bCheck2" IsChecked="True" Content="StockChart"/>
+                <dxb:BarCheckItem Name="bCheck3" IsChecked="True" Content="Transactions"/>
+                <dxb:BarCheckItem Name="bCheck5" IsChecked="True" Content="Top Volumes"/>
+                <dxb:BarButtonItem Name="bAbout" CategoryName="Help" Content="About" ItemClick="OnAboutItemClick" Description="Displays the description of this program." />
+                <dxb:BarButtonItem Name="bHome" CategoryName="Help" Content="DevExpress on the Web" ItemClick="OnHomeItemClick" Description="Opens the web page." />
+                <dxb:BarCheckItem Name="bcTransitionEffect1" IsChecked="{Binding TransitionEffect, Converter={StaticResource DecimalToBoolConverter}, ConverterParameter=0, Mode=TwoWay}" Content="None"/>
+                <dxb:BarCheckItem Name="bcTransitionEffect2" IsChecked="{Binding TransitionEffect, Converter={StaticResource DecimalToBoolConverter}, ConverterParameter=1, Mode=TwoWay}" Content="Dissolve"/>
+                <dxb:BarCheckItem Name="bcTransitionEffect3" IsChecked="{Binding TransitionEffect, Converter={StaticResource DecimalToBoolConverter}, ConverterParameter=2, Mode=TwoWay}" Content="Fade"/>
+                <dxb:BarCheckItem Name="bcTransitionEffect4" IsChecked="{Binding TransitionEffect, Converter={StaticResource DecimalToBoolConverter}, ConverterParameter=3, Mode=TwoWay}" Content="LineReveal"/>
+                <dxb:BarCheckItem Name="bcTransitionEffect5" IsChecked="{Binding TransitionEffect, Converter={StaticResource DecimalToBoolConverter}, ConverterParameter=4, Mode=TwoWay}" Content="RadialBlur"/>
+                <dxb:BarCheckItem Name="bcTransitionEffect6" IsChecked="{Binding TransitionEffect, Converter={StaticResource DecimalToBoolConverter}, ConverterParameter=5, Mode=TwoWay}" Content="Ripple"/>
+                <dxb:BarCheckItem Name="bcTransitionEffect7" IsChecked="{Binding TransitionEffect, Converter={StaticResource DecimalToBoolConverter}, ConverterParameter=6, Mode=TwoWay}" Content="Wave"/>
+                <dxb:BarCheckItem Name="bbWorkspace1" Content="Workspace1" ItemClick="OnChangeWorkSpaceItemClick" GroupIndex="0" IsChecked="True"/>
+                <dxb:BarCheckItem Name="bbWorkspace2" Content="Workspace2" ItemClick="OnChangeWorkSpaceItemClick" GroupIndex="0"/>
+                <dxb:BarButtonItem Name="bAddWorkspace" CategoryName="Workspaces" Content="Add" Description="Add new workspace" ItemClick="OnAddWorkspace"/>
+                <dxb:BarButtonItem Name="bDeleteWorkspace" CategoryName="Workspaces" Content="Delete" Description="Delete current workspace" ItemClick="OnDeleteWorkspace"/>
+                <dxb:BarSubItem x:Name="bWorkspaces" Content="Workspaces" CategoryName="Workspaces">
+                    <dxb:BarSubItem.ItemLinks>
+                        <dxb:BarCheckItemLink BarItemName="bbWorkspace1"/>
+                        <dxb:BarCheckItemLink BarItemName="bbWorkspace2"/>
+                    </dxb:BarSubItem.ItemLinks>
+                </dxb:BarSubItem>
+                <dxb:BarSubItem x:Name="bTransitionEffect" Content="Effect" CategoryName="Workspaces">
+                    <dxb:BarSubItem.ItemLinks>
+                        <dxb:BarCheckItemLink BarItemName="bcTransitionEffect1"/>
+                        <dxb:BarCheckItemLink BarItemName="bcTransitionEffect2"/>
+                        <dxb:BarCheckItemLink BarItemName="bcTransitionEffect3"/>
+                        <dxb:BarCheckItemLink BarItemName="bcTransitionEffect4"/>
+                        <dxb:BarCheckItemLink BarItemName="bcTransitionEffect5"/>
+                        <dxb:BarCheckItemLink BarItemName="bcTransitionEffect6"/>
+                        <dxb:BarCheckItemLink BarItemName="bcTransitionEffect7"/>
+                    </dxb:BarSubItem.ItemLinks>
+                </dxb:BarSubItem>
+                <dxb:BarSubItem  x:Name="bPanels" CategoryName="View" Content="Panels" Description="Visible panels">
+                    <dxb:BarSubItem.ItemLinks>
+                        <dxb:BarCheckItemLink BarItemName="bCheck1"/>
+                        <dxb:BarCheckItemLink BarItemName="bCheck2"/>
+                        <dxb:BarCheckItemLink BarItemName="bCheck3"/>
+                        <dxb:BarCheckItemLink BarItemName="bCheck5"/>
+                    </dxb:BarSubItem.ItemLinks>
+                </dxb:BarSubItem >
+                <dxb:BarSubItem Name="bsWorkspaces" CategoryName="BuiltInMenus" Content="Workspaces">
+                    <dxb:BarSubItem.ItemLinks>
+                        <dxb:BarButtonItemLink BarItemName="bAddWorkspace"/>
+                        <dxb:BarButtonItemLink BarItemName="bDeleteWorkspace"/>
+                        <dxb:BarSubItemLink BarItemName="bWorkspaces"/>
+                        <dxb:BarSubItemLink BarItemName="bTransitionEffect"/>
+                    </dxb:BarSubItem.ItemLinks>
+                </dxb:BarSubItem>
+                <dxb:BarSubItem Name="bsView" CategoryName="BuiltInMenus" Content="View">
+                    <dxb:BarSubItem.ItemLinks>
+                        <dxb:BarSubItemLink BarItemName="bPanels"/>
+                    </dxb:BarSubItem.ItemLinks>
+                </dxb:BarSubItem>
+                <dxb:BarSubItem Name="bsHelp" CategoryName="BuiltInMenus" Content="Help">
+                    <dxb:BarSubItem.ItemLinks>
+                        <dxb:BarButtonItemLink BarItemName="bHome"/>
+                        <dxb:BarButtonItemLink BarItemName="bAbout"/>
+                    </dxb:BarSubItem.ItemLinks>
+                </dxb:BarSubItem>
+            </dxb:BarManager.Items>
+            <dxb:BarManager.Bars>
+                <dxb:Bar Name="MainMenu" Caption="Options" IsMainMenu="True" AllowHide="False" DockInfo="{dxb:DockInfo ContainerName=topContainer}">
+                    <dxb:Bar.ItemLinks>
+                        <dxb:BarSubItemLink BarItemName="bsWorkspaces"/>
+                        <dxb:BarSubItemLink BarItemName="bsView"/>
+                        <dxb:BarSubItemLink BarItemName="bsHelp"/>
+                        <dxb:BarStaticItemLink BarItemName="bStatusBar" Alignment="Far"/>
+                    </dxb:Bar.ItemLinks>
+                </dxb:Bar>
+            </dxb:BarManager.Bars>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <dxb:BarContainerControl x:Name="topContainer" ContainerType="Top" Grid.Row="0" HorizontalAlignment="Stretch">
+                    <dxb:BarContainerControl.Resources>
+                        <ResourceDictionary>
+                            <ResourceDictionary.MergedDictionaries>
+                                <ResourceDictionary Source="/DevExpress.StockMarketTrader;component/TouchBarStyles.xaml"/>
+                            </ResourceDictionary.MergedDictionaries>
+                        </ResourceDictionary>
+                    </dxb:BarContainerControl.Resources>
+                </dxb:BarContainerControl>
+                <dxdo:DockLayoutManager Grid.Row="1" x:Name="dockManager" dx:WorkspaceManager.IsEnabled="True" FloatingMode="Desktop">
+                    <dxdo:DockLayoutManager.Resources>
+                    </dxdo:DockLayoutManager.Resources>
+                    <dxdo:LayoutGroup x:Name="groupRoot" Orientation="Vertical">
+                        <dxdo:LayoutGroup x:Name="groupMainUI" ItemHeight="*" Orientation="Horizontal">
+                            <dxdo:LayoutGroup x:Name="groupGrids" Orientation="Vertical" ItemWidth="35*">
+                                <dxdo:LayoutPanel x:Name="panelWatchList" Caption="WatchList" ItemHeight="5*" Closed="{Binding ElementName=bCheck1, Converter={StaticResource BoolReverseConverter}, Path=IsChecked, Mode=TwoWay}">
+                                    <Grid>
+                                        <Grid x:Name="tileContainer">
+                                        </Grid>
+                                        <dxg:GridControl x:Name="watchListGrid" dx:DXSerializer.SerializationID="grid2" ShowBorder="False" ItemsSource="{Binding WatchListBindingData}" SelectedItem="{Binding Path=SelectedCompany, Mode=TwoWay}" SelectedItemChanged="OnWatchListGridSelectedItemChanged"
+PreviewKeyDown="watchListGrid_PreviewKeyDown">
+                                            <dxg:GridControl.Resources>
+                                                <dxg:RowPropertyValueConverter x:Key="RowPropertyValueConverter" />
+                                                <DataTemplate x:Key="totalCellTemplate1" DataType="{x:Type dxg:EditGridCellData}">
+                                                    <Border Margin="0,0,2,0" Padding="2, 2, 2, 1" IsHitTestVisible="True">
+                                                        <dx:DXDockPanel>
+                                                            <Path x:Name="arrow" dx:DXDockPanel.Dock="Left" Margin="0" Stretch="Fill" Fill="{Binding RowData.Row.Rise, Converter={StaticResource IntToBrushConverter}, ConverterParameter=Arrow, Mode=OneWay}" Data="F1 M 3.35616,0.740234L 3.35616,-7.40686L -3.35616,-7.40686L -3.35616,0.740234L -6.66667,0.740234L -1.65186e-006,7.40674L 6.66667,0.740234L 3.35616,0.740234 Z" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Center" Width="13" Height="15">
+                                                                <Path.RenderTransform>
+                                                                    <TransformGroup>
+                                                                        <ScaleTransform x:Name="scale" CenterX="0" CenterY="0"  ScaleX="{Binding Path=Data, Converter={StaticResource RowPropertyValueConverter}, ConverterParameter=TotalRise}"
+                                                                                ScaleY="{Binding Path=Data, Converter={StaticResource RowPropertyValueConverter}, ConverterParameter=TotalRise}"/>
+                                                                        <RotateTransform Angle="{Binding Path=RowData.Row.Rise}" />
+                                                                        <TranslateTransform x:Name="ArrowDownTransform" X="1" Y="0" />
+                                                                    </TransformGroup>
+                                                                </Path.RenderTransform>
+                                                            </Path>
+                                                            <TextBlock VerticalAlignment="Center" IsHitTestVisible="True" HorizontalAlignment="Right">
+                                                                <TextBlock.Text>
+                                                                    <Binding Path="Value" StringFormat="$0.00" />
+                                                                </TextBlock.Text>
+                                                            </TextBlock>
+                                                        </dx:DXDockPanel>
+                                                    </Border>
+                                                    <DataTemplate.Triggers>
+                                                        <DataTrigger Binding="{Binding RowData.IsFocused}" Value="True">
+                                                            <DataTrigger.Setters>
+                                                                <Setter TargetName="arrow" Property="Fill" Value="#333333"/>
+                                                            </DataTrigger.Setters>
+                                                        </DataTrigger>
+                                                    </DataTemplate.Triggers>
+                                                </DataTemplate>
+                                            </dxg:GridControl.Resources>
+                                            <dxg:GridControl.Columns>
+                                                <dxg:GridColumn Width="80" AllowFocus="False" FieldName="CompanyName" Header="Symbol" />
+                                                <dxg:GridColumn Width="80" AllowFocus="False" AllowColumnFiltering="False" AllowSorting="False" FieldName="Price" Header="Last Price" CellTemplateSelector="{StaticResource TotalRiseTemplate}"/>
+                                                <dxg:GridColumn Width="80" AllowFocus="False" AllowColumnFiltering="False" AllowSorting="False" FieldName="Volume" />
+                                                <dxg:GridColumn FieldName="VolumeDynamics" Header="Volume Dynamics">
+                                                    <dxg:GridColumn.EditSettings>
+                                                        <dxe:SparklineEditSettings PointArgumentMember="Date" PointValueMember="Volume">
+                                                            <dxe:SparklineEditSettings.StyleSettings>
+                                                                <dxe:AreaSparklineStyleSettings/>
+                                                            </dxe:SparklineEditSettings.StyleSettings>
+                                                        </dxe:SparklineEditSettings>
+                                                    </dxg:GridColumn.EditSettings>
+                                                </dxg:GridColumn>
+                                                <dxg:GridColumn FieldName="TotalRise" Visible="False"/>
+                                            </dxg:GridControl.Columns>
+                                            <dxg:GridControl.View>
+                                                <dxg:TableView x:Name="watchListView" AllowEditing="False" FadeSelectionOnLostFocus="False" AllowPerPixelScrolling="True"
+                                                       ShowGroupPanel="False" AllowGrouping="False" AutoWidth="True" HorizontalAlignment="Right" UseLayoutRounding="True"
+                                                               RowMinHeight="30" ShowFilterPopup="OnWatchListViewShowFilterPopup">
+                                                </dxg:TableView>
+                                            </dxg:GridControl.View>
+                                        </dxg:GridControl>
+                                    </Grid>
+                                </dxdo:LayoutPanel>
+                                <dxdo:TabbedGroup x:Name="groupTabs" ItemHeight="5*">
+                                    <dxdo:LayoutPanel x:Name="panelVolumes" Caption="Top Volumes" ItemHeight="35*" Closed="{Binding ElementName=bCheck5, Converter={StaticResource BoolReverseConverter}, Path=IsChecked, Mode=TwoWay}">
+                                        <dxc:ChartControl ToolTipEnabled="False"  x:Name="volumeChart" BorderThickness="0" Padding="0" Margin="0" DataSource="{Binding VolumeChartBindingData}"
+                                                      MouseDown="OnVolumeChartMouseDown" EnableAnimation="False" BoundDataChanged="OnVolumeChartBoundDataChanged">
+                                            <dxc:ChartControl.Palette>
+                                                <dxc:CustomPalette>
+                                                    <dxc:CustomPalette.Colors>
+                                                        <Color>#FFF78A09</Color>
+                                                        <Color>#FF27D9A4</Color>
+                                                        <Color>#FFCD5F95</Color>
+                                                        <Color>#FF7565C7</Color>
+                                                        <Color>#FF65A5C7</Color>
+                                                    </dxc:CustomPalette.Colors>
+                                                </dxc:CustomPalette>
+                                            </dxc:ChartControl.Palette>
+                                            <dxc:ChartControl.Diagram>
+                                                <dxc:SimpleDiagram2D>
+                                                    <dxc:SimpleDiagram2D.Series>
+                                                        <dxc:PieSeries2D ArgumentScaleType="Qualitative" ArgumentDataMember="CompanyName"
+                                                                         ValueDataMember="Volume" HoleRadiusPercent="40"
+                                                                         ToolTipPointPattern="Argument: {A}&#x0a;Value: {V}"
+                                                                         LabelsVisibility="True" >
+                                                            <dxc:PieSeries2D.Label>
+                                                                <dxc:SeriesLabel FontSize="10"
+                                                                                 ResolveOverlappingMode="JustifyAllAroundPoint"
+                                                                                 TextPattern="{}{A}: {VP:P0}"/>
+                                                            </dxc:PieSeries2D.Label>
+                                                            <dxc:PieSeries2D.Model>
+                                                                <dxc:BorderlessFlatPie2DModel/>
+                                                            </dxc:PieSeries2D.Model>
+                                                        </dxc:PieSeries2D>
+                                                    </dxc:SimpleDiagram2D.Series>
+                                                </dxc:SimpleDiagram2D>
+                                            </dxc:ChartControl.Diagram>
+                                        </dxc:ChartControl>
+                                    </dxdo:LayoutPanel>
+                                    <dxdo:LayoutPanel x:Name="panelTransaction" Caption="Transactions" ItemHeight="25*" Closed="{Binding ElementName=bCheck3, Path=IsChecked, Converter={StaticResource BoolReverseConverter}, Mode=TwoWay}">
+                                        <Grid>
+                                            <dxg:GridControl dx:DXSerializer.SerializationID="grid1" ShowBorder="False" UseLayoutRounding="True"
+                                                             x:Name="transactionGrid" ItemsSource="{Binding TransactionGridBindingData}">
+                                                <dxg:GridControl.Columns>
+                                                    <dxg:GridColumn AllowDrop="False" AllowColumnFiltering="False" AllowSorting="False" AllowResizing="False" FieldName="Ask"/>
+                                                    <dxg:GridColumn AllowDrop="False" AllowColumnFiltering="False" AllowResizing="False" FieldName="Price" SortOrder="{Binding TransactionsSortOrder, Mode=TwoWay}"/>
+                                                    <dxg:GridColumn AllowDrop="False" AllowColumnFiltering="False" AllowSorting="False" AllowResizing="False" FieldName="Bid"/>
+                                                </dxg:GridControl.Columns>
+                                                <dxg:GridControl.View>
+                                                    <dxg:TableView x:Name="transactionGridView" RowMinHeight="30" ShowGroupPanel="False" AllowGrouping="False" FadeSelectionOnLostFocus="False"
+                                                       AllowEditing="False" NavigationStyle="Row" FocusedRowHandle="{Binding Path=CurrentPriceIndex, Mode=TwoWay}"
+                                                       AutoWidth="True" CellStyle="{StaticResource TransactionGridCellStyle}" />
+                                                </dxg:GridControl.View>
+                                            </dxg:GridControl>
+                                            <Border>
+                                                <dx:WaitIndicator DeferedVisibility="{Binding IsLoading}"/>
+                                            </Border>
+                                        </Grid>
+                                    </dxdo:LayoutPanel>
+                                </dxdo:TabbedGroup>
+                            </dxdo:LayoutGroup>
+                            <dxdo:LayoutGroup x:Name="groupStockChart"  ItemHeight="Auto" ItemWidth="65*" MinWidth="500" MinHeight="350" DestroyOnClosingChildren="True">
+                                <dxdo:LayoutPanel x:Name="panelStockChart" MinWidth="500" MinHeight="350" Caption="Chart"
+                                                 Closed="{Binding ElementName=bCheck2, Path=IsChecked, Converter={StaticResource BoolReverseConverter}, Mode=TwoWay}">
+                                    <dxb:BarManager dx:DXSerializer.SerializationID="manager2" HorizontalAlignment="Stretch" AllowGlyphTheming="True" AllowCustomization="False" AllowHotCustomization="False" AllowQuickCustomization="False">
+                                        <dxb:BarManager.Resources>
+                                            <ResourceDictionary>
+                                                <ResourceDictionary.MergedDictionaries>
+                                                    <ResourceDictionary Source="/DevExpress.StockMarketTrader;component/TouchBarStyles.xaml"/>
+                                                </ResourceDictionary.MergedDictionaries>
+                                            </ResourceDictionary>
+                                        </dxb:BarManager.Resources>
+                                        <dxb:BarManager.Items>
+                                            <dxb:BarCheckItem Name="bcDisplayPeriod1" GroupIndex="1" CheckedChanged="OnDisplayPeriodChanged" Content="6m"
+                                                              Glyph="/DevExpress.StockMarketTrader;component/Images/6m.png"/>
+                                            <dxb:BarCheckItem Name="bcDisplayPeriod2" GroupIndex="1" CheckedChanged="OnDisplayPeriodChanged" Content="1y"
+                                                              Glyph="/DevExpress.StockMarketTrader;component/Images/1y.png"/>
+                                            <dxb:BarCheckItem Name="bcDisplayPeriod3" GroupIndex="1" CheckedChanged="OnDisplayPeriodChanged" Content="1.5y"
+                                                              Glyph="/DevExpress.StockMarketTrader;component/Images/1-5y.png"/>
+                                            <dxb:BarCheckItem Name="bcDisplayPeriod4" GroupIndex="1" CheckedChanged="OnDisplayPeriodChanged" Content="2y"
+                                                              Glyph="/DevExpress.StockMarketTrader;component/Images/2y.png"/>
+                                            <dxb:BarCheckItem Name="bcDisplayPeriod5" GroupIndex="1" CheckedChanged="OnDisplayPeriodChanged" Content="4y"
+                                                              Glyph="/DevExpress.StockMarketTrader;component/Images/4y.png"/>
+                                            <dxb:BarCheckItem Name="bcCandleChartVisible" Content="Candle" IsChecked="{Binding ElementName=priceSeries, Path=Visible, Mode=TwoWay}"
+                                                              CheckedChanged="OnCandlesChartVisibleChanged"
+                                                              Glyph="/DevExpress.StockMarketTrader;component/Images/Candles.png"/>
+                                            <dxb:BarCheckItem Name="bcBarsChartVisible" Content="Volume" IsChecked="{Binding ElementName=volumeSeries, Path=Visible, Mode=TwoWay}"
+                                                              CheckedChanged="OnBarsChartVisibleChanged"
+                                                              Glyph="/DevExpress.StockMarketTrader;component/Images/Bars.png"/>
+                                            <dxb:BarEditItem Name="bTicks" Content=" Period: " EditValueChanged="OnTicksChanged">
+                                                <dxb:BarEditItem.EditSettings>
+                                                    <dxe:ComboBoxEditSettings Name="ecTicks" IsTextEditable="False">
+                                                    </dxe:ComboBoxEditSettings>
+                                                </dxb:BarEditItem.EditSettings>
+                                            </dxb:BarEditItem>
+                                            <dxb:BarCheckItem Name="bcBarsChartTrendLine" Content="TrendLine" CheckedChanged="bcBarsChartDrawing_CheckedChanged"
+                                                              Glyph="/DevExpress.StockMarketTrader;component/Images/TrendLine.png" GroupIndex="2" AllowUncheckInGroup="True"
+                                                              ToolTip="To add a Trend Line, click on the first series point  and drag mouse to the second series point."/>
+                                            <dxb:BarCheckItem Name="bcBarsChartFibonacciArcs" Content="FibonacciArcs" CheckedChanged="bcBarsChartDrawing_CheckedChanged"
+                                                              Glyph="/DevExpress.StockMarketTrader;component/Images/FibonacciArcs.png" GroupIndex="2" AllowUncheckInGroup="True"
+                                                              ToolTip="To add a Fibonacci Arcs, click on the first series point  and drag mouse to the second series point."/>
+                                            <dxb:BarCheckItem Name="bcBarsChartFibonacciFans" Content="FibonacciFans" CheckedChanged="bcBarsChartDrawing_CheckedChanged"
+                                                              Glyph="/DevExpress.StockMarketTrader;component/Images/FibonacciFans.png" GroupIndex="2" AllowUncheckInGroup="True"
+                                                              ToolTip="To add a Fibonacci Fans, click on the first series point  and drag mouse to the second series point."/>
+                                            <dxb:BarCheckItem Name="bcBarsChartFibonacciRetracement" Content="FibonacciRetracement" CheckedChanged="bcBarsChartDrawing_CheckedChanged"
+                                                              Glyph="/DevExpress.StockMarketTrader;component/Images/FibonacciRetracement.png" GroupIndex="2" AllowUncheckInGroup="True"
+                                                              ToolTip="To add a Fibonacci Retracement, click on the first series point  and drag mouse to the second series point."/>
+                                            <dxb:BarCheckItem Name="bcBarsChartRemoveIndicator" Content="RemoveIndicator" CheckedChanged="bcBarsChartRemoveIndicator_CheckedChanged"
+                                                              Glyph="/DevExpress.StockMarketTrader;component/Images/Remove.png" GroupIndex="2" AllowUncheckInGroup="True"
+                                                              ToolTip="To remove an indicator, click it or its label."/>
+                                            <dxb:BarEditItem Name="bIndicators" Content=" Indicator: " EditValueChanged="OnIndicatorChanged" EditWidth="148">
+                                                <dxb:BarEditItem.EditSettings>
+                                                    <dxe:ComboBoxEditSettings Name="ecIndicators" IsTextEditable="False" NullText="None" NullValueButtonPlacement="Popup"/>
+                                                </dxb:BarEditItem.EditSettings>
+                                            </dxb:BarEditItem>
+                                        </dxb:BarManager.Items>
+                                        <dxb:BarManager.Bars>
+                                            <dxb:Bar Caption="Data Settings" UseWholeRow="True" AllowQuickCustomization="False" ShowDragWidget="False" AllowHide="False" BarItemHorzIndent="3">
+                                                <dxb:Bar.ItemLinks>
+                                                    <dxb:BarItemLink BarItemName="bcCandleChartVisible"/>
+                                                    <dxb:BarItemLink BarItemName="bcBarsChartVisible"/>
+                                                    <dxb:BarItemLinkSeparator/>
+                                                    <dxb:BarItemLink BarItemName="bcDisplayPeriod1"/>
+                                                    <dxb:BarItemLink BarItemName="bcDisplayPeriod2"/>
+                                                    <dxb:BarItemLink BarItemName="bcDisplayPeriod3"/>
+                                                    <dxb:BarItemLink BarItemName="bcDisplayPeriod4"/>
+                                                    <dxb:BarItemLink BarItemName="bcDisplayPeriod5"/>
+                                                    <dxb:BarItemLinkSeparator/>
+                                                    <dxb:BarItemLink BarItemName="bTicks" RibbonStyle="SmallWithText"/>
+                                                    <dxb:BarItemLinkSeparator/>
+                                                    <dxb:BarItemLink BarItemName="bcBarsChartTrendLine"/>
+                                                    <dxb:BarItemLink BarItemName="bcBarsChartFibonacciArcs"/>
+                                                    <dxb:BarItemLink BarItemName="bcBarsChartFibonacciFans"/>
+                                                    <dxb:BarItemLink BarItemName="bcBarsChartFibonacciRetracement"/>
+                                                    <dxb:BarItemLink BarItemName="bcBarsChartRemoveIndicator"/>
+                                                    <dxb:BarItemLinkSeparator/>
+                                                    <dxb:BarItemLink BarItemName="bIndicators" RibbonStyle="SmallWithText"/>
+                                                </dxb:Bar.ItemLinks>
+                                            </dxb:Bar>
+                                        </dxb:BarManager.Bars>
+                                        <dxc:ChartControl ToolTipEnabled="False"  Name="stockChart" BorderThickness="0" DataSource="{Binding StockChartBindingData}"
+                                                          BoundDataChanged="OnStockChartBoundDataChanged" MouseDown="stockChart_MouseDown"
+                                                          MouseUp="stockChart_MouseUp" MouseMove="stockChart_MouseMove" AutoLayout="False">
+                                            <dxc:ChartControl.Legends>
+                                                <dxc:Legend x:Name="priceLegend" DockTarget="{Binding ElementName=pricePane}" VerticalPosition="Top" HorizontalPosition="Left"/>
+                                                <dxc:Legend x:Name="volumeLegend" DockTarget="{Binding ElementName=volumePane}" VerticalPosition="Top" HorizontalPosition="Left"/>
+                                                <dxc:Legend x:Name="indicatorLegend" DockTarget="{Binding ElementName=indicatorPane}" VerticalPosition="Top" HorizontalPosition="Left"/>
+                                            </dxc:ChartControl.Legends>
+                                            <dxc:ChartControl.CrosshairOptions>
+                                                <dxc:CrosshairOptions ShowOnlyInFocusedPane="False" ArgumentLineBrush="White" />
+                                            </dxc:ChartControl.CrosshairOptions>
+                                            <dxc:ChartControl.Diagram>
+                                                <dxc:XYDiagram2D dx:DXSerializer.SerializationID="diagram1" PanesPanel="{StaticResource panesTemplate}" x:Name="Diagram">
+                                                    <dxc:XYDiagram2D.DefaultPane>
+                                                        <dxc:Pane x:Name="pricePane" Grid.Row="0"/>
+                                                    </dxc:XYDiagram2D.DefaultPane>
+                                                    <dxc:XYDiagram2D.Panes>
+                                                        <dxc:Pane x:Name="volumePane" Grid.Row="2"/>
+                                                        <dxc:Pane x:Name="indicatorPane" Grid.Row="4"/>
+                                                    </dxc:XYDiagram2D.Panes>
+                                                    <dxc:XYDiagram2D.AxisX>
+                                                        <dxc:AxisX2D x:Name="stockChartAxisX" GridLinesVisible="True" GridLinesMinorVisible="True">
+                                                            <dxc:AxisX2D.ConstantLinesInFront>
+                                                                <dxc:ConstantLine x:Name="drawingLine" Visible="False" />
+                                                            </dxc:AxisX2D.ConstantLinesInFront>
+                                                            <dxc:AxisX2D.DateTimeScaleOptions>
+                                                                <dxc:ManualDateTimeScaleOptions MeasureUnit="Week" WorkdaysOnly="True"/>
+                                                            </dxc:AxisX2D.DateTimeScaleOptions>
+                                                            <dxc:AxisX2D.WholeRange>
+                                                                <dxc:Range/>
+                                                            </dxc:AxisX2D.WholeRange>
+                                                            <dxc:AxisX2D.VisibilityInPanes>
+                                                                <dxc:VisibilityInPane Visible="False" Pane="{Binding ElementName=pricePane}" />
+                                                                <dxc:VisibilityInPane Visible="True" Pane="{Binding ElementName=volumePane}" />
+                                                                <dxc:VisibilityInPane Visible="False" Pane="{Binding ElementName=indicatorPane}" />
+                                                            </dxc:AxisX2D.VisibilityInPanes>
+                                                        </dxc:AxisX2D>
+                                                    </dxc:XYDiagram2D.AxisX>
+                                                    <dxc:XYDiagram2D.AxisY>
+                                                        <dxc:AxisY2D x:Name="priceAxisY" GridLinesVisible="True" Alignment="Far"
+                                                                     Visible="{Binding ElementName=priceSeries, Path=Visible, Mode=TwoWay}"
+                                                                     Interlaced="False" GridLinesMinorVisible="True" LabelVisibilityMode="AutoGeneratedAndCustom">
+                                                            <dxc:AxisY2D.CustomLabels>
+                                                                <dxc:CustomAxisLabel x:Name="PriceLabel" Value="1" Content="{StaticResource customLabels}" />
+                                                            </dxc:AxisY2D.CustomLabels>
+                                                            <dxc:AxisY2D.Label>
+                                                                <dxc:AxisLabel TextPattern="{}${V:0.00}" />
+                                                            </dxc:AxisY2D.Label>
+                                                            <dxc:AxisY2D.WholeRange>
+                                                                <dxc:Range dxc:AxisY2D.AlwaysShowZeroLevel="False" />
+                                                            </dxc:AxisY2D.WholeRange>
+                                                            <dxc:AxisY2D.NumericOptions>
+                                                                <dxc:NumericOptions Format="Currency" Precision="1"/>
+                                                            </dxc:AxisY2D.NumericOptions>
+                                                        </dxc:AxisY2D>
+                                                    </dxc:XYDiagram2D.AxisY>
+                                                    <dxc:XYDiagram2D.SecondaryAxesY>
+                                                        <dxc:SecondaryAxisY2D x:Name="volumeAxisY" GridLinesVisible="True" Alignment="Far"
+                                                                              Visible="{Binding ElementName=volumeSeries, Path=Visible, Mode=TwoWay}"
+                                                                              GridLinesMinorVisible="True" MinorCount="2">
+                                                            <dxc:SecondaryAxisY2D.WholeRange>
+                                                                <dxc:Range dxc:AxisY2D.AlwaysShowZeroLevel="True" />
+                                                            </dxc:SecondaryAxisY2D.WholeRange>
+                                                            <dxc:SecondaryAxisY2D.NumericOptions>
+                                                                <dxc:NumericOptions Format="FixedPoint" Precision="1"/>
+                                                            </dxc:SecondaryAxisY2D.NumericOptions>
+                                                            <dxc:SecondaryAxisY2D.Label>
+                                                                <dxc:AxisLabel TextPattern="{}{V}M" />
+                                                            </dxc:SecondaryAxisY2D.Label>
+                                                        </dxc:SecondaryAxisY2D>
+                                                        <dxc:SecondaryAxisY2D x:Name="indicatorAxisY" Alignment="Far" MinorCount="2" Visible="False"
+                                                                              GridLinesVisible="{Binding RelativeSource={RelativeSource Self}, Path=Visible}"
+                                                                              GridLinesMinorVisible="{Binding RelativeSource={RelativeSource Self}, Path=Visible}">
+                                                            <dxc:SecondaryAxisY2D.VisibilityInPanes>
+                                                                <dxc:VisibilityInPane Visible="False" Pane="{Binding ElementName=pricePane}" />
+                                                                <dxc:VisibilityInPane Visible="False" Pane="{Binding ElementName=volumePane}" />
+                                                                <dxc:VisibilityInPane Visible="True" Pane="{Binding ElementName=indicatorPane}" />
+                                                            </dxc:SecondaryAxisY2D.VisibilityInPanes>
+                                                            <dxc:SecondaryAxisY2D.WholeRange>
+                                                                <dxc:Range dxc:AxisY2D.AlwaysShowZeroLevel="True" />
+                                                            </dxc:SecondaryAxisY2D.WholeRange>
+                                                            <dxc:SecondaryAxisY2D.NumericOptions>
+                                                                <dxc:NumericOptions Format="FixedPoint" Precision="1"/>
+                                                            </dxc:SecondaryAxisY2D.NumericOptions>
+                                                        </dxc:SecondaryAxisY2D>
+                                                    </dxc:XYDiagram2D.SecondaryAxesY>
+                                                    <dxc:XYDiagram2D.Series>
+                                                        <dxc:CandleStickSeries2D x:Name="priceSeries" ArgumentDataMember="Date" DisplayName="Price"
+                                                                                 HighValueDataMember="High" LowValueDataMember="Low" OpenValueDataMember="Open"
+                                                                                 CloseValueDataMember="Close" CandleWidth="0.8" Brush="White"
+                                                                                 Legend="{Binding ElementName=priceLegend}">
+                                                            <dxc:CandleStickSeries2D.ReductionOptions>
+                                                                <dxc:ReductionStockOptions Enabled="True" Brush="{StaticResource metroThemeOrangeBrush}"/>
+                                                            </dxc:CandleStickSeries2D.ReductionOptions>
+                                                            <dxc:CandleStickSeries2D.Label>
+                                                                <dxc:SeriesLabel ResolveOverlappingMode="None"/>
+                                                            </dxc:CandleStickSeries2D.Label>
+                                                            <dxc:CandleStickSeries2D.Model>
+                                                                <dxc:ThinCandleStick2DModel/>
+                                                            </dxc:CandleStickSeries2D.Model>
+                                                        </dxc:CandleStickSeries2D>
+                                                        <dxc:BarStackedSeries2D x:Name="volumeSeries" DisplayName="Volume" ArgumentDataMember="Date" ValueDataMember="Volume" Brush="{StaticResource metroThemeOrangeBrush}"
+                                                                                CrosshairLabelPattern="{}{S} : {V}M"
+                                                                                Pane="{Binding ElementName=volumePane}" AxisY="{Binding ElementName=volumeAxisY}"
+                                                                                Legend="{Binding ElementName=volumeLegend}">
+                                                            <dxc:BarStackedSeries2D.Model>
+                                                                <dxc:BorderlessSimpleBar2DModel/>
+                                                            </dxc:BarStackedSeries2D.Model>
+                                                        </dxc:BarStackedSeries2D>
+                                                    </dxc:XYDiagram2D.Series>
+                                                </dxc:XYDiagram2D>
+                                            </dxc:ChartControl.Diagram>
+                                        </dxc:ChartControl>
+                                    </dxb:BarManager>
+                                </dxdo:LayoutPanel>
+                            </dxdo:LayoutGroup>
+                        </dxdo:LayoutGroup>
+                    </dxdo:LayoutGroup>
+                </dxdo:DockLayoutManager>
+            </Grid>
+        </dxb:BarManager>
+    </Grid>
+</UserControl>

@@ -1,0 +1,164 @@
+﻿<local:ChartsDemoModule x:Class="ChartsDemo.ScrollingZoomingControl"
+                        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+                        xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts"
+                        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+                        xmlns:local="clr-namespace:ChartsDemo">
+    <!--#region Resources-->
+    <local:ChartsDemoModule.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/ChartsDemo;component/Themes/Common.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </local:ChartsDemoModule.Resources>
+    <!--#endregion-->
+    <DockPanel>
+        <local:ChartsDemoRibbon DockPanel.Dock="Top" Chart="{x:Reference chart}" />
+        <!--#region Options-->
+        <ScrollViewer HorizontalScrollBarVisibility="Disabled"
+                      VerticalScrollBarVisibility="Auto"
+                      Name="PART_Options"
+                      DockPanel.Dock="Right"
+                      dx:ScrollBarExtensions.ScrollBarMode="TouchOverlap"
+                      Focusable="False">
+            <StackPanel Margin="12,0,12,12" MinWidth="210">
+                <GroupBox Header="X-Axis" Padding="10" Margin="0,5,0,0">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition MinWidth="50" Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <dxe:CheckEdit Name="chbAxisXNavigation"
+                                       Content="Enable Navigation"
+                                       IsChecked="True"
+                                       Grid.ColumnSpan="2"
+                                       Margin="0,0,0,10"
+                                       Unchecked="{DXEvent Handler='@e(diagram).ActualAxisX.ActualVisualRange.SetAuto()'}" />
+                        <dxe:CheckEdit Name="chbAxisXScrollBarVisible"
+                                       Content="Show Scroll Bar"
+                                       IsChecked="True"
+                                       Grid.Row="1"
+                                       Grid.ColumnSpan="2"
+                                       Margin="0,0,0,10"
+                                       IsEnabled="{Binding ElementName=chbAxisXNavigation, Path=IsChecked}" />
+                        <TextBlock Text="Scroll Bar Position:" VerticalAlignment="Center" Grid.Row="2" Margin="0,0,5,0" />
+                        <dxe:ComboBoxEdit Name="cbeAxisXScrollBarPosition"
+                                          Grid.Row="2"
+                                          Grid.Column="2"
+                                          SelectedIndex="0"
+                                          IsTextEditable="False"
+                                          IsEnabled="{DXBinding '@e(chbAxisXNavigation).IsChecked and @e(chbAxisXScrollBarVisible).IsChecked'}"
+                                          ItemsSource="{dxe:EnumItemsSource EnumType=dxc:ScrollBarAlignment}"
+                                          Width="70" />
+                    </Grid>
+                </GroupBox>
+                <GroupBox Header="Y-Axis" Padding="10" Margin="0,5,0,0">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition MinWidth="50" Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <dxe:CheckEdit Name="chbAxisYNavigation"
+                                       Content="Enable Navigation"
+                                       IsChecked="True"
+                                       Grid.ColumnSpan="2"
+                                       Margin="0,0,0,10"
+                                       Unchecked="{DXEvent Handler='@e(diagram).ActualAxisY.ActualVisualRange.SetAuto()'}" />
+                        <dxe:CheckEdit Name="chbAxisYScrollBarVisible"
+                                       Content="Show Scroll Bar"
+                                       IsChecked="True"
+                                       Grid.Row="1"
+                                       Grid.ColumnSpan="2"
+                                       Margin="0,0,0,10"
+                                       IsEnabled="{Binding ElementName=chbAxisYNavigation, Path=IsChecked}" />
+                        <TextBlock Text="Scroll Bar Position:" VerticalAlignment="Center" Grid.Row="2" Margin="0,0,5,0" />
+                        <dxe:ComboBoxEdit Name="cbeAxisYScrollBarPosition"
+                                          Grid.Row="2"
+                                          Grid.Column="2"
+                                          SelectedIndex="0"
+                                          IsTextEditable="False"
+                                          IsEnabled="{DXBinding '@e(chbAxisYNavigation).IsChecked and @e(chbAxisYScrollBarVisible).IsChecked'}"
+                                          ItemsSource="{dxe:EnumItemsSource EnumType=dxc:ScrollBarAlignment}"
+                                          Width="70" />
+                    </Grid>
+                </GroupBox>
+            </StackPanel>
+        </ScrollViewer>
+        <!--#endregion-->
+        <dxc:ChartControl Name="chart" BorderThickness="0" IsManipulationEnabled="True">
+            <dxc:ChartControl.CrosshairOptions>
+                <dxc:CrosshairOptions ShowArgumentLine="True">
+                    <dxc:CrosshairOptions.CommonLabelPosition>
+                        <dxc:CrosshairFreePosition DockTarget="{Binding ElementName=pane}" />
+                    </dxc:CrosshairOptions.CommonLabelPosition>
+                </dxc:CrosshairOptions>
+            </dxc:ChartControl.CrosshairOptions>
+            <dxc:ChartControl.Diagram>
+                <dxc:XYDiagram2D x:Name="diagram"
+                                 SeriesItemsSource="{x:Static local:PricesModel.Data}"
+                                 EnableAxisXNavigation="{Binding ElementName=chbAxisXNavigation, Path=IsChecked}"
+                                 EnableAxisYNavigation="{Binding ElementName=chbAxisYNavigation, Path=IsChecked}">
+                    <dxc:XYDiagram2D.DefaultPane>
+                        <dxc:Pane x:Name="pane">
+                            <dxc:Pane.AxisYScrollBarOptions>
+                                <dxc:ScrollBarOptions Alignment="{Binding ElementName=cbeAxisYScrollBarPosition, Path=EditValue}"
+                                                      Visible="{Binding ElementName=chbAxisYScrollBarVisible, Path=IsChecked}" />
+                            </dxc:Pane.AxisYScrollBarOptions>
+                            <dxc:Pane.AxisXScrollBarOptions>
+                                <dxc:ScrollBarOptions Alignment="{Binding ElementName=cbeAxisXScrollBarPosition, Path=EditValue}"
+                                                      Visible="{Binding ElementName=chbAxisXScrollBarVisible, Path=IsChecked}" />
+                            </dxc:Pane.AxisXScrollBarOptions>
+                        </dxc:Pane>
+                    </dxc:XYDiagram2D.DefaultPane>
+                    <dxc:XYDiagram2D.AxisY>
+                        <dxc:AxisY2D x:Name="AxisY">
+                            <dxc:AxisY2D.Label>
+                                <dxc:AxisLabel TextPattern="${V}" />
+                            </dxc:AxisY2D.Label>
+                        </dxc:AxisY2D>
+                    </dxc:XYDiagram2D.AxisY>
+                    <dxc:XYDiagram2D.AxisX>
+                        <dxc:AxisX2D x:Name="AxisX">
+                            <dxc:AxisX2D.VisualRange>
+                                <dxc:Range MinValue="{x:Static local:PricesModel.MinVisibleDate}" />
+                            </dxc:AxisX2D.VisualRange>
+                        </dxc:AxisX2D>
+                    </dxc:XYDiagram2D.AxisX>
+                    <dxc:XYDiagram2D.SeriesItemTemplate>
+                        <DataTemplate DataType="{x:Type local:PricesModel}">
+                            <dxc:LineSeries2D DisplayName="{Binding ProductName}"
+                                              DataSource="{Binding ProductData}"
+                                              ArgumentDataMember="TradeDate"
+                                              ValueDataMember="Price"
+                                              ArgumentScaleType="DateTime"
+                                              MarkerVisible="False"
+                                              CrosshairLabelPattern="{}{A:m}: {V:c}" />
+                        </DataTemplate>
+                    </dxc:XYDiagram2D.SeriesItemTemplate>
+                </dxc:XYDiagram2D>
+            </dxc:ChartControl.Diagram>
+            <dxc:ChartControl.Legend>
+                <dxc:Legend HorizontalPosition="Center" VerticalPosition="BottomOutside" Orientation="Horizontal" />
+            </dxc:ChartControl.Legend>
+            <dxc:ChartControl.Titles>
+                <dxc:Title HorizontalAlignment="Center">
+                    <dxc:Title.Content>
+                        <TextBlock Margin="0,6,0,3" Text="Sales History" />
+                    </dxc:Title.Content>
+                </dxc:Title>
+            </dxc:ChartControl.Titles>
+        </dxc:ChartControl>
+    </DockPanel>
+</local:ChartsDemoModule>

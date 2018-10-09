@@ -1,0 +1,15 @@
+﻿<dx:ThemedWindow x:Class="DevExpress.StockMarketTrader.NotFoundWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:dx ="http://schemas.devexpress.com/winfx/2008/xaml/core"
+        WindowStyle="ToolWindow" ResizeMode="NoResize" Width="500" Height="130" UseLayoutRounding="True"
+        WindowStartupLocation="CenterOwner"
+        Topmost="True"
+        Title="Warning - Live Tile Manager not found." >
+    <Grid>
+        <StackPanel>
+            <TextBlock TextWrapping="Wrap" Text="The Live Tile Manager, which is a Windows Store app that provides support for Live Tiles, is not found on this machine. You can install it from the Windows Store at: "/>
+            <TextBlock TextDecorations="Underline" Text="DevExpress Live Tile Manager Page" Cursor="Hand" Foreground="DarkOrange" MouseLeftButtonDown="TextBlock_MouseLeftButtonDown"/>
+        </StackPanel>
+    </Grid>
+</dx:ThemedWindow>

@@ -1,0 +1,57 @@
+﻿<local:GridDemoModule x:Class="GridDemo.FilteringUI"
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+                      xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+                      xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
+                      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                      xmlns:local="clr-namespace:GridDemo"
+                      mc:Ignorable="d"
+                      d:DesignHeight="550"
+                      d:DesignWidth="670"
+                      DataContext="{dxmvvm:ViewModelSource local:FilteringUIViewModel}">
+    <local:GridDemoModule.Resources>
+        <ResourceDictionary Source="/GridDemo;component/ModuleResources/FilteringUIResources.xaml" />
+    </local:GridDemoModule.Resources>
+    <DockPanel dx:ScrollBarExtensions.ScrollBarMode="TouchOverlap">
+        <local:GridDemoRibbon DockPanel.Dock="Top" ExportGrid="{x:Reference grid}" />
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="300" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <dxmvvm:Interaction.Behaviors>
+                <dx:FilteringBehavior x:Name="filteringBehavior" SourceType="{x:Type local:VehiclesFilteringViewModel}" />
+            </dxmvvm:Interaction.Behaviors>
+            <ContentControl Content="{Binding Path=FilteringViewModel, ElementName=filteringBehavior}"
+                            ContentTemplate="{StaticResource filteringUICustom}" />
+            <dxg:GridControl Name="grid"
+                             Grid.Column="1"
+                             ItemsSource="{Binding Vehicles}"
+                             FixedFilter="{Binding Path=FilterCriteria, ElementName=filteringBehavior}"
+                             ShowBorder="False">
+                <dxg:GridControl.View>
+                    <dxg:CardView ShowCardExpandButton="False"
+                                  ShowGroupPanel="False"
+                                  AllowGrouping="False"
+                                  ShowColumnHeaders="False"
+                                  SeparatorThickness="0"
+                                  CardAlignment="Center"
+                                  CardLayout="Rows"
+                                  NavigationStyle="Row"
+                                  AllowColumnFiltering="False"
+                                  CardTemplate="{StaticResource cardTemplate}"
+                                  ShowSearchPanelMode="Never"
+                                  CardHeaderTemplate="{StaticResource cardHeaderTemplate}"
+                                  CardHeaderBinding="{DXBinding 'TrademarkName + ` ` + Name'}"
+                                  PrintMaximumCardColumns="2"
+                                  PrintAutoCardWidth="True"
+                                  PrintCardViewItemTemplate="{StaticResource printCardViewItemTemplate}"
+                                  PrintCardHeaderTemplate="{StaticResource printCardHeaderTemplate}"
+                                  ShowFilterPanelMode="Never" />
+                </dxg:GridControl.View>
+            </dxg:GridControl>
+        </Grid>
+    </DockPanel>
+</local:GridDemoModule>

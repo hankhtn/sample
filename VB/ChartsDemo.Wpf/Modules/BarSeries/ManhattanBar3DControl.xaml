@@ -1,0 +1,118 @@
+﻿<local:ChartsDemoModule x:Class="ChartsDemo.ManhattanBar3DControl"
+                        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+                        xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts"
+                        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+                        xmlns:local="clr-namespace:ChartsDemo">
+    <!--#region Resources-->
+    <local:ChartsDemoModule.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/ChartsDemo;component/Themes/Common.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <local:Bar3DModelsProvider x:Key="barModelsProvider" />
+        </ResourceDictionary>
+    </local:ChartsDemoModule.Resources>
+    <!--#endregion-->
+    <local:ChartsDemoModule.Triggers>
+        <EventTrigger RoutedEvent="local:ChartsDemoModule.ModuleLoaded">
+            <EventTrigger.Actions>
+                <BeginStoryboard>
+                    <Storyboard>
+                        <DoubleAnimation Storyboard.TargetProperty="Opacity" Storyboard.TargetName="chart" From="0" To="1" Duration="0:0:2" />
+                        <DoubleAnimation Storyboard.TargetName="seriesTemplateAnimationRecord" Storyboard.TargetProperty="Progress" From="0" To="1" Duration="0:0:2" />
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger.Actions>
+        </EventTrigger>
+    </local:ChartsDemoModule.Triggers>
+    <DockPanel>
+        <local:ChartsDemoRibbon DockPanel.Dock="Top" Chart="{x:Reference chart}" />
+        <!--#region Options-->
+        <ScrollViewer HorizontalScrollBarVisibility="Disabled"
+                      VerticalScrollBarVisibility="Auto"
+                      Name="PART_Options"
+                      DockPanel.Dock="Right"
+                      dx:ScrollBarExtensions.ScrollBarMode="TouchOverlap"
+                      Focusable="False">
+            <StackPanel Margin="12,8,12,12" MinWidth="210">
+                <dxe:CheckEdit Name="chbVisible" Content="Show Labels" IsChecked="False" />
+                <GroupBox Header="Model" Margin="0,5,0,0">
+                    <dxe:ListBoxEdit Name="lbModel"
+                                     Background="{x:Null}"
+                                     ShowBorder="False"
+                                     DisplayMember="ModelName"
+                                     ItemsSource="{Binding Source={StaticResource barModelsProvider}, Path=Predefined3DModels}"
+                                     SelectedItem="{Binding Source={StaticResource barModelsProvider}, Path=PredefinedBoxBar3DModel, Mode=OneTime}">
+                        <dxe:ListBoxEdit.StyleSettings>
+                            <dxe:RadioListBoxEditStyleSettings />
+                        </dxe:ListBoxEdit.StyleSettings>
+                    </dxe:ListBoxEdit>
+                </GroupBox>
+            </StackPanel>
+        </ScrollViewer>
+        <!--#endregion-->
+        <dxc:ChartControl Name="chart" BorderThickness="0" Opacity="0" IsManipulationEnabled="True" DataSource="{Binding Data}">
+            <dxc:ChartControl.DataContext>
+                <local:DevAVSalesByYear />
+            </dxc:ChartControl.DataContext>
+            <dxc:ChartControl.AnimationRecords>
+                <dxc:ChartAnimationRecord x:Name="seriesTemplateAnimationRecord" Progress="0">
+                    <dxc:ChartAnimationRecord.Animations>
+                        <dxc:SeriesAnimation TargetSeries="{Binding ElementName=seriesTemplate}">
+                            <dxc:SeriesAnimation.Actions>
+                                <dxc:SeriesSeriesPointsAction EqualSpeed="True" Sequential="True" DelayPercentage="30" />
+                            </dxc:SeriesAnimation.Actions>
+                        </dxc:SeriesAnimation>
+                    </dxc:ChartAnimationRecord.Animations>
+                </dxc:ChartAnimationRecord>
+            </dxc:ChartControl.AnimationRecords>
+            <dxc:ChartControl.Diagram>
+                <dxc:XYDiagram3D SeriesPadding="0.5" SeriesDistance="1" ZoomPercent="130" VerticalScrollPercent="10" SeriesDataMember="Year">
+                    <dxc:XYDiagram3D.ContentTransform>
+                        <MatrixTransform3D>
+                            <MatrixTransform3D.Matrix>
+                                <Matrix3D M11="-0.917"
+                                          M12="-0.017"
+                                          M13="0.396"
+                                          M14="0"
+                                          M21="0.027"
+                                          M22="0.993"
+                                          M23="0.106"
+                                          M24="0"
+                                          M31="-0.395"
+                                          M32="0.108"
+                                          M33="-0.911"
+                                          M34="0"
+                                          OffsetX="0"
+                                          OffsetY="0"
+                                          OffsetZ="0"
+                                          M44="1" />
+                            </MatrixTransform3D.Matrix>
+                        </MatrixTransform3D>
+                    </dxc:XYDiagram3D.ContentTransform>
+                    <dxc:XYDiagram3D.SeriesTemplate>
+                        <dxc:BarSeries3D x:Name="seriesTemplate"
+                                         LabelsVisibility="{Binding ElementName=chbVisible, Path=IsChecked}"
+                                         ArgumentScaleType="Qualitative"
+                                         ToolTipPointPattern="Year: {S}&#xA;Region: {A}&#xA;Sales: ${V}M"
+                                         Model="{Binding ElementName=lbModel, Path=SelectedItem}"
+                                         ArgumentDataMember="Region"
+                                         ValueDataMember="Sales">
+                            <dxc:BarSeries3D.Label>
+                                <dxc:SeriesLabel RenderMode="CustomShape" TextPattern="{}${V}M" />
+                            </dxc:BarSeries3D.Label>
+                        </dxc:BarSeries3D>
+                    </dxc:XYDiagram3D.SeriesTemplate>
+                </dxc:XYDiagram3D>
+            </dxc:ChartControl.Diagram>
+            <dxc:ChartControl.Legend>
+                <dxc:Legend HorizontalPosition="Right" />
+            </dxc:ChartControl.Legend>
+            <dxc:ChartControl.Titles>
+                <dxc:Title Dock="Top" HorizontalAlignment="Center" FontSize="24">DevAV Sales</dxc:Title>
+            </dxc:ChartControl.Titles>
+        </dxc:ChartControl>
+    </DockPanel>
+</local:ChartsDemoModule>

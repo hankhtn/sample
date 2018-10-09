@@ -1,0 +1,156 @@
+﻿<local:ChartsDemoModule x:Class="ChartsDemo.AnnotationsControl"
+                        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+                        xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts"
+                        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+                        xmlns:local="clr-namespace:ChartsDemo">
+    <!--#region Resources-->
+    <local:ChartsDemoModule.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/ChartsDemo;component/Themes/Common.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </local:ChartsDemoModule.Resources>
+    <!--#endregion-->
+    <DockPanel>
+        <local:ChartsDemoRibbon DockPanel.Dock="Top" Chart="{x:Reference chart}" />
+        <!--#region Options-->
+        <ScrollViewer HorizontalScrollBarVisibility="Disabled"
+                      VerticalScrollBarVisibility="Auto"
+                      Name="PART_Options"
+                      DockPanel.Dock="Right"
+                      dx:ScrollBarExtensions.ScrollBarMode="TouchOverlap"
+                      Focusable="False">
+            <StackPanel Margin="12,8,12,12" MinWidth="210">
+                <dxe:CheckEdit Name="chbMoving" Content="Allow Moving" IsChecked="True" />
+                <dxe:CheckEdit Name="chbAnchoring" Margin="0,4,0,0" Content="Allow Anchoring" IsChecked="True" />
+                <dxe:CheckEdit Name="chbResizing" Margin="0,4,0,0" Content="Allow Resizing" IsChecked="True" />
+                <dxe:CheckEdit Name="chbRotation" Margin="0,4,0,0" Content="Allow Rotation" IsChecked="True" />
+            </StackPanel>
+        </ScrollViewer>
+        <!--#endregion-->
+        <dxc:ChartControl x:Name="chart" CrosshairEnabled="False" BoundDataChanged="BoundDataChanged" BorderThickness="0">
+            <dxc:ChartControl.Titles>
+                <dxc:Title Content="Mars Pathfinder Temperature Data" HorizontalAlignment="Center" />
+                <dxc:Title Content="From www-k12.atmos.washington.edu/k12"
+                           HorizontalAlignment="Right"
+                           FontFamily="Tahoma"
+                           FontSize="8"
+                           Dock="Bottom"
+                           Foreground="Gray" />
+            </dxc:ChartControl.Titles>
+            <dxc:ChartControl.Annotations>
+                <dxc:Annotation x:Name="maximumAnnotation"
+                                RuntimeMoving="{Binding ElementName=chbMoving, Path=IsChecked}"
+                                RuntimeResizing="{Binding ElementName=chbResizing, Path=IsChecked}"
+                                RuntimeRotation="{Binding ElementName=chbRotation, Path=IsChecked}">
+                    <dxc:Annotation.AnchorPoint>
+                        <dxc:SeriesPointAnchorPoint x:Name="maximumPoint" />
+                    </dxc:Annotation.AnchorPoint>
+                    <dxc:Annotation.ShapePosition>
+                        <dxc:RelativePosition Angle="-247" ConnectorLength="58" />
+                    </dxc:Annotation.ShapePosition>
+                </dxc:Annotation>
+                <dxc:Annotation x:Name="minimumAnnotation"
+                                RuntimeMoving="{Binding ElementName=chbMoving, Path=IsChecked}"
+                                RuntimeResizing="{Binding ElementName=chbResizing, Path=IsChecked}"
+                                RuntimeRotation="{Binding ElementName=chbRotation, Path=IsChecked}">
+                    <dxc:Annotation.ShapePosition>
+                        <dxc:RelativePosition Angle="-320" ConnectorLength="37" />
+                    </dxc:Annotation.ShapePosition>
+                    <dxc:Annotation.AnchorPoint>
+                        <dxc:SeriesPointAnchorPoint x:Name="minimumPoint" />
+                    </dxc:Annotation.AnchorPoint>
+                </dxc:Annotation>
+                <dxc:Annotation RuntimeMoving="{Binding ElementName=chbMoving, Path=IsChecked}"
+                                RuntimeAnchoring="{Binding ElementName=chbAnchoring, Path=IsChecked}"
+                                RuntimeResizing="{Binding ElementName=chbResizing, Path=IsChecked}"
+                                RuntimeRotation="{Binding ElementName=chbRotation, Path=IsChecked}">
+                    <dxc:Annotation.Content>
+                        <Image Source="../../Images/Mars.png" Stretch="None" />
+                    </dxc:Annotation.Content>
+                    <dxc:Annotation.ShapePosition>
+                        <dxc:RelativePosition Angle="0" ConnectorLength="0" />
+                    </dxc:Annotation.ShapePosition>
+                    <dxc:Annotation.AnchorPoint>
+                        <dxc:ChartAnchorPoint X="123" Y="75" />
+                    </dxc:Annotation.AnchorPoint>
+                </dxc:Annotation>
+                <dxc:Annotation RuntimeMoving="{Binding ElementName=chbMoving, Path=IsChecked}"
+                                RuntimeAnchoring="{Binding ElementName=chbAnchoring, Path=IsChecked}"
+                                RuntimeResizing="{Binding ElementName=chbResizing, Path=IsChecked}"
+                                RuntimeRotation="{Binding ElementName=chbRotation, Path=IsChecked}"
+                                Content="Day">
+                    <dxc:Annotation.ShapePosition>
+                        <dxc:RelativePosition Angle="0" ConnectorLength="0" />
+                    </dxc:Annotation.ShapePosition>
+                    <dxc:Annotation.AnchorPoint>
+                        <dxc:PaneAnchorPoint>
+                            <dxc:PaneAnchorPoint.AxisXCoordinate>
+                                <dxc:AxisXCoordinate Axis="{Binding ElementName=axisX}" AxisValue="2.5632" />
+                            </dxc:PaneAnchorPoint.AxisXCoordinate>
+                            <dxc:PaneAnchorPoint.AxisYCoordinate>
+                                <dxc:AxisYCoordinate Axis="{Binding ElementName=axisY}" AxisValue="-54.094" />
+                            </dxc:PaneAnchorPoint.AxisYCoordinate>
+                        </dxc:PaneAnchorPoint>
+                    </dxc:Annotation.AnchorPoint>
+                </dxc:Annotation>
+                <dxc:Annotation RuntimeMoving="{Binding ElementName=chbMoving, Path=IsChecked}"
+                                RuntimeAnchoring="{Binding ElementName=chbAnchoring, Path=IsChecked}"
+                                RuntimeResizing="{Binding ElementName=chbResizing, Path=IsChecked}"
+                                RuntimeRotation="{Binding ElementName=chbRotation, Path=IsChecked}"
+                                Content="Night">
+                    <dxc:Annotation.ShapePosition>
+                        <dxc:RelativePosition Angle="0" ConnectorLength="0" />
+                    </dxc:Annotation.ShapePosition>
+                    <dxc:Annotation.AnchorPoint>
+                        <dxc:PaneAnchorPoint>
+                            <dxc:PaneAnchorPoint.AxisXCoordinate>
+                                <dxc:AxisXCoordinate Axis="{Binding ElementName=axisX}" AxisValue="2.984" />
+                            </dxc:PaneAnchorPoint.AxisXCoordinate>
+                            <dxc:PaneAnchorPoint.AxisYCoordinate>
+                                <dxc:AxisYCoordinate Axis="{Binding ElementName=axisY}" AxisValue="-35.0020" />
+                            </dxc:PaneAnchorPoint.AxisYCoordinate>
+                        </dxc:PaneAnchorPoint>
+                    </dxc:Annotation.AnchorPoint>
+                </dxc:Annotation>
+            </dxc:ChartControl.Annotations>
+            <dxc:XYDiagram2D EnableAxisXNavigation="True">
+                <dxc:XYDiagram2D.AxisX>
+                    <dxc:AxisX2D x:Name="axisX">
+                        <dxc:AxisX2D.Title>
+                            <dxc:AxisTitle Content="Sol" />
+                        </dxc:AxisX2D.Title>
+                        <dxc:AxisX2D.WholeRange>
+                            <dxc:Range AutoSideMargins="False" SideMarginsValue="0" MaxValue="5.05" MinValue="2.4" />
+                        </dxc:AxisX2D.WholeRange>
+                        <dxc:AxisX2D.VisualRange>
+                            <dxc:Range AutoSideMargins="False" SideMarginsValue="0" MaxValue="3.9" MinValue="2.4" />
+                        </dxc:AxisX2D.VisualRange>
+                        <dxc:AxisX2D.Strips>
+                            <dxc:Strip Brush="#50787878" MaxLimit="3.216" MinLimit="2.748" Name="Night1" />
+                            <dxc:Strip Brush="#50787878" MaxLimit="4.216" MinLimit="3.748" Name="Night2" />
+                            <dxc:Strip Brush="#50787878" MaxLimit="5.216" MinLimit="4.748" Name="Night3" />
+                        </dxc:AxisX2D.Strips>
+                    </dxc:AxisX2D>
+                </dxc:XYDiagram2D.AxisX>
+                <dxc:XYDiagram2D.AxisY>
+                    <dxc:AxisY2D x:Name="axisY">
+                        <dxc:AxisY2D.Title>
+                            <dxc:AxisTitle Content="Temperature, in degrees Celsius" />
+                        </dxc:AxisY2D.Title>
+                        <dxc:AxisY2D.NumericScaleOptions>
+                            <dxc:ContinuousNumericScaleOptions GridSpacing="5" AutoGrid="False" />
+                        </dxc:AxisY2D.NumericScaleOptions>
+                    </dxc:AxisY2D>
+                </dxc:XYDiagram2D.AxisY>
+                <dxc:SplineSeries2D x:Name="splineSeries"
+                                    ArgumentDataMember="Sol"
+                                    ValueDataMember="Temperature"
+                                    DataSource="{x:Static local:MarsTemperatureData.FullData}" />
+            </dxc:XYDiagram2D>
+        </dxc:ChartControl>
+    </DockPanel>
+</local:ChartsDemoModule>

@@ -1,0 +1,159 @@
+﻿<local:ChartsDemoModule x:Class="ChartsDemo.TrendIndicatorsControl"
+                        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                        xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts"
+                        xmlns:local="clr-namespace:ChartsDemo"
+                        ModuleLoaded="ChartsDemoModule_ModuleLoaded">
+    <!--#region Resources-->
+    <local:ChartsDemoModule.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/ChartsDemo;component/Themes/Common.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </local:ChartsDemoModule.Resources>
+    <!--#endregion-->
+    <dxc:ChartControl Name="chart" BorderThickness="0" CrosshairEnabled="True" AutoLayout="False" AnimationMode="OnLoad">
+        <dxc:ChartControl.CrosshairOptions>
+            <dxc:CrosshairOptions HighlightPoints="True" ShowOnlyInFocusedPane="False" GroupHeaderPattern="{}{A:dd-MMM-yyyy}" />
+        </dxc:ChartControl.CrosshairOptions>
+        <dxc:ChartControl.Diagram>
+            <dxc:XYDiagram2D>
+                <!--#region Axes-->
+                <dxc:XYDiagram2D.AxisX>
+                    <dxc:AxisX2D GridLinesVisible="True" GridLinesMinorVisible="True">
+                        <dxc:AxisX2D.DateTimeScaleOptions>
+                            <dxc:ManualDateTimeScaleOptions GridAlignment="Day" AutoGrid="False" GridSpacing="7" MeasureUnit="Day" />
+                        </dxc:AxisX2D.DateTimeScaleOptions>
+                        <dxc:AxisX2D.VisibilityInPanes>
+                            <dxc:VisibilityInPane Pane="{Binding ElementName=defaultPane}" Visible="False" />
+                            <dxc:VisibilityInPane Pane="{Binding ElementName=massIndexPane}" Visible="False" />
+                            <dxc:VisibilityInPane Pane="{Binding ElementName=standardDeviationPane}" Visible="True" />
+                        </dxc:AxisX2D.VisibilityInPanes>
+                        <dxc:AxisX2D.VisualRange>
+                            <dxc:Range MinValue="9/1/2014" />
+                        </dxc:AxisX2D.VisualRange>
+                    </dxc:AxisX2D>
+                </dxc:XYDiagram2D.AxisX>
+                <dxc:XYDiagram2D.AxisY>
+                    <dxc:AxisY2D GridLinesMinorVisible="True" Alignment="Far" Interlaced="False">
+                        <dxc:AxisY2D.WholeRange>
+                            <dxc:Range dxc:AxisY2D.AlwaysShowZeroLevel="False" SideMarginsValue="0.1" />
+                        </dxc:AxisY2D.WholeRange>
+                    </dxc:AxisY2D>
+                </dxc:XYDiagram2D.AxisY>
+                <dxc:XYDiagram2D.SecondaryAxesY>
+                    <dxc:SecondaryAxisY2D Name="massIndexAxis" GridLinesVisible="True" GridLinesMinorVisible="True" MinorCount="3">
+                        <dxc:SecondaryAxisY2D.NumericScaleOptions>
+                            <dxc:ContinuousNumericScaleOptions AutoGrid="False" GridSpacing="2" />
+                        </dxc:SecondaryAxisY2D.NumericScaleOptions>
+                        <dxc:SecondaryAxisY2D.VisibilityInPanes>
+                            <dxc:VisibilityInPane Pane="{Binding ElementName=massIndexPane}" />
+                        </dxc:SecondaryAxisY2D.VisibilityInPanes>
+                        <dxc:AxisY2D.WholeRange>
+                            <dxc:Range dxc:AxisY2D.AlwaysShowZeroLevel="False" MinValue="24" MaxValue="28" />
+                        </dxc:AxisY2D.WholeRange>
+                        <dxc:SecondaryAxisY2D.ConstantLinesInFront>
+                            <dxc:ConstantLine Value="27">
+                                <dxc:ConstantLine.Title>
+                                    <dxc:ConstantLineTitle Content="27" ShowBelowLine="False" Alignment="Far" />
+                                </dxc:ConstantLine.Title>
+                            </dxc:ConstantLine>
+                            <dxc:ConstantLine Value="26.5">
+                                <dxc:ConstantLine.Title>
+                                    <dxc:ConstantLineTitle Content="26.5" ShowBelowLine="True" Alignment="Far" />
+                                </dxc:ConstantLine.Title>
+                            </dxc:ConstantLine>
+                        </dxc:SecondaryAxisY2D.ConstantLinesInFront>
+                    </dxc:SecondaryAxisY2D>
+                    <dxc:SecondaryAxisY2D Name="standardDeviationAxis" GridLinesVisible="True" GridLinesMinorVisible="True" MinorCount="3">
+                        <dxc:SecondaryAxisY2D.NumericScaleOptions>
+                            <dxc:ContinuousNumericScaleOptions GridSpacing="1" AutoGrid="False" />
+                        </dxc:SecondaryAxisY2D.NumericScaleOptions>
+                        <dxc:SecondaryAxisY2D.VisibilityInPanes>
+                            <dxc:VisibilityInPane Pane="{Binding ElementName=standardDeviationPane}" />
+                        </dxc:SecondaryAxisY2D.VisibilityInPanes>
+                        <dxc:AxisY2D.WholeRange>
+                            <dxc:Range dxc:AxisY2D.AlwaysShowZeroLevel="False" MinValue="0" MaxValue="3" />
+                        </dxc:AxisY2D.WholeRange>
+                    </dxc:SecondaryAxisY2D>
+                </dxc:XYDiagram2D.SecondaryAxesY>
+                <!--#endregion-->
+                <!--#region Panes-->
+                <dxc:XYDiagram2D.PanesPanel>
+                    <ItemsPanelTemplate>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="5*" />
+                                <RowDefinition Height="10" />
+                                <RowDefinition Height="2*" />
+                                <RowDefinition Height="10" />
+                                <RowDefinition Height="3*" />
+                            </Grid.RowDefinitions>
+                        </Grid>
+                    </ItemsPanelTemplate>
+                </dxc:XYDiagram2D.PanesPanel>
+                <dxc:XYDiagram2D.DefaultPane>
+                    <dxc:Pane Name="defaultPane" />
+                </dxc:XYDiagram2D.DefaultPane>
+                <dxc:XYDiagram2D.Panes>
+                    <dxc:Pane Name="massIndexPane" Grid.Row="2" />
+                    <dxc:Pane Name="standardDeviationPane" Grid.Row="4" />
+                </dxc:XYDiagram2D.Panes>
+                <!--#endregion-->
+                <dxc:XYDiagram2D.Series>
+                    <dxc:CandleStickSeries2D DisplayName="USDJPY Daily"
+                                             AnimationAutoStartMode="SetStartState"
+                                             ArgumentScaleType="DateTime"
+                                             ArgumentDataMember="DateTimeArgument"
+                                             HighValueDataMember="HighValue"
+                                             LowValueDataMember="LowValue"
+                                             OpenValueDataMember="OpenValue"
+                                             CloseValueDataMember="CloseValue"
+                                             CandleWidth="0.8"
+                                             ShowInLegend="True"
+                                             CrosshairLabelPattern="{}High: ${HV:f2}&#xA;Low: ${LV:f2}&#xA;Open: ${OV:f2}&#xA;Close: ${CV:f2}">
+                        <dxc:CandleStickSeries2D.PointAnimation>
+                            <dxc:Stock2DExpandAnimation PointDelay="0" />
+                        </dxc:CandleStickSeries2D.PointAnimation>
+                        <!--#region Indicators-->
+                        <dxc:CandleStickSeries2D.Indicators>
+                            <dxc:BollingerBands LegendText="Bollinger Bands"
+                                                ShowInLegend="True"
+                                                Legend="{Binding ElementName=bollingerBandsLegend}"
+                                                Brush="#00C29B"
+                                                AnimationAutoStartMode="SetStartState" />
+                            <dxc:MassIndex LegendText="Mass Index"
+                                           Pane="{Binding ElementName=massIndexPane}"
+                                           AxisY="{Binding ElementName=massIndexAxis}"
+                                           ShowInLegend="True"
+                                           Legend="{Binding ElementName=massIndexLegend}"
+                                           Brush="#FF09E9"
+                                           AnimationAutoStartMode="SetStartState" />
+                            <dxc:StandardDeviation LegendText="Standard Deviation"
+                                                   Pane="{Binding ElementName=standardDeviationPane}"
+                                                   AxisY="{Binding ElementName=standardDeviationAxis}"
+                                                   ShowInLegend="True"
+                                                   Legend="{Binding ElementName=standardDeviationLegend}"
+                                                   Brush="#9308FF"
+                                                   AnimationAutoStartMode="SetStartState" />
+                        </dxc:CandleStickSeries2D.Indicators>
+                        <!--#endregion-->
+                    </dxc:CandleStickSeries2D>
+                </dxc:XYDiagram2D.Series>
+            </dxc:XYDiagram2D>
+        </dxc:ChartControl.Diagram>
+        <!--#region Legends and Titles-->
+        <dxc:ChartControl.Legends>
+            <dxc:Legend x:Name="bollingerBandsLegend" HorizontalPosition="Left" />
+            <dxc:Legend x:Name="massIndexLegend" HorizontalPosition="Left" DockTarget="{Binding ElementName=massIndexPane}" />
+            <dxc:Legend x:Name="standardDeviationLegend" HorizontalPosition="Left" DockTarget="{Binding ElementName=standardDeviationPane}" />
+        </dxc:ChartControl.Legends>
+        <dxc:ChartControl.Titles>
+            <dxc:Title Dock="Top" HorizontalAlignment="Center">
+                USDJPY Daily
+            </dxc:Title>
+        </dxc:ChartControl.Titles>
+        <!--#endregion-->
+    </dxc:ChartControl>
+</local:ChartsDemoModule>

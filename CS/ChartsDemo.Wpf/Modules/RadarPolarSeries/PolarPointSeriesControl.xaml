@@ -1,0 +1,88 @@
+﻿<local:ChartsDemoModule x:Class="ChartsDemo.PolarPointSeriesControl"
+                        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                        xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts"
+                        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+                        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+                        xmlns:local="clr-namespace:ChartsDemo"
+                        DataContext="{DXBinding Expr='$local:ChartViewModelFactory.CreatePolarViewModel()'}"
+                        ModuleLoaded="{DXEvent @s.ActualChart.Animate()}">
+    <DockPanel>
+        <local:ChartsDemoRibbon DockPanel.Dock="Top" Chart="{x:Reference chart}" />
+        <!--#region Options-->
+        <ScrollViewer HorizontalScrollBarVisibility="Disabled"
+                      VerticalScrollBarVisibility="Auto"
+                      Name="PART_Options"
+                      DockPanel.Dock="Right"
+                      dx:ScrollBarExtensions.ScrollBarMode="TouchOverlap"
+                      Focusable="False">
+            <StackPanel Margin="12,0,12,12" MinWidth="210">
+                <GroupBox Header="Function" Margin="0,5,0,0">
+                    <dxe:ListBoxEdit Name="lbFunction"
+                                     Background="{x:Null}"
+                                     ShowBorder="False"
+                                     ItemsSource="{Binding Sources}"
+                                     SelectedItem="{Binding SelectedSource}"
+                                     DisplayMember="Description"
+                                     ValueMember="DataSource">
+                        <dxe:ListBoxEdit.StyleSettings>
+                            <dxe:RadioListBoxEditStyleSettings />
+                        </dxe:ListBoxEdit.StyleSettings>
+                    </dxe:ListBoxEdit>
+                </GroupBox>
+                <GroupBox Header="Shape Style" Margin="0,5,0,0">
+                    <dxe:ListBoxEdit Name="lbShapeStyle"
+                                     Background="{x:Null}"
+                                     ShowBorder="False"
+                                     ItemsSource="{dxe:EnumItemsSource EnumType=dxc:CircularDiagramShapeStyle}"
+                                     EditValue="{x:Static dxc:CircularDiagramShapeStyle.Circle}">
+                        <dxe:ListBoxEdit.StyleSettings>
+                            <dxe:RadioListBoxEditStyleSettings />
+                        </dxe:ListBoxEdit.StyleSettings>
+                    </dxe:ListBoxEdit>
+                </GroupBox>
+                <GroupBox Header="Rotation Direction" Margin="0,5,0,0">
+                    <dxe:ListBoxEdit Name="lbRotationDirection"
+                                     Background="{x:Null}"
+                                     ShowBorder="False"
+                                     ItemsSource="{dxe:EnumItemsSource EnumType=dxc:CircularDiagramRotationDirection}"
+                                     EditValue="{x:Static dxc:CircularDiagramRotationDirection.Counterclockwise}">
+                        <dxe:ListBoxEdit.StyleSettings>
+                            <dxe:RadioListBoxEditStyleSettings />
+                        </dxe:ListBoxEdit.StyleSettings>
+                    </dxe:ListBoxEdit>
+                </GroupBox>
+                <GroupBox Header="Start Angle" Margin="0,5,0,0">
+                    <StackPanel MinWidth="150">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Text="0" HorizontalAlignment="Left" />
+                            <TextBlock Grid.Column="1" Text="180" HorizontalAlignment="Center" />
+                            <TextBlock Grid.Column="2" Text="360" HorizontalAlignment="Right" />
+                        </Grid>
+                        <dxe:TrackBarEdit Name="slStartAngle" Value="0" Minimum="0" Maximum="360" TickPlacement="None" />
+                    </StackPanel>
+                </GroupBox>
+            </StackPanel>
+        </ScrollViewer>
+        <!--#endregion-->
+        <dxc:ChartControl Name="chart" BorderThickness="0" AnimationMode="OnLoad">
+            <dxc:PolarDiagram2D StartAngle="{Binding ElementName=slStartAngle, Path=Value}"
+                                ShapeStyle="{Binding ElementName=lbShapeStyle, Path=EditValue}"
+                                RotationDirection="{Binding ElementName=lbRotationDirection, Path=EditValue}">
+                <dxc:PolarPointSeries2D DataSource="{Binding SelectedSource.DataSource}"
+                                        ArgumentDataMember="X"
+                                        ValueDataMember="Y1"
+                                        ToolTipPointPattern="{}{A:F0}; {V:F2}"
+                                        AnimationAutoStartMode="SetStartState" />
+            </dxc:PolarDiagram2D>
+            <dxc:ChartControl.Titles>
+                <dxc:Title HorizontalAlignment="Center">Function in polar coordinates</dxc:Title>
+            </dxc:ChartControl.Titles>
+        </dxc:ChartControl>
+    </DockPanel>
+</local:ChartsDemoModule>

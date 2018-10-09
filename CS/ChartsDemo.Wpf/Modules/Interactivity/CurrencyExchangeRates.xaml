@@ -1,0 +1,85 @@
+﻿<local:ChartsDemoModule x:Class="ChartsDemo.CurrencyExchangeRates"
+                        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                        xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts"
+                        xmlns:dxcr="http://schemas.devexpress.com/winfx/2008/xaml/charts/rangecontrolclient"
+                        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+                        xmlns:local="clr-namespace:ChartsDemo">
+    <!--#region Resources-->
+    <local:ChartsDemoModule.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/ChartsDemo;component/Themes/Common.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </local:ChartsDemoModule.Resources>
+    <!--#endregion-->
+    <DockPanel>
+        <local:ChartsDemoRibbon DockPanel.Dock="Top" Chart="{x:Reference chart}" />
+        <Grid>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.75*" />
+                <RowDefinition Height="0.25*" />
+            </Grid.RowDefinitions>
+
+            <dxc:ChartControl Name="chart" BorderThickness="0" IsManipulationEnabled="True" Grid.Row="0">
+                <dxc:ChartControl.Diagram>
+                    <dxc:XYDiagram2D DependentAxesYRange="True" EnableAxisXNavigation="True">
+                        <dxc:XYDiagram2D.AxisY>
+                            <dxc:AxisY2D x:Name="AxisY">
+                                <dxc:AxisY2D.Label>
+                                    <dxc:AxisLabel TextPattern="{}{V}" />
+                                </dxc:AxisY2D.Label>
+                            </dxc:AxisY2D>
+                        </dxc:XYDiagram2D.AxisY>
+                        <dxc:XYDiagram2D.AxisX>
+                            <dxc:AxisX2D x:Name="AxisX">
+                                <dxc:AxisX2D.VisualRange>
+                                    <dxc:Range MinValue="1/1/2014" MaxValue="10/23/2016" />
+                                </dxc:AxisX2D.VisualRange>
+                                <dxc:AxisX2D.DateTimeScaleOptions>
+                                    <dxc:AutomaticDateTimeScaleOptions />
+                                </dxc:AxisX2D.DateTimeScaleOptions>
+                            </dxc:AxisX2D>
+                        </dxc:XYDiagram2D.AxisX>
+                        <dxc:XYDiagram2D.Series>
+                            <dxc:LineSeries2D DataSource="{x:Static local:ExchangeRatesModel.GbpUsdRate}"
+                                              ArgumentDataMember="TradeDate"
+                                              ValueDataMember="Price"
+                                              ArgumentScaleType="DateTime"
+                                              MarkerVisible="False"
+                                              DisplayName="GBPUSD"
+                                              CrosshairLabelPattern="{}{S} : {V:F4}" />
+                            <dxc:LineSeries2D DataSource="{x:Static local:ExchangeRatesModel.EurUsdRate}"
+                                              ArgumentDataMember="TradeDate"
+                                              ValueDataMember="Price"
+                                              ArgumentScaleType="DateTime"
+                                              MarkerVisible="False"
+                                              DisplayName="EURUSD"
+                                              CrosshairLabelPattern="{}{S} : {V:F4}" />
+                        </dxc:XYDiagram2D.Series>
+                    </dxc:XYDiagram2D>
+                </dxc:ChartControl.Diagram>
+                <dxc:ChartControl.Legend>
+                    <dxc:Legend HorizontalPosition="Right" VerticalPosition="Top" />
+                </dxc:ChartControl.Legend>
+            </dxc:ChartControl>
+
+            <dxe:RangeControl Grid.Row="1" AllowZoom="False">
+                <dxe:RangeControl.Client>
+                    <dxcr:ChartBoundRangeControlClient Chart="{Binding ElementName=chart}" ThumbLabelFormatString="{}{0:dd MMM yyyy}">
+                        <dxcr:ChartBoundRangeControlClient.ScaleOptions>
+                            <dxcr:ScaleOptions>
+                                <dxcr:ScaleOptions.SnapBehavior>
+                                    <dxcr:ManualSnapBehavior Alignment="Year" />
+                                </dxcr:ScaleOptions.SnapBehavior>
+                            </dxcr:ScaleOptions>
+                        </dxcr:ChartBoundRangeControlClient.ScaleOptions>
+                    </dxcr:ChartBoundRangeControlClient>
+                </dxe:RangeControl.Client>
+            </dxe:RangeControl>
+
+        </Grid>
+    </DockPanel>
+</local:ChartsDemoModule>

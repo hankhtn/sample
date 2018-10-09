@@ -1,0 +1,68 @@
+﻿<local:EditorsDemoModule x:Class="EditorsDemo.RangeControlFilteringModule"
+                         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                         xmlns:local="clr-namespace:EditorsDemo"
+                         xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+                         xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+                         xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+                         xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
+                         DataContext="{dxmvvm:ViewModelSource Type=local:RangeControlFilteringViewModel}"
+                         mc:Ignorable="d">
+    <DockPanel>
+        <StackPanel Name="PART_Options" DockPanel.Dock="Right" MaxWidth="230" Margin="12" MinWidth="210">
+            <dx:WcfInstantFeedbackDataSource x:Name="WcfInstantFeedbackDataSource"
+                                             KeyExpression="Oid"
+                                             DataServiceContext="{Binding ElementName=grid, Path=DataContext.WcfSCService}"
+                                             Query="{Binding ElementName=grid, Path=DataContext.WcfSCService.SCIssuesDemo}"
+                                             UseExtendedDataQuery="true" />
+            <local:InternetConnectionControl />
+        </StackPanel>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="200" />
+            </Grid.RowDefinitions>
+            <dxg:GridControl Margin="20"
+                             x:Name="grid"
+                             ItemsSource="{Binding Path=Data, ElementName=WcfInstantFeedbackDataSource}"
+                             FilterString="{Binding FilterString, Mode=TwoWay}">
+                <dxg:GridControl.Columns>
+                    <dxg:GridColumn FieldName="ID" Header="ID" AllowColumnFiltering="False" AllowGrouping="False" FixedWidth="True" Width="100" />
+                    <dxg:GridColumn FieldName="TechnologyName" Header="Technology" FixedWidth="True" Width="100" />
+                    <dxg:GridColumn FieldName="ProductName" Header="Product" FixedWidth="True" Width="150" />
+                    <dxg:GridColumn FieldName="Subject" Header="Subject" AllowColumnFiltering="False" AllowSorting="False" AllowGrouping="False" />
+                    <dxg:GridColumn FieldName="CreatedOn" Header="Created On" AllowColumnFiltering="False" AllowGrouping="False" FixedWidth="True" Width="100" />
+                    <dxg:GridColumn FieldName="Urgent" Header="Urgent" AllowColumnFiltering="False" AllowGrouping="False" FixedWidth="True" Width="50" />
+                </dxg:GridControl.Columns>
+                <dxg:GridControl.View>
+                    <dxg:TableView x:Name="view"
+                                   WaitIndicatorType="Panel"
+                                   AllowCascadeUpdate="True"
+                                   AllowPerPixelScrolling="True"
+                                   NavigationStyle="Row"
+                                   AutoWidth="True"
+                                   ShowFilterPanelMode="Never" />
+                </dxg:GridControl.View>
+            </dxg:GridControl>
+            <dxe:RangeControl x:Name="rangeControl"
+                              Grid.Row="1"
+                              Height="150"
+                              VerticalAlignment="Bottom"
+                              Margin="20"
+                              RangeStart="{Binding StartDate, Mode=TwoWay}"
+                              RangeEnd="{Binding EndDate, Mode=TwoWay}"
+                              SelectionRangeStart="{Binding SelectedStart, Mode=TwoWay}"
+                              SelectionRangeEnd="{Binding SelectedEnd, Mode=TwoWay}">
+                <dxe:CalendarClient FontSize="17">
+                    <dxe:CalendarClient.IntervalFactories>
+                        <dxe:YearIntervalFactory />
+                        <dxe:QuarterIntervalFactory />
+                        <dxe:MonthIntervalFactory />
+                    </dxe:CalendarClient.IntervalFactories>
+                </dxe:CalendarClient>
+            </dxe:RangeControl>
+        </Grid>
+    </DockPanel>
+</local:EditorsDemoModule>

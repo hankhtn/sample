@@ -1,0 +1,69 @@
+﻿<local:ChartsDemoModule x:Class="ChartsDemo.StackedArea3DControl"
+                        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                        xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts"
+                        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+                        xmlns:local="clr-namespace:ChartsDemo">
+    <local:ChartsDemoModule.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/ChartsDemo;component/Themes/Common.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <Storyboard x:Key="InitialAnimation" TargetProperty="Opacity" TargetName="chart">
+                <DoubleAnimation From="0" To="1" Duration="0:0:2" />
+            </Storyboard>
+        </ResourceDictionary>
+    </local:ChartsDemoModule.Resources>
+    <local:ChartsDemoModule.Triggers>
+        <EventTrigger RoutedEvent="local:ChartsDemoModule.ModuleLoaded">
+            <EventTrigger.Actions>
+                <BeginStoryboard Storyboard="{StaticResource InitialAnimation}" />
+            </EventTrigger.Actions>
+        </EventTrigger>
+    </local:ChartsDemoModule.Triggers>
+    <DockPanel>
+        <local:ChartsDemoRibbon DockPanel.Dock="Top" Chart="{x:Reference chart}" />
+        <StackPanel Name="PART_Options" DockPanel.Dock="Right" Margin="12,8,12,12" MinWidth="210">
+            <dxe:CheckEdit Name="chbVisible" Content="Show Labels" IsChecked="False" />
+        </StackPanel>
+        <dxc:ChartControl Name="chart" Opacity="0" BorderThickness="0" IsManipulationEnabled="True" ToolTipEnabled="False" DataSource="{Binding Data}">
+            <dxc:ChartControl.DataContext>
+                <local:DevAVSalesByLast10Years />
+            </dxc:ChartControl.DataContext>
+            <dxc:ChartControl.Diagram>
+                <dxc:XYDiagram3D ZoomPercent="130" SeriesDataMember="Region">
+                    <dxc:XYDiagram3D.AxisY>
+                        <dxc:AxisY3D>
+                            <dxc:AxisY3D.Title>
+                                <dxc:AxisTitle Content="Millions of Dollars" />
+                            </dxc:AxisY3D.Title>
+                        </dxc:AxisY3D>
+                    </dxc:XYDiagram3D.AxisY>
+                    <dxc:XYDiagram3D.AxisX>
+                        <dxc:AxisX3D>
+                            <dxc:AxisX3D.WholeRange>
+                                <dxc:Range SideMarginsValue="0" />
+                            </dxc:AxisX3D.WholeRange>
+                        </dxc:AxisX3D>
+                    </dxc:XYDiagram3D.AxisX>
+                    <dxc:XYDiagram3D.SeriesTemplate>
+                        <dxc:AreaStackedSeries3D LabelsVisibility="{Binding ElementName=chbVisible, Path=IsChecked}"
+                                                 ArgumentDataMember="Year"
+                                                 ValueDataMember="Sales"
+                                                 AreaWidth="200">
+                            <dxc:AreaStackedSeries3D.Label>
+                                <dxc:SeriesLabel RenderMode="CustomShape" />
+                            </dxc:AreaStackedSeries3D.Label>
+                        </dxc:AreaStackedSeries3D>
+                    </dxc:XYDiagram3D.SeriesTemplate>
+                </dxc:XYDiagram3D>
+            </dxc:ChartControl.Diagram>
+            <dxc:ChartControl.Legend>
+                <dxc:Legend HorizontalPosition="Right" ReverseItems="True" />
+            </dxc:ChartControl.Legend>
+            <dxc:ChartControl.Titles>
+                <dxc:Title Dock="Top" HorizontalAlignment="Center">DevAV Sales</dxc:Title>
+            </dxc:ChartControl.Titles>
+        </dxc:ChartControl>
+    </DockPanel>
+</local:ChartsDemoModule>

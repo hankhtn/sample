@@ -1,0 +1,39 @@
+﻿<UserControl x:Class="DevExpress.StockMarketTrader.SparklineTileControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+             mc:Ignorable="d"
+             d:DesignHeight="300" d:DesignWidth="300" Background="#FF900A">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <dxe:SparklineEdit ShowBorder="False" EditValue="{Binding Source}" PointValueMember="Price" PointArgumentMember="Date">
+            <dxe:SparklineEdit.StyleSettings>
+                <dxe:AreaSparklineStyleSettings ShowMarkers="False" Brush="#FFBD6A"/>
+            </dxe:SparklineEdit.StyleSettings>
+        </dxe:SparklineEdit>
+        <Border Grid.Row="1" BorderThickness="0" Margin="0,-1,0,0" VerticalAlignment="Top" Height="1" Background="#FFBD6A"/>
+        <Grid x:Name="textContainer" Grid.Row="1" Margin="0,5,8,5" UseLayoutRounding="True" VerticalAlignment="Bottom">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="12"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Foreground="White" HorizontalAlignment="Right" FontSize="10" VerticalAlignment="Top" Text="{Binding CompanyIndex}" />
+                <Grid Grid.Row="1" HorizontalAlignment="Right">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Foreground="White" FontSize="12" Text="{Binding Arrow}" VerticalAlignment="Bottom"   Margin="0,0,2,2"/>
+                    <TextBlock Foreground="White" Grid.Column="1" FontSize="14" Text="{Binding Persent}" VerticalAlignment="Bottom"/>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>

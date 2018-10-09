@@ -1,0 +1,108 @@
+﻿<local:ChartsDemoModule x:Class="ChartsDemo.Point3DControl"
+                        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+                        xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts"
+                        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+                        xmlns:local="clr-namespace:ChartsDemo">
+    <!--#region Resources-->
+    <local:ChartsDemoModule.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/ChartsDemo;component/Themes/Common.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <local:Marker3DModelsProvider x:Key="markerModelsProvider" />
+        </ResourceDictionary>
+    </local:ChartsDemoModule.Resources>
+    <!--#endregion-->
+    <DockPanel>
+        <local:ChartsDemoRibbon DockPanel.Dock="Top" Chart="{x:Reference chart}" />
+        <!--#region Options-->
+        <ScrollViewer HorizontalScrollBarVisibility="Disabled"
+                      VerticalScrollBarVisibility="Auto"
+                      Name="PART_Options"
+                      DockPanel.Dock="Right"
+                      dx:ScrollBarExtensions.ScrollBarMode="TouchOverlap"
+                      Focusable="False">
+            <StackPanel Margin="12,8,12,12" MinWidth="210">
+                <dxe:CheckEdit Name="chbVisible" Content="Show Labels" IsChecked="False" />
+                <GroupBox Header="Position" Margin="0,5,0,0">
+                    <dxe:ListBoxEdit Name="lbPosition"
+                                     Background="{x:Null}"
+                                     ShowBorder="False"
+                                     SelectedIndex="0"
+                                     ItemsSource="{dxe:EnumItemsSource EnumType=dxc:Marker3DLabelPosition}"
+                                     IsEnabled="{Binding ElementName=chbVisible, Path=IsChecked}">
+                        <dxe:ListBoxEdit.StyleSettings>
+                            <dxe:RadioListBoxEditStyleSettings />
+                        </dxe:ListBoxEdit.StyleSettings>
+                    </dxe:ListBoxEdit>
+                </GroupBox>
+                <GroupBox Header="Marker Size" Margin="0,5,0,0">
+                    <StackPanel>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" Content="0.1" HorizontalAlignment="Left" />
+                            <Label Grid.Column="1" Content="0.55" HorizontalAlignment="Center" />
+                            <Label Grid.Column="2" Content="1" HorizontalAlignment="Right" />
+                        </Grid>
+                        <dxe:TrackBarEdit Name="slMarkerSize" Minimum="0.1" Maximum="1" TickPlacement="None" SmallStep="0.01" LargeStep="0.1" Value="0.5" />
+                    </StackPanel>
+                </GroupBox>
+                <GroupBox Header="Model" Margin="0,5,0,0">
+                    <dxe:ListBoxEdit Name="lbModel"
+                                     Background="{x:Null}"
+                                     ShowBorder="False"
+                                     DisplayMember="ModelName"
+                                     ItemsSource="{Binding Source={StaticResource markerModelsProvider}, Path=Predefined3DModels}"
+                                     SelectedItem="{Binding Source={StaticResource markerModelsProvider}, Path=PredefinedSphereMarker3DModel, Mode=OneTime}">
+                        <dxe:ListBoxEdit.StyleSettings>
+                            <dxe:RadioListBoxEditStyleSettings />
+                        </dxe:ListBoxEdit.StyleSettings>
+                    </dxe:ListBoxEdit>
+                </GroupBox>
+            </StackPanel>
+        </ScrollViewer>
+        <!--#endregion-->
+        <dxc:ChartControl Name="chart" BorderThickness="0" IsManipulationEnabled="True" DataSource="{Binding Data}">
+            <dxc:ChartControl.DataContext>
+                <local:DevAVSalesByYear />
+            </dxc:ChartControl.DataContext>
+            <dxc:ChartControl.Diagram>
+                <dxc:XYDiagram3D SeriesPadding="0.5" SeriesDistance="1" ZoomPercent="130" VerticalScrollPercent="10" SeriesDataMember="Year">
+                    <dxc:XYDiagram3D.AxisY>
+                        <dxc:AxisY3D>
+                            <dxc:AxisY3D.Title>
+                                <dxc:AxisTitle Content="Millions of Dollars" />
+                            </dxc:AxisY3D.Title>
+                        </dxc:AxisY3D>
+                    </dxc:XYDiagram3D.AxisY>
+                    <dxc:XYDiagram3D.SeriesTemplate>
+                        <dxc:PointSeries3D ArgumentDataMember="Region"
+                                           ValueDataMember="Sales"
+                                           ToolTipPointPattern="{}{A}: ${V}M"
+                                           Model="{Binding ElementName=lbModel, Path=EditValue}"
+                                           LabelsVisibility="{Binding ElementName=chbVisible, Path=IsChecked}"
+                                           MarkerSize="{Binding ElementName=slMarkerSize, Path=EditValue}">
+                            <dxc:PointSeries3D.Label>
+                                <dxc:SeriesLabel RenderMode="CustomShape"
+                                                 TextPattern="{}${V}M"
+                                                 dxc:MarkerSeries3D.LabelPosition="{Binding ElementName=lbPosition, Path=EditValue}" />
+                            </dxc:PointSeries3D.Label>
+                        </dxc:PointSeries3D>
+                    </dxc:XYDiagram3D.SeriesTemplate>
+                </dxc:XYDiagram3D>
+            </dxc:ChartControl.Diagram>
+            <dxc:ChartControl.Legend>
+                <dxc:Legend HorizontalPosition="Right" />
+            </dxc:ChartControl.Legend>
+            <dxc:ChartControl.Titles>
+                <dxc:Title Dock="Top" HorizontalAlignment="Center" FontSize="24">DevAV Sales by Year</dxc:Title>
+            </dxc:ChartControl.Titles>
+        </dxc:ChartControl>
+    </DockPanel>
+</local:ChartsDemoModule>

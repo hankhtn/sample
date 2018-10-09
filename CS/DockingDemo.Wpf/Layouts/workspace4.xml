@@ -1,0 +1,144 @@
+﻿<XtraSerializer version="1.0" application="DockLayoutManager">
+  <property name="#LayoutVersion" isnull="true" />
+  <property name="$DockLayoutManager" iskey="true" value="DockLayoutManager">
+    <property name="FloatingMode">Desktop</property>
+    <property name="Items" iskey="true" value="14">
+      <property name="Item1" isnull="true" iskey="true">
+        <property name="TypeName">LayoutGroup</property>
+        <property name="Appearance">~Xtra#NULL</property>
+        <property name="ParentCollectionName" isnull="true" />
+        <property name="ParentName" isnull="true" />
+        <property name="Orientation">Horizontal</property>
+        <property name="Name">dockItem1</property>
+      </property>
+      <property name="Item2" isnull="true" iskey="true">
+        <property name="Height">*</property>
+        <property name="TypeName">LayoutGroup</property>
+        <property name="Appearance">~Xtra#NULL</property>
+        <property name="ParentCollectionName" isnull="true" />
+        <property name="ParentName">dockItem1</property>
+        <property name="Width">538*</property>
+        <property name="AllowSplitters">true</property>
+        <property name="Orientation">Horizontal</property>
+        <property name="Name">dockItem2</property>
+      </property>
+      <property name="Item3" isnull="true" iskey="true">
+        <property name="ParentCollectionName" isnull="true" />
+        <property name="ParentName">dockItem2</property>
+        <property name="Appearance">~Xtra#NULL</property>
+        <property name="TypeName">DocumentGroup</property>
+        <property name="ClosePageButtonShowMode">InAllTabPageHeaders</property>
+        <property name="SelectedTabIndex">0</property>
+        <property name="Name">documentContainer</property>
+      </property>
+      <property name="Item4" isnull="true" iskey="true">
+        <property name="HeaderBarContainerControlName">barContainerControl2</property>
+        <property name="ToolTip" type="System.String">C:\Documents\AboutDXDocking.doc</property>
+        <property name="ParentCollectionName" isnull="true" />
+        <property name="TypeName">DocumentPanel</property>
+        <property name="Appearance">~Xtra#NULL</property>
+        <property name="ParentName">documentContainer</property>
+        <property name="Description">Text file</property>
+        <property name="FooterDescription">C:\Documents\AboutDXDocking.doc</property>
+        <property name="Caption">About DXDocking</property>
+        <property name="Name">document1</property>
+      </property>
+      <property name="Item5" isnull="true" iskey="true">
+        <property name="ToolTip" type="System.String">C:\Documents\doc1.doc</property>
+        <property name="ParentCollectionName" isnull="true" />
+        <property name="TypeName">DocumentPanel</property>
+        <property name="Appearance">~Xtra#NULL</property>
+        <property name="ParentName">documentContainer</property>
+        <property name="Description">Text file</property>
+        <property name="FooterDescription">C:\Documents\doc1.doc</property>
+        <property name="Caption">Document1</property>
+        <property name="Name">document2</property>
+      </property>
+      <property name="Item6" isnull="true" iskey="true">
+        <property name="ToolTip" type="System.String">C:\Documents\doc2.doc</property>
+        <property name="ParentCollectionName" isnull="true" />
+        <property name="TypeName">DocumentPanel</property>
+        <property name="Appearance">~Xtra#NULL</property>
+        <property name="ParentName">documentContainer</property>
+        <property name="Description">Text file</property>
+        <property name="FooterDescription">C:\Documents\doc2.doc</property>
+        <property name="Caption">Document2</property>
+        <property name="Name">document3</property>
+      </property>
+      <property name="Item7" isnull="true" iskey="true">
+        <property name="ParentCollectionName" isnull="true" />
+        <property name="ParentName">dockItem2</property>
+        <property name="FloatSize">240,374.800202020202</property>
+        <property name="Width">142</property>
+        <property name="Appearance">~Xtra#NULL</property>
+        <property name="TypeName">TabbedGroup</property>
+        <property name="SelectedTabIndex">2</property>
+        <property name="Name">tabbedGroup2</property>
+      </property>
+      <property name="Item8" isnull="true" iskey="true">
+        <property name="HeaderBarContainerControlName">SolutionBar</property>
+        <property name="ParentName">tabbedGroup2</property>
+        <property name="TypeName">LayoutPanel</property>
+        <property name="ParentCollectionName" isnull="true" />
+        <property name="Appearance">~Xtra#NULL</property>
+        <property name="Name">solutionPanel</property>
+        <property name="Caption">Solution Explorer</property>
+      </property>
+      <property name="Item9" isnull="true" iskey="true">
+        <property name="HeaderBarContainerControlName">barContainerControl3</property>
+        <property name="ParentName">tabbedGroup2</property>
+        <property name="TypeName">LayoutPanel</property>
+        <property name="ParentCollectionName" isnull="true" />
+        <property name="Appearance">~Xtra#NULL</property>
+        <property name="Name">propertiesPanel</property>
+        <property name="Caption">Properties</property>
+      </property>
+      <property name="Item10" isnull="true" iskey="true">
+        <property name="HeaderBarContainerControlName">barContainerControl1</property>
+        <property name="ParentName">tabbedGroup2</property>
+        <property name="TypeName">LayoutPanel</property>
+        <property name="ParentCollectionName" isnull="true" />
+        <property name="Appearance">~Xtra#NULL</property>
+        <property name="FloatSize">160,195.800202020202</property>
+        <property name="Name">toolboxPanel</property>
+        <property name="Caption">Toolbox</property>
+      </property>
+      <property name="Item11" isnull="true" iskey="true">
+        <property name="ParentCollectionName" isnull="true" />
+        <property name="ParentName">dockItem1</property>
+        <property name="FloatSize">416,150</property>
+        <property name="Width">118*</property>
+        <property name="Height">150</property>
+        <property name="Appearance">~Xtra#NULL</property>
+        <property name="TypeName">TabbedGroup</property>
+        <property name="SelectedTabIndex">0</property>
+        <property name="Name">tabbedGroup1</property>
+      </property>
+      <property name="Item12" isnull="true" iskey="true">
+        <property name="HeaderBarContainerControlName">ErrorsBar</property>
+        <property name="ParentName">tabbedGroup1</property>
+        <property name="TypeName">LayoutPanel</property>
+        <property name="ParentCollectionName" isnull="true" />
+        <property name="Appearance">~Xtra#NULL</property>
+        <property name="Name">errorsPanel</property>
+        <property name="Caption">Error List</property>
+      </property>
+      <property name="Item13" isnull="true" iskey="true">
+        <property name="ParentName">tabbedGroup1</property>
+        <property name="TypeName">LayoutPanel</property>
+        <property name="ParentCollectionName" isnull="true" />
+        <property name="Appearance">~Xtra#NULL</property>
+        <property name="Name">outputPanel</property>
+        <property name="Caption">Output</property>
+      </property>
+      <property name="Item14" isnull="true" iskey="true">
+        <property name="ParentName">tabbedGroup1</property>
+        <property name="TypeName">LayoutPanel</property>
+        <property name="ParentCollectionName" isnull="true" />
+        <property name="Appearance">~Xtra#NULL</property>
+        <property name="Name">findPanel</property>
+        <property name="Caption">Find Results</property>
+      </property>
+    </property>
+  </property>
+</XtraSerializer>

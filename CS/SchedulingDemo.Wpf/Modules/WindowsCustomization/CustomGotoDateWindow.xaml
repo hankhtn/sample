@@ -1,0 +1,38 @@
+﻿<dx:DXDialogWindow x:Class="SchedulingDemo.CustomGotoDateWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+        xmlns:dxscht="http://schemas.devexpress.com/winfx/2008/xaml/scheduling/themekeys"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Style="{DynamicResource  Window}">
+    <dx:DXDialogWindow.Resources>
+        <Style x:Key="Window" TargetType="dx:DXDialogWindow">
+            <Setter Property="Title" Value="Go To Date"/>
+            <Setter Property="SizeToContent" Value="Height"/>
+            <Setter Property="Width" Value="300"/>
+            <Setter Property="ResizeMode" Value="NoResize"/>
+            <Style.Triggers>
+                <Trigger Property="dx:ThemeManager.IsTouchEnabled" Value="True">
+                    <Setter Property="SizeToContent" Value="Height"/>
+                    <Setter Property="Width" Value="470"/>
+                    <Setter Property="ResizeMode" Value="NoResize"/>
+                </Trigger>
+                <Trigger Property="dx:ThemeManager.IsTouchlineTheme" Value="True">
+                    <Setter Property="SizeToContent" Value="Height"/>
+                    <Setter Property="Width" Value="470"/>
+                    <Setter Property="ResizeMode" Value="NoResize"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </dx:DXDialogWindow.Resources>
+    <DockPanel>
+        <dxe:DateNavigator ColumnCount="1" RowCount="1" ShowTodayButton="False" IsMultiSelect="False" FocusedDate="{Binding Date, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+    </DockPanel>
+    <dx:DXDialogWindow.FooterButtons>
+        <dx:DialogButton HorizontalAlignment="Center" Style="{DynamicResource {dxscht:GotoDateWindowThemeKey ResourceKey=Button_Ok}}"/>
+        <dx:DialogButton HorizontalAlignment="Center" Style="{DynamicResource {dxscht:GotoDateWindowThemeKey ResourceKey=Button_Cancel}}"/>
+    </dx:DXDialogWindow.FooterButtons>
+</dx:DXDialogWindow>

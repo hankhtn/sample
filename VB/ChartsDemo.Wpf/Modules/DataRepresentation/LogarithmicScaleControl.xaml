@@ -1,0 +1,128 @@
+﻿<local:ChartsDemoModule x:Class="ChartsDemo.LogarithmicScaleControl"
+                        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+                        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+                        xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
+                        xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts"
+                        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+                        xmlns:local="clr-namespace:ChartsDemo"
+                        ModuleLoaded="AnimateChart">
+    <!--#region Resources-->
+    <local:ChartsDemoModule.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/ChartsDemo;component/Themes/Common.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <dxmvvm:BooleanNegationConverter x:Key="InvertedBoolConverter" />
+            <sys:String x:Key="crosshairLabelPattern" xml:space="preserve">Region: {S}
+Population: {V}</sys:String>
+        </ResourceDictionary>
+    </local:ChartsDemoModule.Resources>
+    <!--#endregion-->
+    <DockPanel>
+        <local:ChartsDemoRibbon DockPanel.Dock="Top" Chart="{x:Reference chart}" />
+        <!--#region Options-->
+        <ScrollViewer HorizontalScrollBarVisibility="Disabled"
+                      VerticalScrollBarVisibility="Auto"
+                      Name="PART_Options"
+                      DockPanel.Dock="Right"
+                      dx:ScrollBarExtensions.ScrollBarMode="TouchOverlap"
+                      Focusable="False">
+            <StackPanel Margin="12,0,12,12" MinWidth="210">
+                <GroupBox Header="Logarithmic" Margin="0,5,0,0">
+                    <StackPanel>
+                        <dxe:CheckEdit Name="chbLogarithmic" Content="Enabled" Margin="0,0,0,10" IsChecked="True" Checked="AnimateChart" Unchecked="AnimateChart" />
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="Base:" VerticalAlignment="Center" Grid.Column="0" />
+                            <dxe:ComboBoxEdit Name="cbeBase"
+                                              SelectedIndex="2"
+                                              IsTextEditable="False"
+                                              HorizontalAlignment="Right"
+                                              IsEnabled="{Binding ElementName=chbLogarithmic, Path=IsChecked}"
+                                              Width="55"
+                                              Grid.ColumnSpan="2"
+                                              SelectedIndexChanged="AnimateChart">
+                                <dxe:ComboBoxEdit.Items>
+                                    <sys:String>2</sys:String>
+                                    <sys:String>5</sys:String>
+                                    <sys:String>10</sys:String>
+                                    <sys:String>20</sys:String>
+                                    <sys:String>50</sys:String>
+                                    <sys:String>100</sys:String>
+                                </dxe:ComboBoxEdit.Items>
+                            </dxe:ComboBoxEdit>
+                        </Grid>
+                    </StackPanel>
+                </GroupBox>
+                <dxe:CheckEdit Name="chbVisible" Content="Show Labels" Margin="0,8,0,0" IsChecked="True" />
+            </StackPanel>
+        </ScrollViewer>
+        <!--#endregion-->
+        <dxc:ChartControl Name="chart"
+                          BorderThickness="0"
+                          AnimationMode="OnLoad"
+                          CrosshairEnabled="{Binding ElementName=chbVisible, Path=IsChecked, Converter={StaticResource InvertedBoolConverter}}">
+            <dxc:ChartControl.CrosshairOptions>
+                <dxc:CrosshairOptions GroupHeaderPattern="{}Year: {A}" />
+            </dxc:ChartControl.CrosshairOptions>
+            <dxc:ChartControl.ToolTipOptions>
+                <dxc:ToolTipOptions ShowForSeries="True">
+                    <dxc:ToolTipOptions.ToolTipPosition>
+                        <dxc:ToolTipRelativePosition />
+                    </dxc:ToolTipOptions.ToolTipPosition>
+                </dxc:ToolTipOptions>
+            </dxc:ChartControl.ToolTipOptions>
+            <dxc:ChartControl.Diagram>
+                <dxc:XYDiagram2D SeriesItemsSource="{x:Static local:RegionPopulationData.Data}">
+                    <dxc:XYDiagram2D.AxisY>
+                        <dxc:AxisY2D GridLinesMinorVisible="True"
+                                     Logarithmic="{Binding ElementName=chbLogarithmic, Path=IsChecked}"
+                                     LogarithmicBase="{Binding ElementName=cbeBase, Path=SelectedItem}">
+                            <dxc:AxisY2D.WholeRange>
+                                <dxc:Range dxc:AxisY2D.AlwaysShowZeroLevel="False" />
+                            </dxc:AxisY2D.WholeRange>
+                            <dxc:AxisY2D.Title>
+                                <dxc:AxisTitle Content="Population mid-year, millions" />
+                            </dxc:AxisY2D.Title>
+                        </dxc:AxisY2D>
+                    </dxc:XYDiagram2D.AxisY>
+                    <dxc:XYDiagram2D.AxisX>
+                        <dxc:AxisX2D GridLinesVisible="True" />
+                    </dxc:XYDiagram2D.AxisX>
+                    <dxc:XYDiagram2D.SeriesItemTemplate>
+                        <DataTemplate DataType="{x:Type local:RegionPopulation}">
+                            <dxc:LineSeries2D DisplayName="{Binding Region}"
+                                              DataSource="{Binding Items}"
+                                              ArgumentDataMember="Year"
+                                              ValueDataMember="Population"
+                                              AnimationAutoStartMode="SetStartState"
+                                              CrosshairLabelPattern="{StaticResource crosshairLabelPattern}">
+                                <dxc:LineSeries2D.Label>
+                                    <dxc:SeriesLabel ConnectorVisible="False"
+                                                     Visible="{Binding Source={x:Reference chbVisible}, Path=IsChecked}"
+                                                     ResolveOverlappingMode="Default"
+                                                     dxc:MarkerSeries2D.Angle="90" />
+                                </dxc:LineSeries2D.Label>
+                            </dxc:LineSeries2D>
+                        </DataTemplate>
+                    </dxc:XYDiagram2D.SeriesItemTemplate>
+                </dxc:XYDiagram2D>
+            </dxc:ChartControl.Diagram>
+            <dxc:ChartControl.Legend>
+                <dxc:Legend />
+            </dxc:ChartControl.Legend>
+            <dxc:ChartControl.Titles>
+                <dxc:Title Dock="Top" HorizontalAlignment="Center" Content="Historic, Current and Future Population" />
+                <dxc:Title Dock="Bottom" HorizontalAlignment="Right" FontSize="12" Foreground="Silver" Margin="0,10,0,0" Content="From www.geohive.com" />
+            </dxc:ChartControl.Titles>
+            <dxc:ChartControl.ToolTipController>
+                <dxc:ChartToolTipController AutoPopDelay="0" InitialDelay="0" />
+            </dxc:ChartControl.ToolTipController>
+        </dxc:ChartControl>
+    </DockPanel>
+</local:ChartsDemoModule>

@@ -1,0 +1,2404 @@
+﻿<XtraSerializer version="1.0" application="DockLayoutManager">
+  <property name="#LayoutVersion" isnull="true" />
+  <property name="$DockLayoutManager" iskey="true" value="DockLayoutManager">
+    <property name="ManualClosedPanelsBarVisibility">false</property>
+    <property name="FloatingMode">Desktop</property>
+    <property name="Items" iskey="true" value="9">
+      <property name="Item1" isnull="true" iskey="true">
+        <property name="ParentCollectionName" isnull="true" />
+        <property name="TypeName">LayoutGroup</property>
+        <property name="ParentName" isnull="true" />
+        <property name="SerializableDockSituation" iskey="true" value="0" />
+        <property name="SerializableSelectedTabPageIndex">-1</property>
+        <property name="Orientation">Vertical</property>
+        <property name="Name">groupRoot</property>
+      </property>
+      <property name="Item2" isnull="true" iskey="true">
+        <property name="ParentName">groupRoot</property>
+        <property name="ParentCollectionName" isnull="true" />
+        <property name="TypeName">LayoutGroup</property>
+        <property name="ItemHeight">*</property>
+        <property name="SerializableDockSituation" iskey="true" value="0" />
+        <property name="SerializableSelectedTabPageIndex">-1</property>
+        <property name="Orientation">Horizontal</property>
+        <property name="Name">groupMainUI</property>
+      </property>
+      <property name="Item3" isnull="true" iskey="true">
+        <property name="ParentName">groupMainUI</property>
+        <property name="ParentCollectionName" isnull="true" />
+        <property name="TypeName">LayoutGroup</property>
+        <property name="ItemWidth">45.3982300884956*</property>
+        <property name="SerializableDockSituation" iskey="true" value="0" />
+        <property name="SerializableSelectedTabPageIndex">-1</property>
+        <property name="Orientation">Vertical</property>
+        <property name="Name">groupGrids</property>
+      </property>
+      <property name="Item4" isnull="true" iskey="true">
+        <property name="SerializableDockSituation" iskey="true" value="0" />
+        <property name="ParentCollectionName" isnull="true" />
+        <property name="TypeName">LayoutPanel</property>
+        <property name="ParentName">groupGrids</property>
+        <property name="SerializableFloatingOffset">0,0</property>
+        <property name="SerializableFloatingBounds">0,0,0,0</property>
+        <property name="SerializableIsMaximized">false</property>
+        <property name="ItemHeight">6.16279069767442*</property>
+        <property name="Name">panelVolumes</property>
+        <property name="Caption" type="System.String">Top Volumes</property>
+      </property>
+      <property name="Item5" isnull="true" iskey="true">
+        <property name="ParentName">groupGrids</property>
+        <property name="ParentCollectionName" isnull="true" />
+        <property name="TypeName">LayoutGroup</property>
+        <property name="ItemWidth">*</property>
+        <property name="ItemHeight">3.83720930232558*</property>
+        <property name="SerializableDockSituation" iskey="true" value="0" />
+        <property name="SerializableSelectedTabPageIndex">-1</property>
+        <property name="AllowSplitters">true</property>
+        <property name="Orientation">Horizontal</property>
+        <property name="Name">dockItem1</property>
+      </property>
+      <property name="Item6" isnull="true" iskey="true">
+        <property name="SerializableDockSituation" iskey="true" value="0" />
+        <property name="ParentCollectionName" isnull="true" />
+        <property name="TypeName">LayoutPanel</property>
+        <property name="ParentName">dockItem1</property>
+        <property name="ItemWidth">1.25468164794007*</property>
+        <property name="SerializableFloatingOffset">0,0</property>
+        <property name="SerializableFloatingBounds">0,0,0,0</property>
+        <property name="SerializableIsMaximized">false</property>
+        <property name="ItemHeight">5*</property>
+        <property name="Name">panelWatchList</property>
+        <property name="Caption" type="System.String">WatchList</property>
+      </property>
+      <property name="Item7" isnull="true" iskey="true">
+        <property name="IsActive">true</property>
+        <property name="SerializableDockSituation" iskey="true" value="0" />
+        <property name="ParentCollectionName" isnull="true" />
+        <property name="TypeName">LayoutPanel</property>
+        <property name="ParentName">dockItem1</property>
+        <property name="ItemWidth">0.745318352059925*</property>
+        <property name="SerializableFloatingOffset">0,0</property>
+        <property name="SerializableFloatingBounds">0,0,0,0</property>
+        <property name="SerializableIsMaximized">false</property>
+        <property name="ItemHeight">25*</property>
+        <property name="FloatSize">396,258</property>
+        <property name="Name">panelTransaction</property>
+        <property name="Caption" type="System.String">Transactions</property>
+      </property>
+      <property name="Item8" isnull="true" iskey="true">
+        <property name="ParentName">groupMainUI</property>
+        <property name="ParentCollectionName" isnull="true" />
+        <property name="TypeName">LayoutGroup</property>
+        <property name="ItemWidth">54.6017699115044*</property>
+        <property name="ItemHeight">Auto</property>
+        <property name="SerializableDockSituation" iskey="true" value="0" />
+        <property name="SerializableSelectedTabPageIndex">-1</property>
+        <property name="MinWidth">500</property>
+        <property name="MinHeight">350</property>
+        <property name="DestroyOnClosingChildren">true</property>
+        <property name="Name">groupStockChart</property>
+      </property>
+      <property name="Item9" isnull="true" iskey="true">
+        <property name="SerializableDockSituation" iskey="true" value="0" />
+        <property name="ParentCollectionName" isnull="true" />
+        <property name="TypeName">LayoutPanel</property>
+        <property name="ParentName">groupStockChart</property>
+        <property name="MinWidth">500</property>
+        <property name="ItemWidth">1.04222972972973*</property>
+        <property name="SerializableFloatingOffset">0,0</property>
+        <property name="SerializableFloatingBounds">0,0,0,0</property>
+        <property name="SerializableIsMaximized">false</property>
+        <property name="MinHeight">350</property>
+        <property name="Name">panelStockChart</property>
+        <property name="Caption" type="System.String">Chart</property>
+      </property>
+    </property>
+    <property name="RestoreLayoutOptions.FloatPanelsRestoreOffset" OwnerType="DevExpress.Xpf.Docking.RestoreLayoutOptions" DependencyPropertyType="System.Windows.Point">325,273</property>
+  </property>
+  <property name="$DockLayoutManager$ChartControl" iskey="true" value="DockLayoutManager$ChartControl">
+    <property name="Diagram" isnull="true" iskey="true">
+      <property name="Series" iskey="true" value="1">
+        <property name="Item1" isnull="true" iskey="true">
+          <property name="ValueDataMember">Volume</property>
+          <property name="Label" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesLabel</property>
+            <property name="FontSize">10</property>
+            <property name="TextPattern">{A}: {VP:P0}</property>
+            <property name="ResolveOverlappingMode">JustifyAllAroundPoint</property>
+          </property>
+          <property name="ToolTipPointPattern">
+            Argument: {A}
+            Value: {V}
+          </property>
+          <property name="TypeNameSerializable">PieSeries2D</property>
+          <property name="LabelsVisibility">true</property>
+          <property name="HoleRadiusPercent">40</property>
+          <property name="DataFilters" iskey="true" value="0" />
+          <property name="Titles" iskey="true" value="0" />
+          <property name="Model" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">BorderlessFlatPie2DModel</property>
+          </property>
+          <property name="Points" iskey="true" value="0" />
+          <property name="ArgumentDataMember">CompanyName</property>
+          <property name="ArgumentScaleType">Qualitative</property>
+        </property>
+      </property>
+      <property name="TypeNameSerializable">SimpleDiagram2D</property>
+      <property name="LayoutDirection">Horizontal</property>
+      <property name="Dimension">1</property>
+    </property>
+    <property name="Titles" iskey="true" value="0" />
+    <property name="Palette" isnull="true" iskey="true">
+      <property name="ColorsSerializable">#FFF78A09 #FF27D9A4 #FFCD5F95 #FF7565C7 #FF65A5C7</property>
+      <property name="TypeNameSerializable">CustomPalette</property>
+    </property>
+    <property name="ToolTipEnabled">false</property>
+  </property>
+  <property name="$DockLayoutManager$grid2" iskey="true" value="DockLayoutManager$grid2">
+    <property name="TotalSummary" iskey="true" value="0" />
+    <property name="Columns" iskey="true" value="5">
+      <property name="Item1" isnull="true" iskey="true">
+        <property name="VisibleIndex">0</property>
+        <property name="GridRow">0</property>
+        <property name="FieldName">CompanyName</property>
+        <property name="Width">80</property>
+        <property name="ActualWidth">80</property>
+      </property>
+      <property name="Item2" isnull="true" iskey="true">
+        <property name="VisibleIndex">1</property>
+        <property name="GridRow">0</property>
+        <property name="FieldName">Price</property>
+        <property name="Width">80</property>
+        <property name="ActualWidth">80</property>
+      </property>
+      <property name="Item3" isnull="true" iskey="true">
+        <property name="VisibleIndex">2</property>
+        <property name="GridRow">0</property>
+        <property name="FieldName">Volume</property>
+        <property name="Width">80</property>
+        <property name="ActualWidth">80</property>
+      </property>
+      <property name="Item4" isnull="true" iskey="true">
+        <property name="VisibleIndex">3</property>
+        <property name="GridRow">0</property>
+        <property name="FieldName">VolumeDynamics</property>
+        <property name="ActualWidth">NaN</property>
+      </property>
+      <property name="Item5" isnull="true" iskey="true">
+        <property name="Visible">false</property>
+        <property name="GridRow">0</property>
+        <property name="FieldName">TotalRise</property>
+        <property name="ActualWidth">NaN</property>
+      </property>
+    </property>
+    <property name="GroupSummary" iskey="true" value="0" />
+    <property name="SortInfo" iskey="true" value="0" />
+    <property name="GroupCount">0</property>
+    <property name="View" isnull="true" iskey="true">
+      <property name="ShowGroupPanel">false</property>
+      <property name="ColumnChooserState" isnull="true" iskey="true">
+        <property name="Size">220,250</property>
+        <property name="Location">172,-16</property>
+      </property>
+      <property name="FormatConditions" iskey="true" value="0" />
+    </property>
+    <property name="MRUFilters" iskey="true" value="0" />
+    <property name="GroupSummarySortInfo" iskey="true" value="0" />
+  </property>
+  <property name="$DockLayoutManager$grid1" iskey="true" value="DockLayoutManager$grid1">
+    <property name="TotalSummary" iskey="true" value="0" />
+    <property name="Columns" iskey="true" value="3">
+      <property name="Item1" isnull="true" iskey="true">
+        <property name="VisibleIndex">0</property>
+        <property name="GridRow">0</property>
+        <property name="FieldName">Ask</property>
+        <property name="ActualWidth">NaN</property>
+      </property>
+      <property name="Item2" isnull="true" iskey="true">
+        <property name="VisibleIndex">1</property>
+        <property name="GridRow">0</property>
+        <property name="FieldName">Price</property>
+        <property name="ActualWidth">NaN</property>
+      </property>
+      <property name="Item3" isnull="true" iskey="true">
+        <property name="VisibleIndex">2</property>
+        <property name="GridRow">0</property>
+        <property name="FieldName">Bid</property>
+        <property name="ActualWidth">NaN</property>
+      </property>
+    </property>
+    <property name="GroupSummary" iskey="true" value="0" />
+    <property name="SortInfo" iskey="true" value="1">
+      <property name="Item1" isnull="true" iskey="true">
+        <property name="SortOrder">Ascending</property>
+        <property name="FieldName">Price</property>
+      </property>
+    </property>
+    <property name="GroupCount">0</property>
+    <property name="View" isnull="true" iskey="true">
+      <property name="ShowGroupPanel">false</property>
+      <property name="ColumnChooserState" isnull="true" iskey="true">
+        <property name="Size">220,250</property>
+        <property name="Location">-34,-76</property>
+      </property>
+      <property name="FormatConditions" iskey="true" value="0" />
+    </property>
+    <property name="MRUFilters" iskey="true" value="0" />
+    <property name="GroupSummarySortInfo" iskey="true" value="0" />
+  </property>
+  <property name="$DockLayoutManager$manager2" iskey="true" value="DockLayoutManager$manager2">
+    <property name="Items" iskey="true" value="0" />
+    <property name="AllowCustomization">false</property>
+    <property name="AllowHotCustomization">false</property>
+    <property name="AllowQuickCustomization">false</property>
+    <property name="Bars" iskey="true" value="1">
+      <property name="Item1" isnull="true" iskey="true">
+        <property name="BarTypeName">DevExpress.Xpf.Bars.Bar</property>
+        <property name="ItemLinks" iskey="true" value="9">
+          <property name="Item1" isnull="true" iskey="true">
+            <property name="IsUserDefined">true</property>
+            <property name="LinkTypeName">DevExpress.Xpf.Bars.BarItemLink</property>
+            <property name="IsRemoved">false</property>
+            <property name="CommonBarItemCollectionLink">false</property>
+            <property name="SerializationName">bcCandleChartVisible</property>
+            <property name="IsLinkEnabled">true</property>
+            <property name="CreatedByCustomizationDialog">false</property>
+            <property name="BarItemName">bcCandleChartVisible</property>
+          </property>
+          <property name="Item2" isnull="true" iskey="true">
+            <property name="IsUserDefined">true</property>
+            <property name="LinkTypeName">DevExpress.Xpf.Bars.BarItemLink</property>
+            <property name="IsRemoved">false</property>
+            <property name="CommonBarItemCollectionLink">false</property>
+            <property name="SerializationName">bcBarsChartVisible</property>
+            <property name="IsLinkEnabled">true</property>
+            <property name="CreatedByCustomizationDialog">false</property>
+            <property name="BarItemName">bcBarsChartVisible</property>
+          </property>
+          <property name="Item3" isnull="true" iskey="true">
+            <property name="IsUserDefined">true</property>
+            <property name="LinkTypeName">DevExpress.Xpf.Bars.BarItemLinkSeparator</property>
+            <property name="IsRemoved">false</property>
+            <property name="CommonBarItemCollectionLink">false</property>
+            <property name="SerializationName" isnull="true" />
+            <property name="IsLinkEnabled">true</property>
+            <property name="CreatedByCustomizationDialog">false</property>
+          </property>
+          <property name="Item4" isnull="true" iskey="true">
+            <property name="IsUserDefined">true</property>
+            <property name="LinkTypeName">DevExpress.Xpf.Bars.BarItemLink</property>
+            <property name="IsRemoved">false</property>
+            <property name="CommonBarItemCollectionLink">false</property>
+            <property name="SerializationName">bcDisplayPeriod1</property>
+            <property name="IsLinkEnabled">true</property>
+            <property name="CreatedByCustomizationDialog">false</property>
+            <property name="BarItemName">bcDisplayPeriod1</property>
+          </property>
+          <property name="Item5" isnull="true" iskey="true">
+            <property name="IsUserDefined">true</property>
+            <property name="LinkTypeName">DevExpress.Xpf.Bars.BarItemLink</property>
+            <property name="IsRemoved">false</property>
+            <property name="CommonBarItemCollectionLink">false</property>
+            <property name="SerializationName">bcDisplayPeriod2</property>
+            <property name="IsLinkEnabled">true</property>
+            <property name="CreatedByCustomizationDialog">false</property>
+            <property name="BarItemName">bcDisplayPeriod2</property>
+          </property>
+          <property name="Item6" isnull="true" iskey="true">
+            <property name="IsUserDefined">true</property>
+            <property name="LinkTypeName">DevExpress.Xpf.Bars.BarItemLink</property>
+            <property name="IsRemoved">false</property>
+            <property name="CommonBarItemCollectionLink">false</property>
+            <property name="SerializationName">bcDisplayPeriod3</property>
+            <property name="IsLinkEnabled">true</property>
+            <property name="CreatedByCustomizationDialog">false</property>
+            <property name="BarItemName">bcDisplayPeriod3</property>
+          </property>
+          <property name="Item7" isnull="true" iskey="true">
+            <property name="IsUserDefined">true</property>
+            <property name="LinkTypeName">DevExpress.Xpf.Bars.BarItemLink</property>
+            <property name="IsRemoved">false</property>
+            <property name="CommonBarItemCollectionLink">false</property>
+            <property name="SerializationName">bcDisplayPeriod4</property>
+            <property name="IsLinkEnabled">true</property>
+            <property name="CreatedByCustomizationDialog">false</property>
+            <property name="BarItemName">bcDisplayPeriod4</property>
+          </property>
+          <property name="Item8" isnull="true" iskey="true">
+            <property name="IsUserDefined">true</property>
+            <property name="LinkTypeName">DevExpress.Xpf.Bars.BarItemLink</property>
+            <property name="IsRemoved">false</property>
+            <property name="CommonBarItemCollectionLink">false</property>
+            <property name="SerializationName">bcDisplayPeriod5</property>
+            <property name="IsLinkEnabled">true</property>
+            <property name="CreatedByCustomizationDialog">false</property>
+            <property name="BarItemName">bcDisplayPeriod5</property>
+          </property>
+          <property name="Item9" isnull="true" iskey="true">
+            <property name="IsUserDefined">true</property>
+            <property name="LinkTypeName">DevExpress.Xpf.Bars.BarItemLink</property>
+            <property name="IsRemoved">false</property>
+            <property name="CommonBarItemCollectionLink">false</property>
+            <property name="SerializationName">bTicks</property>
+            <property name="IsLinkEnabled">true</property>
+            <property name="CreatedByCustomizationDialog">false</property>
+            <property name="BarItemName">bTicks</property>
+            <property name="RibbonStyle">SmallWithText</property>
+          </property>
+        </property>
+        <property name="SerializationName" isnull="true" />
+        <property name="AllowHide">False</property>
+        <property name="CreatedByCustomizationDialog">false</property>
+        <property name="IsRemoved">false</property>
+        <property name="Caption">Data Settings</property>
+        <property name="UseWholeRow">True</property>
+        <property name="IsUserDefined">true</property>
+        <property name="DockInfo" isnull="true" iskey="true">
+          <property name="ContainerType">Top</property>
+          <property name="ContainerName" />
+        </property>
+        <property name="ShowDragWidget">false</property>
+        <property name="AllowQuickCustomization">False</property>
+      </property>
+    </property>
+  </property>
+  <property name="$DockLayoutManager$manager2$ChartControl" iskey="true" value="DockLayoutManager$manager2$ChartControl">
+    <property name="ToolTipEnabled">false</property>
+    <property name="Diagram" isnull="true" iskey="true">
+      <property name="SecondaryAxesX" iskey="true" value="0" />
+      <property name="SecondaryAxesY" iskey="true" value="2">
+        <property name="Item1" isnull="true" iskey="true">
+          <property name="ConstantLinesBehind" iskey="true" value="0" />
+          <property name="ConstantLinesInFront" iskey="true" value="0" />
+          <property name="Strips" iskey="true" value="0" />
+          <property name="CustomLabels" iskey="true" value="0" />
+          <property name="VisibilityInPanes" iskey="true" value="0" />
+          <property name="Visible" isnull="true" />
+          <property name="Alignment">Far</property>
+          <property name="WholeRange" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">Range</property>
+            <property name="AxisY2D.AlwaysShowZeroLevel" OwnerType="DevExpress.Xpf.Charts.AxisY2D" DependencyPropertyType="System.Boolean">true</property>
+          </property>
+          <property name="MinorCount">2</property>
+          <property name="GridLinesVisible">true</property>
+          <property name="GridLinesMinorVisible">true</property>
+          <property name="Label" isnull="true" iskey="true">
+            <property name="TextPattern">{V}M</property>
+            <property name="TypeNameSerializable">AxisLabel</property>
+          </property>
+          <property name="TypeNameSerializable">SecondaryAxisY2D</property>
+        </property>
+        <property name="Item2" isnull="true" iskey="true">
+          <property name="ConstantLinesBehind" iskey="true" value="0" />
+          <property name="ConstantLinesInFront" iskey="true" value="0" />
+          <property name="Strips" iskey="true" value="0" />
+          <property name="CustomLabels" iskey="true" value="0" />
+          <property name="VisibilityInPanes" iskey="true" value="3">
+            <property name="Item1" isnull="true" iskey="true">
+              <property name="Visible">false</property>
+              <property name="PaneIndex">-1</property>
+              <property name="TypeNameSerializable">VisibilityInPane</property>
+            </property>
+            <property name="Item2" isnull="true" iskey="true">
+              <property name="Visible">false</property>
+              <property name="PaneIndex">0</property>
+              <property name="TypeNameSerializable">VisibilityInPane</property>
+            </property>
+            <property name="Item3" isnull="true" iskey="true">
+              <property name="Visible">true</property>
+              <property name="PaneIndex">1</property>
+              <property name="TypeNameSerializable">VisibilityInPane</property>
+            </property>
+          </property>
+          <property name="Visible">false</property>
+          <property name="Alignment">Far</property>
+          <property name="WholeRange" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">Range</property>
+            <property name="AxisY2D.AlwaysShowZeroLevel" OwnerType="DevExpress.Xpf.Charts.AxisY2D" DependencyPropertyType="System.Boolean">true</property>
+          </property>
+          <property name="MinorCount">2</property>
+          <property name="GridLinesVisible">false</property>
+          <property name="GridLinesMinorVisible">false</property>
+          <property name="TypeNameSerializable">SecondaryAxisY2D</property>
+        </property>
+      </property>
+      <property name="Panes" iskey="true" value="2">
+        <property name="Item1" isnull="true" iskey="true">
+          <property name="TypeNameSerializable">Pane</property>
+        </property>
+        <property name="Item2" isnull="true" iskey="true">
+          <property name="TypeNameSerializable">Pane</property>
+        </property>
+      </property>
+      <property name="DefaultPane" isnull="true" iskey="true">
+        <property name="TypeNameSerializable">Pane</property>
+      </property>
+      <property name="AxisX" isnull="true" iskey="true">
+        <property name="DateTimeScaleOptions" isnull="true" iskey="true">
+          <property name="MeasureUnit">Week</property>
+          <property name="WorkdaysOnly">true</property>
+          <property name="TypeNameSerializable">ManualDateTimeScaleOptions</property>
+        </property>
+        <property name="ConstantLinesBehind" iskey="true" value="0" />
+        <property name="ConstantLinesInFront" iskey="true" value="1">
+          <property name="Item1" isnull="true" iskey="true">
+            <property name="Visible">false</property>
+            <property name="LegendIndex">-1</property>
+            <property name="TypeNameSerializable">ConstantLine</property>
+          </property>
+        </property>
+        <property name="Strips" iskey="true" value="0" />
+        <property name="CustomLabels" iskey="true" value="0" />
+        <property name="VisibilityInPanes" iskey="true" value="3">
+          <property name="Item1" isnull="true" iskey="true">
+            <property name="Visible">false</property>
+            <property name="PaneIndex">-1</property>
+            <property name="TypeNameSerializable">VisibilityInPane</property>
+          </property>
+          <property name="Item2" isnull="true" iskey="true">
+            <property name="Visible">true</property>
+            <property name="PaneIndex">0</property>
+            <property name="TypeNameSerializable">VisibilityInPane</property>
+          </property>
+          <property name="Item3" isnull="true" iskey="true">
+            <property name="Visible">false</property>
+            <property name="PaneIndex">1</property>
+            <property name="TypeNameSerializable">VisibilityInPane</property>
+          </property>
+        </property>
+        <property name="WholeRange" isnull="true" iskey="true">
+          <property name="TypeNameSerializable">Range</property>
+        </property>
+        <property name="GridLinesVisible">true</property>
+        <property name="GridLinesMinorVisible">true</property>
+        <property name="TypeNameSerializable">AxisX2D</property>
+      </property>
+      <property name="AxisY" isnull="true" iskey="true">
+        <property name="ConstantLinesBehind" iskey="true" value="0" />
+        <property name="ConstantLinesInFront" iskey="true" value="0" />
+        <property name="Strips" iskey="true" value="0" />
+        <property name="CustomLabels" iskey="true" value="1">
+          <property name="Item1" isnull="true" iskey="true">
+            <property name="Value" type="System.Double">103.56</property>
+            <property name="Content" type="System.Windows.Controls.Border">~Xtra#NULL</property>
+            <property name="TypeNameSerializable">CustomAxisLabel</property>
+          </property>
+        </property>
+        <property name="Label" isnull="true" iskey="true">
+          <property name="TextPattern">${V:0.0}</property>
+          <property name="TypeNameSerializable">AxisLabel</property>
+        </property>
+        <property name="VisibilityInPanes" iskey="true" value="0" />
+        <property name="Visible" isnull="true" />
+        <property name="Alignment">Far</property>
+        <property name="LabelVisibilityMode">AutoGeneratedAndCustom</property>
+        <property name="WholeRange" isnull="true" iskey="true">
+          <property name="TypeNameSerializable">Range</property>
+          <property name="AxisY2D.AlwaysShowZeroLevel" OwnerType="DevExpress.Xpf.Charts.AxisY2D" DependencyPropertyType="System.Boolean">false</property>
+        </property>
+        <property name="GridLinesVisible">true</property>
+        <property name="GridLinesMinorVisible">true</property>
+        <property name="Interlaced">false</property>
+        <property name="TypeNameSerializable">AxisY2D</property>
+      </property>
+      <property name="Series" iskey="true" value="2">
+        <property name="Item1" isnull="true" iskey="true">
+          <property name="CandleWidth">0.8</property>
+          <property name="Model" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">ThinCandleStick2DModel</property>
+          </property>
+          <property name="LowValueDataMember">Low</property>
+          <property name="HighValueDataMember">High</property>
+          <property name="OpenValueDataMember">Open</property>
+          <property name="CloseValueDataMember">Close</property>
+          <property name="ReductionOptions" isnull="true" iskey="true">
+            <property name="Brush">#FFF78A09</property>
+            <property name="Enabled">true</property>
+            <property name="TypeNameSerializable">ReductionStockOptions</property>
+          </property>
+          <property name="Indicators" iskey="true" value="0" />
+          <property name="PaneIndex">-1</property>
+          <property name="AxisXIndex">-1</property>
+          <property name="AxisYIndex">-1</property>
+          <property name="Brush">#FFFFFFFF</property>
+          <property name="DataFilters" iskey="true" value="0" />
+          <property name="Points" iskey="true" value="0" />
+          <property name="ArgumentDataMember">Date</property>
+          <property name="DisplayName">Price</property>
+          <property name="Label" isnull="true" iskey="true">
+            <property name="ResolveOverlappingMode">None</property>
+            <property name="TypeNameSerializable">SeriesLabel</property>
+          </property>
+          <property name="Legend">~Xtra#NULL</property>
+          <property name="LegendIndex">0</property>
+          <property name="TypeNameSerializable">CandleStickSeries2D</property>
+        </property>
+        <property name="Item2" isnull="true" iskey="true">
+          <property name="Model" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">BorderlessSimpleBar2DModel</property>
+          </property>
+          <property name="CrosshairLabelPattern">{S} : {V}M</property>
+          <property name="Indicators" iskey="true" value="0" />
+          <property name="PaneIndex">0</property>
+          <property name="AxisXIndex">-1</property>
+          <property name="AxisYIndex">0</property>
+          <property name="Brush">#FFF78A09</property>
+          <property name="DataFilters" iskey="true" value="0" />
+          <property name="Points" iskey="true" value="0" />
+          <property name="ArgumentDataMember">Date</property>
+          <property name="DisplayName">Volume</property>
+          <property name="ValueDataMember">Volume</property>
+          <property name="Legend">~Xtra#NULL</property>
+          <property name="LegendIndex">1</property>
+          <property name="TypeNameSerializable">BarStackedSeries2D</property>
+        </property>
+      </property>
+      <property name="TypeNameSerializable">XYDiagram2D</property>
+    </property>
+    <property name="CrosshairOptions" isnull="true" iskey="true">
+      <property name="ArgumentLineBrush">#FFFFFFFF</property>
+      <property name="ShowOnlyInFocusedPane">false</property>
+      <property name="TypeNameSerializable">CrosshairOptions</property>
+    </property>
+    <property name="Annotations" iskey="true" value="0" />
+    <property name="AutoLayout">false</property>
+    <property name="Titles" iskey="true" value="0" />
+    <property name="Legends" iskey="true" value="3">
+      <property name="Item1" isnull="true" iskey="true">
+        <property name="HorizontalPosition">Left</property>
+        <property name="VerticalPosition">Top</property>
+        <property name="CustomItems" iskey="true" value="0" />
+        <property name="TypeNameSerializable">Legend</property>
+      </property>
+      <property name="Item2" isnull="true" iskey="true">
+        <property name="HorizontalPosition">Left</property>
+        <property name="VerticalPosition">Top</property>
+        <property name="CustomItems" iskey="true" value="0" />
+        <property name="TypeNameSerializable">Legend</property>
+      </property>
+      <property name="Item3" isnull="true" iskey="true">
+        <property name="HorizontalPosition">Left</property>
+        <property name="VerticalPosition">Top</property>
+        <property name="CustomItems" iskey="true" value="0" />
+        <property name="TypeNameSerializable">Legend</property>
+      </property>
+    </property>
+  </property>
+  <property name="$DockLayoutManager$ChartControl$manager2$diagram1" iskey="true" value="DockLayoutManager$ChartControl$manager2$diagram1">
+    <property name="SecondaryAxesX" iskey="true" value="0" />
+    <property name="SecondaryAxesY" iskey="true" value="2">
+      <property name="Item1" isnull="true" iskey="true">
+        <property name="ConstantLinesBehind" iskey="true" value="0" />
+        <property name="ConstantLinesInFront" iskey="true" value="0" />
+        <property name="Strips" iskey="true" value="0" />
+        <property name="CustomLabels" iskey="true" value="0" />
+        <property name="VisibilityInPanes" iskey="true" value="0" />
+        <property name="Visible" isnull="true" />
+        <property name="Alignment">Far</property>
+        <property name="WholeRange" isnull="true" iskey="true">
+          <property name="TypeNameSerializable">Range</property>
+          <property name="AxisY2D.AlwaysShowZeroLevel" OwnerType="DevExpress.Xpf.Charts.AxisY2D" DependencyPropertyType="System.Boolean">true</property>
+        </property>
+        <property name="MinorCount">2</property>
+        <property name="GridLinesVisible">true</property>
+        <property name="GridLinesMinorVisible">true</property>
+        <property name="Label" isnull="true" iskey="true">
+          <property name="TextPattern">{V}M</property>
+          <property name="TypeNameSerializable">AxisLabel</property>
+        </property>
+        <property name="TypeNameSerializable">SecondaryAxisY2D</property>
+      </property>
+      <property name="Item2" isnull="true" iskey="true">
+        <property name="ConstantLinesBehind" iskey="true" value="0" />
+        <property name="ConstantLinesInFront" iskey="true" value="0" />
+        <property name="Strips" iskey="true" value="0" />
+        <property name="CustomLabels" iskey="true" value="0" />
+        <property name="VisibilityInPanes" iskey="true" value="3">
+          <property name="Item1" isnull="true" iskey="true">
+            <property name="Visible">false</property>
+            <property name="PaneIndex">-1</property>
+            <property name="TypeNameSerializable">VisibilityInPane</property>
+          </property>
+          <property name="Item2" isnull="true" iskey="true">
+            <property name="Visible">false</property>
+            <property name="PaneIndex">0</property>
+            <property name="TypeNameSerializable">VisibilityInPane</property>
+          </property>
+          <property name="Item3" isnull="true" iskey="true">
+            <property name="Visible">true</property>
+            <property name="PaneIndex">1</property>
+            <property name="TypeNameSerializable">VisibilityInPane</property>
+          </property>
+        </property>
+        <property name="Visible">false</property>
+        <property name="Alignment">Far</property>
+        <property name="WholeRange" isnull="true" iskey="true">
+          <property name="TypeNameSerializable">Range</property>
+          <property name="AxisY2D.AlwaysShowZeroLevel" OwnerType="DevExpress.Xpf.Charts.AxisY2D" DependencyPropertyType="System.Boolean">true</property>
+        </property>
+        <property name="MinorCount">2</property>
+        <property name="GridLinesVisible">false</property>
+        <property name="GridLinesMinorVisible">false</property>
+        <property name="TypeNameSerializable">SecondaryAxisY2D</property>
+      </property>
+    </property>
+    <property name="Panes" iskey="true" value="2">
+      <property name="Item1" isnull="true" iskey="true">
+        <property name="TypeNameSerializable">Pane</property>
+      </property>
+      <property name="Item2" isnull="true" iskey="true">
+        <property name="TypeNameSerializable">Pane</property>
+      </property>
+    </property>
+    <property name="DefaultPane" isnull="true" iskey="true">
+      <property name="TypeNameSerializable">Pane</property>
+    </property>
+    <property name="AxisX" isnull="true" iskey="true">
+      <property name="DateTimeScaleOptions" isnull="true" iskey="true">
+        <property name="MeasureUnit">Week</property>
+        <property name="WorkdaysOnly">true</property>
+        <property name="TypeNameSerializable">ManualDateTimeScaleOptions</property>
+      </property>
+      <property name="ConstantLinesBehind" iskey="true" value="0" />
+      <property name="ConstantLinesInFront" iskey="true" value="1">
+        <property name="Item1" isnull="true" iskey="true">
+          <property name="Visible">false</property>
+          <property name="LegendIndex">-1</property>
+          <property name="TypeNameSerializable">ConstantLine</property>
+        </property>
+      </property>
+      <property name="Strips" iskey="true" value="0" />
+      <property name="CustomLabels" iskey="true" value="0" />
+      <property name="VisibilityInPanes" iskey="true" value="3">
+        <property name="Item1" isnull="true" iskey="true">
+          <property name="Visible">false</property>
+          <property name="PaneIndex">-1</property>
+          <property name="TypeNameSerializable">VisibilityInPane</property>
+        </property>
+        <property name="Item2" isnull="true" iskey="true">
+          <property name="Visible">true</property>
+          <property name="PaneIndex">0</property>
+          <property name="TypeNameSerializable">VisibilityInPane</property>
+        </property>
+        <property name="Item3" isnull="true" iskey="true">
+          <property name="Visible">false</property>
+          <property name="PaneIndex">1</property>
+          <property name="TypeNameSerializable">VisibilityInPane</property>
+        </property>
+      </property>
+      <property name="WholeRange" isnull="true" iskey="true">
+        <property name="TypeNameSerializable">Range</property>
+      </property>
+      <property name="GridLinesVisible">true</property>
+      <property name="GridLinesMinorVisible">true</property>
+      <property name="TypeNameSerializable">AxisX2D</property>
+    </property>
+    <property name="AxisY" isnull="true" iskey="true">
+      <property name="ConstantLinesBehind" iskey="true" value="0" />
+      <property name="ConstantLinesInFront" iskey="true" value="0" />
+      <property name="Strips" iskey="true" value="0" />
+      <property name="CustomLabels" iskey="true" value="1">
+        <property name="Item1" isnull="true" iskey="true">
+          <property name="Value" type="System.Double">103.56</property>
+          <property name="Content" type="System.Windows.Controls.Border">~Xtra#NULL</property>
+          <property name="TypeNameSerializable">CustomAxisLabel</property>
+        </property>
+      </property>
+      <property name="VisibilityInPanes" iskey="true" value="0" />
+      <property name="Visible" isnull="true" />
+      <property name="Alignment">Far</property>
+      <property name="LabelVisibilityMode">AutoGeneratedAndCustom</property>
+      <property name="WholeRange" isnull="true" iskey="true">
+        <property name="TypeNameSerializable">Range</property>
+        <property name="AxisY2D.AlwaysShowZeroLevel" OwnerType="DevExpress.Xpf.Charts.AxisY2D" DependencyPropertyType="System.Boolean">false</property>
+      </property>
+      <property name="GridLinesVisible">true</property>
+      <property name="GridLinesMinorVisible">true</property>
+      <property name="Interlaced">false</property>
+      <property name="TypeNameSerializable">AxisY2D</property>
+    </property>
+    <property name="Series" iskey="true" value="2">
+      <property name="Item1" isnull="true" iskey="true">
+        <property name="CandleWidth">0.8</property>
+        <property name="Model" isnull="true" iskey="true">
+          <property name="TypeNameSerializable">ThinCandleStick2DModel</property>
+        </property>
+        <property name="LowValueDataMember">Low</property>
+        <property name="HighValueDataMember">High</property>
+        <property name="OpenValueDataMember">Open</property>
+        <property name="CloseValueDataMember">Close</property>
+        <property name="ReductionOptions" isnull="true" iskey="true">
+          <property name="Brush">#FFF78A09</property>
+          <property name="Enabled">true</property>
+          <property name="TypeNameSerializable">ReductionStockOptions</property>
+        </property>
+        <property name="Indicators" iskey="true" value="0" />
+        <property name="PaneIndex">-1</property>
+        <property name="AxisXIndex">-1</property>
+        <property name="AxisYIndex">-1</property>
+        <property name="Brush">#FFFFFFFF</property>
+        <property name="DataFilters" iskey="true" value="0" />
+        <property name="Points" iskey="true" value="74">
+          <property name="Item1" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">09/22/2000 00:00:00</property>
+            <property name="Value">NaN</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+            <property name="FinancialSeries2D.LowValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">110.25</property>
+            <property name="FinancialSeries2D.HighValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">126.62</property>
+            <property name="FinancialSeries2D.OpenValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">123</property>
+            <property name="FinancialSeries2D.CloseValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">114.75</property>
+          </property>
+          <property name="Item2" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">09/29/2000 00:00:00</property>
+            <property name="Value">NaN</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+            <property name="FinancialSeries2D.LowValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">108.56</property>
+            <property name="FinancialSeries2D.HighValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">119.62</property>
+            <property name="FinancialSeries2D.OpenValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">115.5</property>
+            <property name="FinancialSeries2D.CloseValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">116</property>
+          </property>
+          <property name="Item3" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">10/06/2000 00:00:00</property>
+            <property name="Value">NaN</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+            <property name="FinancialSeries2D.LowValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">103.12</property>
+            <property name="FinancialSeries2D.HighValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">119.38</property>
+            <property name="FinancialSeries2D.OpenValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">114</property>
+            <property name="FinancialSeries2D.CloseValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">109.12</property>
+          </property>
+          <property name="Item4" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">10/13/2000 00:00:00</property>
+            <property name="Value">NaN</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+            <property name="FinancialSeries2D.LowValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">90.25</property>
+            <property name="FinancialSeries2D.HighValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">113.88</property>
+            <property name="FinancialSeries2D.OpenValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">104.19</property>
+            <property name="FinancialSeries2D.CloseValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">94.75</property>
+          </property>
+          <property name="Item5" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">10/20/2000 00:00:00</property>
+            <property name="Value">NaN</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+            <property name="FinancialSeries2D.LowValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">86</property>
+            <property name="FinancialSeries2D.HighValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">97.12</property>
+            <property name="FinancialSeries2D.OpenValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">95.12</property>
+            <property name="FinancialSeries2D.CloseValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">93.75</property>
+          </property>
+          <property name="Item6" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">10/27/2000 00:00:00</property>
+            <property name="Value">NaN</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+            <property name="FinancialSeries2D.LowValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">90.31</property>
+            <property name="FinancialSeries2D.HighValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">102.62</property>
+            <property name="FinancialSeries2D.OpenValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">93</property>
+            <property name="FinancialSeries2D.CloseValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">100.5</property>
+          </property>
+          <property name="Item7" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">11/03/2000 00:00:00</property>
+            <property name="Value">NaN</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+            <property name="FinancialSeries2D.LowValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">93</property>
+            <property name="FinancialSeries2D.HighValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">103.75</property>
+            <property name="FinancialSeries2D.OpenValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">102.5</property>
+            <property name="FinancialSeries2D.CloseValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">93</property>
+          </property>
+          <property name="Item8" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">11/10/2000 00:00:00</property>
+            <property name="Value">NaN</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+            <property name="FinancialSeries2D.LowValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">91.5</property>
+            <property name="FinancialSeries2D.HighValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">102.75</property>
+            <property name="FinancialSeries2D.OpenValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">98</property>
+            <property name="FinancialSeries2D.CloseValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">102.19</property>
+          </property>
+          <property name="Item9" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">11/17/2000 00:00:00</property>
+            <property name="Value">NaN</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+            <property name="FinancialSeries2D.LowValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">98.25</property>
+            <property name="FinancialSeries2D.HighValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">104.38</property>
+            <property name="FinancialSeries2D.OpenValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">98.31</property>
+            <property name="FinancialSeries2D.CloseValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">98.5</property>
+          </property>
+          <property name="Item10" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">11/27/2000 00:00:00</property>
+            <property name="Value">NaN</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+            <property name="FinancialSeries2D.LowValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">92.25</property>
+            <property name="FinancialSeries2D.HighValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">102</property>
+            <property name="FinancialSeries2D.OpenValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">100.44</property>
+            <property name="FinancialSeries2D.CloseValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">97</property>
+          </property>
+          <property name="Item11" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">12/04/2000 00:00:00</property>
+            <property name="Value">NaN</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+            <property name="FinancialSeries2D.LowValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">93</property>
+            <property name="FinancialSeries2D.HighValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">104.75</property>
+            <property name="FinancialSeries2D.OpenValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">96</property>
+            <property name="FinancialSeries2D.CloseValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">95</property>
+          </property>
+          <property name="Item12" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">12/11/2000 00:00:00</property>
+            <property name="Value">NaN</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+            <property name="FinancialSeries2D.LowValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">87.31</property>
+            <property name="FinancialSeries2D.HighValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">98.25</property>
+            <property name="FinancialSeries2D.OpenValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">96.5</property>
+            <property name="FinancialSeries2D.CloseValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">90.5</property>
+          </property>
+          <property name="Item13" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">12/18/2000 00:00:00</property>
+            <property name="Value">NaN</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+            <property name="FinancialSeries2D.LowValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">80.06</property>
+            <property name="FinancialSeries2D.HighValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">94.44</property>
+            <property name="FinancialSeries2D.OpenValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">88.38</property>
+            <property name="FinancialSeries2D.CloseValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">84.81</property>
+          </property>
+          <property name="Item14" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">12/26/2000 00:00:00</property>
+            <property name="Value">NaN</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+            <property name="FinancialSeries2D.LowValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">82.12</property>
+            <property name="FinancialSeries2D.HighValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">95</property>
+            <property name="FinancialSeries2D.OpenValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">89</property>
+            <property name="FinancialSeries2D.CloseValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">94.62</property>
+          </property>
+          <property name="Item15" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">01/03/2001 00:00:00</property>
+            <property name="Value">NaN</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+            <property name="FinancialSeries2D.LowValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">83.75</property>
+            <property name="FinancialSeries2D.HighValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">99.75</property>
+            <property name="FinancialSeries2D.OpenValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">83.75</property>
+            <property name="FinancialSeries2D.CloseValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">93.44</property>
+          </property>
+          <property name="Item16" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">01/10/2001 00:00:00</property>
+            <property name="Value">NaN</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+            <property name="FinancialSeries2D.LowValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">91.25</property>
+            <property name="FinancialSeries2D.HighValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">110</property>
+            <property name="FinancialSeries2D.OpenValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">92.5</property>
+            <property name="FinancialSeries2D.CloseValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">108.31</property>
+          </property>
+          <property name="Item17" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">01/18/2001 00:00:00</property>
+            <property name="Value">NaN</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+            <property name="FinancialSeries2D.LowValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">103.5</property>
+            <property name="FinancialSeries2D.HighValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">118.62</property>
+            <property name="FinancialSeries2D.OpenValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">104.38</property>
+            <property name="FinancialSeries2D.CloseValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">110.75</property>
+          </property>
+          <property name="Item18" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">01/25/2001 00:00:00</property>
+            <property name="Value">NaN</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+            <property name="FinancialSeries2D.LowValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">109.19</property>
+            <property name="FinancialSeries2D.HighValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">116.75</property>
+            <property name="FinancialSeries2D.OpenValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">110.12</property>
+            <property name="FinancialSeries2D.CloseValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">114.05</property>
+          </property>
+          <property name="Item19" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">02/01/2001 00:00:00</property>
+            <property name="Value">NaN</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+            <property name="FinancialSeries2D.LowValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">109.3</property>
+            <property name="FinancialSeries2D.HighValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">118.2</property>
+            <property name="FinancialSeries2D.OpenValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">112.4</property>
+            <property name="FinancialSeries2D.CloseValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">114.1</property>
+          </property>
+          <property name="Item20" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">02/08/2001 00:00:00</property>
+            <property name="Value">NaN</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+            <property name="FinancialSeries2D.LowValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">110.3</property>
+            <property name="FinancialSeries2D.HighValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">118.64</property>
+            <property name="FinancialSeries2D.OpenValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">116.91</property>
+            <property name="FinancialSeries2D.CloseValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">116.78</property>
+          </property>
+          <property name="Item21" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">02/15/2001 00:00:00</property>
+            <property name="Value">NaN</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+            <property name="FinancialSeries2D.LowValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">100.25</property>
+            <property name="FinancialSeries2D.HighValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">118.64</property>
+            <property name="FinancialSeries2D.OpenValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">116.8</property>
+            <property name="FinancialSeries2D.CloseValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">104</property>
+          </property>
+          <property name="Item22" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">02/23/2001 00:00:00</property>
+            <property name="Value">NaN</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+            <property name="FinancialSeries2D.LowValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">97.5</property>
+            <property name="FinancialSeries2D.HighValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">107.65</property>
+            <property name="FinancialSeries2D.OpenValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">107.5</property>
+            <property name="FinancialSeries2D.CloseValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">102.3</property>
+          </property>
+          <property name="Item23" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">03/02/2001 00:00:00</property>
+            <property name="Value">NaN</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+            <property name="FinancialSeries2D.LowValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">97.9</property>
+            <property name="FinancialSeries2D.HighValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">108.4</property>
+            <property name="FinancialSeries2D.OpenValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">104</property>
+            <property name="FinancialSeries2D.CloseValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">99.29</property>
+          </property>
+          <property name="Item24" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">03/09/2001 00:00:00</property>
+            <property name="Value">NaN</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+            <property name="FinancialSeries2D.LowValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">88.2</property>
+            <property name="FinancialSeries2D.HighValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">105.01</property>
+            <property name="FinancialSeries2D.OpenValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">105</property>
+            <property name="FinancialSeries2D.CloseValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">90.1</property>
+          </property>
+          <property name="Item25" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">03/16/2001 00:00:00</property>
+            <property name="Value">NaN</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+            <property name="FinancialSeries2D.LowValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">87.75</property>
+            <property name="FinancialSeries2D.HighValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">94.99</property>
+            <property name="FinancialSeries2D.OpenValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">93.9</property>
+            <property name="FinancialSeries2D.CloseValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">93.68</property>
+          </property>
+          <property name="Item26" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">03/23/2001 00:00:00</property>
+            <property name="Value">NaN</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+            <property name="FinancialSeries2D.LowValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">90.29</property>
+            <property name="FinancialSeries2D.HighValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">100</property>
+            <property name="FinancialSeries2D.OpenValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">93.5</property>
+            <property name="FinancialSeries2D.CloseValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">96.18</property>
+          </property>
+          <property name="Item27" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">03/30/2001 00:00:00</property>
+            <property name="Value">NaN</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+            <property name="FinancialSeries2D.LowValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">90.05</property>
+            <property name="FinancialSeries2D.HighValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">101</property>
+            <property name="FinancialSeries2D.OpenValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">96.5</property>
+            <property name="FinancialSeries2D.CloseValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">97.95</property>
+          </property>
+          <property name="Item28" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">04/06/2001 00:00:00</property>
+            <property name="Value">NaN</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+            <property name="FinancialSeries2D.LowValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">93.8</property>
+            <property name="FinancialSeries2D.HighValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">101.94</property>
+            <property name="FinancialSeries2D.OpenValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">98</property>
+            <property name="FinancialSeries2D.CloseValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">96.75</property>
+          </property>
+          <property name="Item29" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">04/16/2001 00:00:00</property>
+            <property name="Value">NaN</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+            <property name="FinancialSeries2D.LowValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">95.2</property>
+            <property name="FinancialSeries2D.HighValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">116.4</property>
+            <property name="FinancialSeries2D.OpenValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">96.2</property>
+            <property name="FinancialSeries2D.CloseValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">112</property>
+          </property>
+          <property name="Item30" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">04/23/2001 00:00:00</property>
+            <property name="Value">NaN</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+            <property name="FinancialSeries2D.LowValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">111.2</property>
+            <property name="FinancialSeries2D.HighValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">118.05</property>
+            <property name="FinancialSeries2D.OpenValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">114.01</property>
+            <property name="FinancialSeries2D.CloseValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">115.14</property>
+          </property>
+          <property name="Item31" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">04/30/2001 00:00:00</property>
+            <property name="Value">NaN</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+            <property name="FinancialSeries2D.LowValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">111.2</property>
+            <property name="FinancialSeries2D.HighValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">118.95</property>
+            <property name="FinancialSeries2D.OpenValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">116.4</property>
+            <property name="FinancialSeries2D.CloseValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">115.9</property>
+          </property>
+          <property name="Item32" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">05/07/2001 00:00:00</property>
+            <property name="Value">NaN</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+            <property name="FinancialSeries2D.LowValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">110.96</property>
+            <property name="FinancialSeries2D.HighValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">118.9</property>
+            <property name="FinancialSeries2D.OpenValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">116.2</property>
+            <property name="FinancialSeries2D.CloseValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">112.56</property>
+          </property>
+          <property name="Item33" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">05/14/2001 00:00:00</property>
+            <property name="Value">NaN</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+            <property name="FinancialSeries2D.LowValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">111</property>
+            <property name="FinancialSeries2D.HighValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">119.9</property>
+            <property name="FinancialSeries2D.OpenValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">111.2</property>
+            <property name="FinancialSeries2D.CloseValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">119.04</property>
+          </property>
+          <property name="Item34" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">05/21/2001 00:00:00</property>
+            <property name="Value">NaN</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+            <property name="FinancialSeries2D.LowValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">115.08</property>
+            <property name="FinancialSeries2D.HighValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">119.9</property>
+            <property name="FinancialSeries2D.OpenValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">117.95</property>
+            <property name="FinancialSeries2D.CloseValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">115.27</property>
+          </property>
+          <property name="Item35" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">05/29/2001 00:00:00</property>
+            <property name="Value">NaN</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+            <property name="FinancialSeries2D.LowValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">111.64</property>
+            <property name="FinancialSeries2D.HighValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">118.95</property>
+            <property name="FinancialSeries2D.OpenValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">117.35</property>
+            <property name="FinancialSeries2D.CloseValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">116.97</property>
+          </property>
+          <property name="Item36" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">06/05/2001 00:00:00</property>
+            <property name="Value">NaN</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+            <property name="FinancialSeries2D.LowValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">113.56</property>
+            <property name="FinancialSeries2D.HighValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">119</property>
+            <property name="FinancialSeries2D.OpenValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">113.64</property>
+            <property name="FinancialSeries2D.CloseValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">117.25</property>
+          </property>
+          <property name="Item37" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">06/12/2001 00:00:00</property>
+            <property name="Value">NaN</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+            <property name="FinancialSeries2D.LowValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">113.31</property>
+            <property name="FinancialSeries2D.HighValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">118.47</property>
+            <property name="FinancialSeries2D.OpenValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">116.75</property>
+            <property name="FinancialSeries2D.CloseValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">114.84</property>
+          </property>
+          <property name="Item38" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">06/19/2001 00:00:00</property>
+            <property name="Value">NaN</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+            <property name="FinancialSeries2D.LowValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">111.1</property>
+            <property name="FinancialSeries2D.HighValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">117.25</property>
+            <property name="FinancialSeries2D.OpenValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">116.26</property>
+            <property name="FinancialSeries2D.CloseValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">113.04</property>
+          </property>
+          <property name="Item39" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">06/26/2001 00:00:00</property>
+            <property name="Value">NaN</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+            <property name="FinancialSeries2D.LowValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">111.1</property>
+            <property name="FinancialSeries2D.HighValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">116.95</property>
+            <property name="FinancialSeries2D.OpenValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">111.25</property>
+            <property name="FinancialSeries2D.CloseValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">112.98</property>
+          </property>
+          <property name="Item40" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">07/03/2001 00:00:00</property>
+            <property name="Value">NaN</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+            <property name="FinancialSeries2D.LowValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">101.56</property>
+            <property name="FinancialSeries2D.HighValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">114.19</property>
+            <property name="FinancialSeries2D.OpenValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">114.1</property>
+            <property name="FinancialSeries2D.CloseValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">103.85</property>
+          </property>
+          <property name="Item41" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">07/11/2001 00:00:00</property>
+            <property name="Value">NaN</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+            <property name="FinancialSeries2D.LowValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">101.56</property>
+            <property name="FinancialSeries2D.HighValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">109.38</property>
+            <property name="FinancialSeries2D.OpenValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">101.6</property>
+            <property name="FinancialSeries2D.CloseValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">104.28</property>
+          </property>
+          <property name="Item42" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">07/18/2001 00:00:00</property>
+            <property name="Value">NaN</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+            <property name="FinancialSeries2D.LowValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">102.73</property>
+            <property name="FinancialSeries2D.HighValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">107.6</property>
+            <property name="FinancialSeries2D.OpenValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">106.1</property>
+            <property name="FinancialSeries2D.CloseValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">104.89</property>
+          </property>
+          <property name="Item43" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">07/25/2001 00:00:00</property>
+            <property name="Value">NaN</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+            <property name="FinancialSeries2D.LowValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">102.73</property>
+            <property name="FinancialSeries2D.HighValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">108.5</property>
+            <property name="FinancialSeries2D.OpenValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">104.5</property>
+            <property name="FinancialSeries2D.CloseValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">107.06</property>
+          </property>
+          <property name="Item44" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">08/01/2001 00:00:00</property>
+            <property name="Value">NaN</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+            <property name="FinancialSeries2D.LowValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">104.1</property>
+            <property name="FinancialSeries2D.HighValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">109.47</property>
+            <property name="FinancialSeries2D.OpenValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">105.35</property>
+            <property name="FinancialSeries2D.CloseValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">104.19</property>
+          </property>
+          <property name="Item45" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">08/08/2001 00:00:00</property>
+            <property name="Value">NaN</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+            <property name="FinancialSeries2D.LowValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">102.7</property>
+            <property name="FinancialSeries2D.HighValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">106.85</property>
+            <property name="FinancialSeries2D.OpenValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">105</property>
+            <property name="FinancialSeries2D.CloseValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">105.01</property>
+          </property>
+          <property name="Item46" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">08/15/2001 00:00:00</property>
+            <property name="Value">NaN</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+            <property name="FinancialSeries2D.LowValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">101.4</property>
+            <property name="FinancialSeries2D.HighValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">106.59</property>
+            <property name="FinancialSeries2D.OpenValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">106.35</property>
+            <property name="FinancialSeries2D.CloseValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">103.96</property>
+          </property>
+          <property name="Item47" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">08/22/2001 00:00:00</property>
+            <property name="Value">NaN</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+            <property name="FinancialSeries2D.LowValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">101.76</property>
+            <property name="FinancialSeries2D.HighValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">108.2</property>
+            <property name="FinancialSeries2D.OpenValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">102.5</property>
+            <property name="FinancialSeries2D.CloseValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">104.13</property>
+          </property>
+          <property name="Item48" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">08/29/2001 00:00:00</property>
+            <property name="Value">NaN</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+            <property name="FinancialSeries2D.LowValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">97.65</property>
+            <property name="FinancialSeries2D.HighValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">105.9</property>
+            <property name="FinancialSeries2D.OpenValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">105.75</property>
+            <property name="FinancialSeries2D.CloseValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">98</property>
+          </property>
+          <property name="Item49" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">09/06/2001 00:00:00</property>
+            <property name="Value">NaN</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+            <property name="FinancialSeries2D.LowValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">92.3</property>
+            <property name="FinancialSeries2D.HighValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">100.68</property>
+            <property name="FinancialSeries2D.OpenValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">100.68</property>
+            <property name="FinancialSeries2D.CloseValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">96</property>
+          </property>
+          <property name="Item50" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">09/19/2001 00:00:00</property>
+            <property name="Value">NaN</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+            <property name="FinancialSeries2D.LowValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">89.5</property>
+            <property name="FinancialSeries2D.HighValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">96.85</property>
+            <property name="FinancialSeries2D.OpenValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">96.4</property>
+            <property name="FinancialSeries2D.CloseValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">91.3</property>
+          </property>
+          <property name="Item51" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">09/26/2001 00:00:00</property>
+            <property name="Value">NaN</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+            <property name="FinancialSeries2D.LowValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">87.49</property>
+            <property name="FinancialSeries2D.HighValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">97.62</property>
+            <property name="FinancialSeries2D.OpenValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">94.45</property>
+            <property name="FinancialSeries2D.CloseValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">96.95</property>
+          </property>
+          <property name="Item52" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">10/03/2001 00:00:00</property>
+            <property name="Value">NaN</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+            <property name="FinancialSeries2D.LowValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">92.4</property>
+            <property name="FinancialSeries2D.HighValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">99</property>
+            <property name="FinancialSeries2D.OpenValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">92.9</property>
+            <property name="FinancialSeries2D.CloseValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">97.25</property>
+          </property>
+          <property name="Item53" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">10/10/2001 00:00:00</property>
+            <property name="Value">NaN</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+            <property name="FinancialSeries2D.LowValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">94.9</property>
+            <property name="FinancialSeries2D.HighValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">106.7</property>
+            <property name="FinancialSeries2D.OpenValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">95</property>
+            <property name="FinancialSeries2D.CloseValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">102.9</property>
+          </property>
+          <property name="Item54" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">10/17/2001 00:00:00</property>
+            <property name="Value">NaN</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+            <property name="FinancialSeries2D.LowValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">100.07</property>
+            <property name="FinancialSeries2D.HighValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">108.75</property>
+            <property name="FinancialSeries2D.OpenValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">106.3</property>
+            <property name="FinancialSeries2D.CloseValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">108.57</property>
+          </property>
+          <property name="Item55" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">10/24/2001 00:00:00</property>
+            <property name="Value">NaN</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+            <property name="FinancialSeries2D.LowValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">106.09</property>
+            <property name="FinancialSeries2D.HighValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">112.1</property>
+            <property name="FinancialSeries2D.OpenValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">106.5</property>
+            <property name="FinancialSeries2D.CloseValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">108.07</property>
+          </property>
+          <property name="Item56" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">10/31/2001 00:00:00</property>
+            <property name="Value">NaN</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+            <property name="FinancialSeries2D.LowValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">106.9</property>
+            <property name="FinancialSeries2D.HighValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">115.2</property>
+            <property name="FinancialSeries2D.OpenValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">109.6</property>
+            <property name="FinancialSeries2D.CloseValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">113.85</property>
+          </property>
+          <property name="Item57" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">11/07/2001 00:00:00</property>
+            <property name="Value">NaN</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+            <property name="FinancialSeries2D.LowValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">112.05</property>
+            <property name="FinancialSeries2D.HighValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">117</property>
+            <property name="FinancialSeries2D.OpenValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">113.05</property>
+            <property name="FinancialSeries2D.CloseValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">114.35</property>
+          </property>
+          <property name="Item58" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">11/14/2001 00:00:00</property>
+            <property name="Value">NaN</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+            <property name="FinancialSeries2D.LowValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">112.55</property>
+            <property name="FinancialSeries2D.HighValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">116.85</property>
+            <property name="FinancialSeries2D.OpenValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">116.7</property>
+            <property name="FinancialSeries2D.CloseValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">114.34</property>
+          </property>
+          <property name="Item59" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">11/21/2001 00:00:00</property>
+            <property name="Value">NaN</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+            <property name="FinancialSeries2D.LowValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">111.81</property>
+            <property name="FinancialSeries2D.HighValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">116.4</property>
+            <property name="FinancialSeries2D.OpenValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">114.95</property>
+            <property name="FinancialSeries2D.CloseValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">114.43</property>
+          </property>
+          <property name="Item60" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">11/29/2001 00:00:00</property>
+            <property name="Value">NaN</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+            <property name="FinancialSeries2D.LowValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">111.81</property>
+            <property name="FinancialSeries2D.HighValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">121.98</property>
+            <property name="FinancialSeries2D.OpenValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">112.9</property>
+            <property name="FinancialSeries2D.CloseValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">120.14</property>
+          </property>
+          <property name="Item61" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">12/06/2001 00:00:00</property>
+            <property name="Value">NaN</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+            <property name="FinancialSeries2D.LowValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">118.75</property>
+            <property name="FinancialSeries2D.HighValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">123.21</property>
+            <property name="FinancialSeries2D.OpenValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">120.5</property>
+            <property name="FinancialSeries2D.CloseValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">120.25</property>
+          </property>
+          <property name="Item62" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">12/13/2001 00:00:00</property>
+            <property name="Value">NaN</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+            <property name="FinancialSeries2D.LowValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">119.41</property>
+            <property name="FinancialSeries2D.HighValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">124.7</property>
+            <property name="FinancialSeries2D.OpenValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">121.55</property>
+            <property name="FinancialSeries2D.CloseValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">122.7</property>
+          </property>
+          <property name="Item63" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">12/20/2001 00:00:00</property>
+            <property name="Value">NaN</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+            <property name="FinancialSeries2D.LowValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">121.1</property>
+            <property name="FinancialSeries2D.HighValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">124</property>
+            <property name="FinancialSeries2D.OpenValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">123.89</property>
+            <property name="FinancialSeries2D.CloseValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">122.9</property>
+          </property>
+          <property name="Item64" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">12/28/2001 00:00:00</property>
+            <property name="Value">NaN</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+            <property name="FinancialSeries2D.LowValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">119.8</property>
+            <property name="FinancialSeries2D.HighValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">126.19</property>
+            <property name="FinancialSeries2D.OpenValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">123.5</property>
+            <property name="FinancialSeries2D.CloseValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">124.05</property>
+          </property>
+          <property name="Item65" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">01/07/2002 00:00:00</property>
+            <property name="Value">NaN</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+            <property name="FinancialSeries2D.LowValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">117.1</property>
+            <property name="FinancialSeries2D.HighValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">126.39</property>
+            <property name="FinancialSeries2D.OpenValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">125</property>
+            <property name="FinancialSeries2D.CloseValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">118.05</property>
+          </property>
+          <property name="Item66" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">01/14/2002 00:00:00</property>
+            <property name="Value">NaN</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+            <property name="FinancialSeries2D.LowValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">110.33</property>
+            <property name="FinancialSeries2D.HighValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">120.55</property>
+            <property name="FinancialSeries2D.OpenValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">120</property>
+            <property name="FinancialSeries2D.CloseValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">110.5</property>
+          </property>
+          <property name="Item67" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">01/22/2002 00:00:00</property>
+            <property name="Value">NaN</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+            <property name="FinancialSeries2D.LowValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">100</property>
+            <property name="FinancialSeries2D.HighValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">114.26</property>
+            <property name="FinancialSeries2D.OpenValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">114.25</property>
+            <property name="FinancialSeries2D.CloseValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">103</property>
+          </property>
+          <property name="Item68" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">01/29/2002 00:00:00</property>
+            <property name="Value">NaN</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+            <property name="FinancialSeries2D.LowValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">100</property>
+            <property name="FinancialSeries2D.HighValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">109.3</property>
+            <property name="FinancialSeries2D.OpenValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">108.15</property>
+            <property name="FinancialSeries2D.CloseValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">106.3</property>
+          </property>
+          <property name="Item69" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">02/05/2002 00:00:00</property>
+            <property name="Value">NaN</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+            <property name="FinancialSeries2D.LowValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">102.61</property>
+            <property name="FinancialSeries2D.HighValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">108.5</property>
+            <property name="FinancialSeries2D.OpenValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">106.25</property>
+            <property name="FinancialSeries2D.CloseValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">106.57</property>
+          </property>
+          <property name="Item70" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">02/12/2002 00:00:00</property>
+            <property name="Value">NaN</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+            <property name="FinancialSeries2D.LowValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">97</property>
+            <property name="FinancialSeries2D.HighValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">109.15</property>
+            <property name="FinancialSeries2D.OpenValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">106.75</property>
+            <property name="FinancialSeries2D.CloseValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">99.31</property>
+          </property>
+          <property name="Item71" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">02/20/2002 00:00:00</property>
+            <property name="Value">NaN</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+            <property name="FinancialSeries2D.LowValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">95.76</property>
+            <property name="FinancialSeries2D.HighValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">100.35</property>
+            <property name="FinancialSeries2D.OpenValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">99.54</property>
+            <property name="FinancialSeries2D.CloseValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">97.83</property>
+          </property>
+          <property name="Item72" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">02/27/2002 00:00:00</property>
+            <property name="Value">NaN</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+            <property name="FinancialSeries2D.LowValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">96.7</property>
+            <property name="FinancialSeries2D.HighValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">107.09</property>
+            <property name="FinancialSeries2D.OpenValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">98.1</property>
+            <property name="FinancialSeries2D.CloseValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">106.3</property>
+          </property>
+          <property name="Item73" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">03/06/2002 00:00:00</property>
+            <property name="Value">NaN</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+            <property name="FinancialSeries2D.LowValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">103.24</property>
+            <property name="FinancialSeries2D.HighValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">108.85</property>
+            <property name="FinancialSeries2D.OpenValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">105.15</property>
+            <property name="FinancialSeries2D.CloseValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">107.18</property>
+          </property>
+          <property name="Item74" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">03/20/2002 00:00:00</property>
+            <property name="Value">NaN</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+            <property name="FinancialSeries2D.LowValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">103.5</property>
+            <property name="FinancialSeries2D.HighValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">106.9</property>
+            <property name="FinancialSeries2D.OpenValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">106.9</property>
+            <property name="FinancialSeries2D.CloseValue" OwnerType="DevExpress.Xpf.Charts.FinancialSeries2D" DependencyPropertyType="System.Double">103.56</property>
+          </property>
+        </property>
+        <property name="ArgumentDataMember">Date</property>
+        <property name="DisplayName">Price</property>
+        <property name="Label" isnull="true" iskey="true">
+          <property name="ResolveOverlappingMode">None</property>
+          <property name="TypeNameSerializable">SeriesLabel</property>
+        </property>
+        <property name="Legend">~Xtra#NULL</property>
+        <property name="LegendIndex">0</property>
+        <property name="TypeNameSerializable">CandleStickSeries2D</property>
+      </property>
+      <property name="Item2" isnull="true" iskey="true">
+        <property name="Model" isnull="true" iskey="true">
+          <property name="TypeNameSerializable">BorderlessSimpleBar2DModel</property>
+        </property>
+        <property name="CrosshairLabelPattern">{S} : {V}M</property>
+        <property name="Indicators" iskey="true" value="0" />
+        <property name="PaneIndex">0</property>
+        <property name="AxisXIndex">-1</property>
+        <property name="AxisYIndex">0</property>
+        <property name="Brush">#FFF78A09</property>
+        <property name="DataFilters" iskey="true" value="0" />
+        <property name="Points" iskey="true" value="74">
+          <property name="Item1" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">09/22/2000 00:00:00</property>
+            <property name="Value">5.9</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+          </property>
+          <property name="Item2" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">09/29/2000 00:00:00</property>
+            <property name="Value">9.59</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+          </property>
+          <property name="Item3" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">10/06/2000 00:00:00</property>
+            <property name="Value">6.1</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+          </property>
+          <property name="Item4" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">10/13/2000 00:00:00</property>
+            <property name="Value">9.09</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+          </property>
+          <property name="Item5" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">10/20/2000 00:00:00</property>
+            <property name="Value">9.35</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+          </property>
+          <property name="Item6" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">10/27/2000 00:00:00</property>
+            <property name="Value">6.42</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+          </property>
+          <property name="Item7" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">11/03/2000 00:00:00</property>
+            <property name="Value">5.84</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+          </property>
+          <property name="Item8" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">11/10/2000 00:00:00</property>
+            <property name="Value">6.79</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+          </property>
+          <property name="Item9" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">11/17/2000 00:00:00</property>
+            <property name="Value">7.71</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+          </property>
+          <property name="Item10" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">11/27/2000 00:00:00</property>
+            <property name="Value">3.87</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+          </property>
+          <property name="Item11" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">12/04/2000 00:00:00</property>
+            <property name="Value">5.57</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+          </property>
+          <property name="Item12" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">12/11/2000 00:00:00</property>
+            <property name="Value">6.15</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+          </property>
+          <property name="Item13" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">12/18/2000 00:00:00</property>
+            <property name="Value">7.63</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+          </property>
+          <property name="Item14" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">12/26/2000 00:00:00</property>
+            <property name="Value">6.04</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+          </property>
+          <property name="Item15" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">01/03/2001 00:00:00</property>
+            <property name="Value">12.7</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+          </property>
+          <property name="Item16" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">01/10/2001 00:00:00</property>
+            <property name="Value">7.59</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+          </property>
+          <property name="Item17" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">01/18/2001 00:00:00</property>
+            <property name="Value">24.79</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+          </property>
+          <property name="Item18" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">01/25/2001 00:00:00</property>
+            <property name="Value">4.92</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+          </property>
+          <property name="Item19" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">02/01/2001 00:00:00</property>
+            <property name="Value">5.57</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+          </property>
+          <property name="Item20" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">02/08/2001 00:00:00</property>
+            <property name="Value">8.04</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+          </property>
+          <property name="Item21" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">02/15/2001 00:00:00</property>
+            <property name="Value">7.72</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+          </property>
+          <property name="Item22" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">02/23/2001 00:00:00</property>
+            <property name="Value">15.15</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+          </property>
+          <property name="Item23" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">03/02/2001 00:00:00</property>
+            <property name="Value">14.71</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+          </property>
+          <property name="Item24" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">03/09/2001 00:00:00</property>
+            <property name="Value">16.41</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+          </property>
+          <property name="Item25" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">03/16/2001 00:00:00</property>
+            <property name="Value">19.52</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+          </property>
+          <property name="Item26" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">03/23/2001 00:00:00</property>
+            <property name="Value">12.23</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+          </property>
+          <property name="Item27" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">03/30/2001 00:00:00</property>
+            <property name="Value">9.29</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+          </property>
+          <property name="Item28" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">04/06/2001 00:00:00</property>
+            <property name="Value">13.34</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+          </property>
+          <property name="Item29" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">04/16/2001 00:00:00</property>
+            <property name="Value">9.06</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+          </property>
+          <property name="Item30" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">04/23/2001 00:00:00</property>
+            <property name="Value">8.25</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+          </property>
+          <property name="Item31" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">04/30/2001 00:00:00</property>
+            <property name="Value">7.34</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+          </property>
+          <property name="Item32" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">05/07/2001 00:00:00</property>
+            <property name="Value">6.06</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+          </property>
+          <property name="Item33" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">05/14/2001 00:00:00</property>
+            <property name="Value">5.08</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+          </property>
+          <property name="Item34" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">05/21/2001 00:00:00</property>
+            <property name="Value">8.11</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+          </property>
+          <property name="Item35" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">05/29/2001 00:00:00</property>
+            <property name="Value">5.74</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+          </property>
+          <property name="Item36" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">06/05/2001 00:00:00</property>
+            <property name="Value">6.12</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+          </property>
+          <property name="Item37" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">06/12/2001 00:00:00</property>
+            <property name="Value">7.28</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+          </property>
+          <property name="Item38" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">06/19/2001 00:00:00</property>
+            <property name="Value">6.06</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+          </property>
+          <property name="Item39" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">06/26/2001 00:00:00</property>
+            <property name="Value">7.03</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+          </property>
+          <property name="Item40" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">07/03/2001 00:00:00</property>
+            <property name="Value">3.32</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+          </property>
+          <property name="Item41" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">07/11/2001 00:00:00</property>
+            <property name="Value">8.74</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+          </property>
+          <property name="Item42" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">07/18/2001 00:00:00</property>
+            <property name="Value">10.92</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+          </property>
+          <property name="Item43" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">07/25/2001 00:00:00</property>
+            <property name="Value">6.22</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+          </property>
+          <property name="Item44" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">08/01/2001 00:00:00</property>
+            <property name="Value">5.99</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+          </property>
+          <property name="Item45" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">08/08/2001 00:00:00</property>
+            <property name="Value">6.28</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+          </property>
+          <property name="Item46" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">08/15/2001 00:00:00</property>
+            <property name="Value">4.67</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+          </property>
+          <property name="Item47" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">08/22/2001 00:00:00</property>
+            <property name="Value">7.98</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+          </property>
+          <property name="Item48" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">08/29/2001 00:00:00</property>
+            <property name="Value">4.8</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+          </property>
+          <property name="Item49" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">09/06/2001 00:00:00</property>
+            <property name="Value">9.01</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+          </property>
+          <property name="Item50" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">09/19/2001 00:00:00</property>
+            <property name="Value">14.84</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+          </property>
+          <property name="Item51" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">09/26/2001 00:00:00</property>
+            <property name="Value">13.72</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+          </property>
+          <property name="Item52" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">10/03/2001 00:00:00</property>
+            <property name="Value">11.05</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+          </property>
+          <property name="Item53" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">10/10/2001 00:00:00</property>
+            <property name="Value">10.57</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+          </property>
+          <property name="Item54" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">10/17/2001 00:00:00</property>
+            <property name="Value">18.69</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+          </property>
+          <property name="Item55" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">10/24/2001 00:00:00</property>
+            <property name="Value">8.22</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+          </property>
+          <property name="Item56" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">10/31/2001 00:00:00</property>
+            <property name="Value">7.08</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+          </property>
+          <property name="Item57" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">11/07/2001 00:00:00</property>
+            <property name="Value">9.85</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+          </property>
+          <property name="Item58" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">11/14/2001 00:00:00</property>
+            <property name="Value">7.95</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+          </property>
+          <property name="Item59" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">11/21/2001 00:00:00</property>
+            <property name="Value">4.16</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+          </property>
+          <property name="Item60" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">11/29/2001 00:00:00</property>
+            <property name="Value">6.06</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+          </property>
+          <property name="Item61" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">12/06/2001 00:00:00</property>
+            <property name="Value">10.72</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+          </property>
+          <property name="Item62" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">12/13/2001 00:00:00</property>
+            <property name="Value">7.91</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+          </property>
+          <property name="Item63" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">12/20/2001 00:00:00</property>
+            <property name="Value">6.25</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+          </property>
+          <property name="Item64" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">12/28/2001 00:00:00</property>
+            <property name="Value">4.16</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+          </property>
+          <property name="Item65" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">01/07/2002 00:00:00</property>
+            <property name="Value">5.88</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+          </property>
+          <property name="Item66" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">01/14/2002 00:00:00</property>
+            <property name="Value">9.73</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+          </property>
+          <property name="Item67" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">01/22/2002 00:00:00</property>
+            <property name="Value">9.91</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+          </property>
+          <property name="Item68" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">01/29/2002 00:00:00</property>
+            <property name="Value">14.18</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+          </property>
+          <property name="Item69" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">02/05/2002 00:00:00</property>
+            <property name="Value">6.7</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+          </property>
+          <property name="Item70" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">02/12/2002 00:00:00</property>
+            <property name="Value">4.51</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+          </property>
+          <property name="Item71" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">02/20/2002 00:00:00</property>
+            <property name="Value">14.4</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+          </property>
+          <property name="Item72" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">02/27/2002 00:00:00</property>
+            <property name="Value">11.8</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+          </property>
+          <property name="Item73" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">03/06/2002 00:00:00</property>
+            <property name="Value">7.66</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+          </property>
+          <property name="Item74" isnull="true" iskey="true">
+            <property name="TypeNameSerializable">SeriesPoint</property>
+            <property name="Argument">03/20/2002 00:00:00</property>
+            <property name="Value">6.04</property>
+            <property name="DateTimeValue" />
+            <property name="Tag" type="DevExpress.StockMarketTrader.ViewModel.TradingDataViewModel">~Xtra#NULL</property>
+            <property name="ToolTipHint" isnull="true" />
+            <property name="Brush" isnull="true" />
+          </property>
+        </property>
+        <property name="ArgumentDataMember">Date</property>
+        <property name="DisplayName">Volume</property>
+        <property name="ValueDataMember">Volume</property>
+        <property name="Legend">~Xtra#NULL</property>
+        <property name="LegendIndex">1</property>
+        <property name="TypeNameSerializable">BarStackedSeries2D</property>
+      </property>
+    </property>
+    <property name="TypeNameSerializable">XYDiagram2D</property>
+  </property>
+</XtraSerializer>

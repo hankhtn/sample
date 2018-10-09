@@ -1,0 +1,18 @@
+﻿<dx:DXWindow x:Class="DialogsDemo.DXWindowHeaderModuleWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+        xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
+        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+        mc:Ignorable="d"
+        UseLayoutRounding="True" WindowStartupLocation="CenterScreen"
+        Title="DXWindow" Height="600" Width="600">
+    <dx:DXWindow.HeaderItems>
+        <dxe:TextEdit Width="70" NullText="Text editor"/>
+        <dx:HeaderItemControl>
+            <dx:DXImage Source="{dx:DXImageGrayscale Image=Find_16x16.png}" dxb:ImageColorizer.IsEnabled="True" Stretch="None" dxb:ImageColorizer.Color="{Binding Path=(TextElement.Foreground).Color, RelativeSource={RelativeSource Self}}"/>
+        </dx:HeaderItemControl>
+    </dx:DXWindow.HeaderItems>
+</dx:DXWindow>

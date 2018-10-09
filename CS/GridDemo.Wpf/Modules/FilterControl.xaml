@@ -1,0 +1,108 @@
+﻿<local:GridDemoModule x:Class="GridDemo.FilterControl"
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+                      xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+                      xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+                      xmlns:dxdd="clr-namespace:DevExpress.DemoData"
+                      xmlns:local="clr-namespace:GridDemo"
+                      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                      xmlns:dxrudex="http://schemas.devexpress.com/winfx/2008/xaml/reports/userdesignerextensions"
+                      xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
+                      mc:Ignorable="d"
+                      d:DesignHeight="400"
+                      d:DesignWidth="800"
+                      HorizontalAlignment="Stretch"
+                      VerticalAlignment="Stretch">
+    <local:GridDemoModule.Resources>
+        <dxdd:NWindDataLoader x:Key="NWindDataLoader" />
+    </local:GridDemoModule.Resources>
+    <DockPanel>
+        <local:GridDemoRibbon DockPanel.Dock="Top" ExportGrid="{x:Reference filterGrid}" ReportService="{x:Reference rmsFilterControl}" />
+        <ScrollViewer HorizontalScrollBarVisibility="Disabled"
+                      VerticalScrollBarVisibility="Auto"
+                      Name="PART_Options"
+                      DockPanel.Dock="Right"
+                      dx:ScrollBarExtensions.ScrollBarMode="TouchOverlap"
+                      Focusable="False">
+            <StackPanel Margin="12,8,12,12" MinWidth="210">
+                <dxe:CheckEdit x:Name="showGroupCommandsIcon" Content="Show Group Commands Icon" Margin="0,0,0,4" />
+                <dxe:CheckEdit x:Name="showOperandTypeIcon" Content="Show Operand Type Icon" Margin="0,0,0,4" />
+                <dxe:CheckEdit x:Name="showToolTips" Content="Show Tool Tips" IsChecked="True" />
+                <local:RecentReports ReportService="{x:Reference rmsFilterControl}" />
+            </StackPanel>
+        </ScrollViewer>
+        <Grid Margin="12" RenderOptions.BitmapScalingMode="NearestNeighbor">
+            <Grid.RowDefinitions>
+                <RowDefinition MinHeight="150" Height="0.45*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition MinHeight="150" Height="0.55*" />
+            </Grid.RowDefinitions>
+            <dx:DXDockPanel Grid.Row="0" SnapsToDevicePixels="True">
+                <Button Width="150"
+                        Name="ApplyFilterButton"
+                        Margin="0,4,0,8"
+                        Content="Apply Filter"
+                        dx:DXDockPanel.Dock="Bottom"
+                        HorizontalAlignment="Center"
+                        Click="ApplyFilterButtonClick" />
+                <dxe:FilterControl x:Name="filterEditor"
+                                   SourceControl="{Binding ElementName=filterGrid, Path=FilteredComponent}"
+                                   FilterCriteria="{Binding ElementName=filterGrid, Path=FilterCriteria, Mode=TwoWay}"
+                                   ShowGroupCommandsIcon="{Binding ElementName=showGroupCommandsIcon, Path=IsChecked, Mode=TwoWay}"
+                                   ShowOperandTypeIcon="{Binding ElementName=showOperandTypeIcon, Path=IsChecked, Mode=TwoWay}"
+                                   ShowToolTips="{Binding ElementName=showToolTips, Path=IsChecked, Mode=TwoWay}" />
+            </dx:DXDockPanel>
+            <GridSplitter Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="4" Background="Transparent" />
+            <dxg:GridControl x:Name="filterGrid"
+                             Grid.Row="2"
+                             ItemsSource="{Binding Path=Invoices, Source={StaticResource NWindDataLoader}}"
+                             ShowBorder="True">
+                <dxg:GridControl.Columns>
+                    <dxg:GridColumn x:Name="colID" FieldName="OrderID" MinWidth="60" Width="3*" AllowResizing="False" FixedWidth="true" Header="ID" />
+                    <dxg:GridColumn x:Name="colProduct"
+                                    ColumnFilterMode="DisplayText"
+                                    FieldName="ProductID"
+                                    Header="Product"
+                                    Image="/GridDemo;component/Images/FilterControl/produce.png"
+                                    MinWidth="200"
+                                    Width="20*"
+                                    AutoFilterCondition="Equals">
+                        <dxg:GridColumn.EditSettings>
+                            <dxe:ComboBoxEditSettings AutoComplete="True"
+                                                      ImmediatePopup="True"
+                                                      ValueMember="ProductID"
+                                                      DisplayMember="ProductName"
+                                                      ItemsSource="{Binding Path=Products, Source={StaticResource NWindDataLoader}}" />
+                        </dxg:GridColumn.EditSettings>
+                    </dxg:GridColumn>
+                    <dxg:GridColumn x:Name="colUnitPrice" FieldName="UnitPrice" MinWidth="50" Width="7*" AutoFilterCondition="Equals">
+                        <dxg:GridColumn.EditSettings>
+                            <dxe:SpinEditSettings MaskType="Numeric" MaskUseAsDisplayFormat="True" Mask="c" MaskCulture="en-US" />
+                        </dxg:GridColumn.EditSettings>
+                    </dxg:GridColumn>
+                    <dxg:GridColumn x:Name="colQuantity" FieldName="Quantity" MinWidth="50" Width="7*" />
+                    <dxg:GridColumn x:Name="colTotal"
+                                    FieldName="Total"
+                                    MinWidth="110"
+                                    Width="11*"
+                                    UnboundType="Decimal"
+                                    ReadOnly="True"
+                                    UnboundExpression="[UnitPrice] * [Quantity]">
+                        <dxg:GridColumn.EditSettings>
+                            <dxe:TextEditSettings MaskType="Numeric" MaskUseAsDisplayFormat="True" Mask="c" MaskCulture="en-US" />
+                        </dxg:GridColumn.EditSettings>
+                    </dxg:GridColumn>
+                </dxg:GridControl.Columns>
+                <dxg:GridControl.View>
+                    <dxg:TableView FilterEditorCreated="TableView_FilterEditorCreated" AllowPrintColumnHeaderImage="True">
+                        <dxmvvm:Interaction.Behaviors>
+                            <dxrudex:GridReportManagerService Name="rmsFilterControl" />
+                        </dxmvvm:Interaction.Behaviors>
+                    </dxg:TableView>
+                </dxg:GridControl.View>
+            </dxg:GridControl>
+        </Grid>
+    </DockPanel>
+</local:GridDemoModule>

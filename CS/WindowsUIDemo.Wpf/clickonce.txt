@@ -1,0 +1,6 @@
+DevExpress.Xpf.Printing.v{DXVersion}
+DevExpress.Office.v{DXVersion}.Core
+DevExpress.RichEdit.v{DXVersion}.Core
+DevExpress.Xpf.RichEdit.v{DXVersion}
+DevExpress.DevAV.v{DXVersion}.Data
+DevExpress.Xpf.DocumentViewer.v{DXVersion}.Core

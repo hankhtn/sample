@@ -1,0 +1,149 @@
+﻿<local:ChartsDemoModule x:Class="ChartsDemo.Spline2DControl"
+                        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+                        xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
+                        xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts"
+                        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+                        xmlns:local="clr-namespace:ChartsDemo"
+                        ModuleLoaded="ChartsDemoModule_ModuleLoaded">
+    <!--#region Resources-->
+    <local:ChartsDemoModule.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/ChartsDemo;component/Themes/Common.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <local:MarkerSizeToLabelIndentConverter x:Key="MarkerSizeToLabelIndentConverter" />
+            <dxmvvm:BooleanNegationConverter x:Key="InvertedBoolConverter" />
+        </ResourceDictionary>
+    </local:ChartsDemoModule.Resources>
+    <!--#endregion-->
+    <DockPanel>
+        <local:ChartsDemoRibbon DockPanel.Dock="Top" Chart="{x:Reference chart}" />
+        <!--#region Options-->
+        <ScrollViewer HorizontalScrollBarVisibility="Disabled"
+                      VerticalScrollBarVisibility="Auto"
+                      Name="PART_Options"
+                      DockPanel.Dock="Right"
+                      dx:ScrollBarExtensions.ScrollBarMode="TouchOverlap"
+                      Focusable="False">
+            <StackPanel Margin="12,8,12,12" MinWidth="210">
+                <dxe:CheckEdit Name="chbVisible" Content="Show Labels" IsChecked="False" />
+                <GroupBox Header="Angle" Margin="0,5,0,0" IsEnabled="{Binding ElementName=chbVisible, Path=IsChecked}">
+                    <StackPanel>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Text="0" HorizontalAlignment="Left" />
+                            <TextBlock Grid.Column="1" Text="180" HorizontalAlignment="Center" />
+                            <TextBlock Grid.Column="2" Text="360" HorizontalAlignment="Right" />
+                        </Grid>
+                        <dxe:TrackBarEdit Name="slAngle" Value="45" Minimum="0" Maximum="360" TickPlacement="None" />
+                    </StackPanel>
+                </GroupBox>
+                <GroupBox Header="Line Tension" Margin="0,5,0,0">
+                    <StackPanel>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Text="0" HorizontalAlignment="Left" />
+                            <TextBlock Grid.Column="1" Text="0.5" HorizontalAlignment="Center" />
+                            <TextBlock Grid.Column="2" Text="1.0" HorizontalAlignment="Right" />
+                        </Grid>
+                        <dxe:TrackBarEdit Name="slLineTension" Value="0.8" Minimum="0" Maximum="1.0" SmallStep="0.1" TickPlacement="None" />
+                    </StackPanel>
+                </GroupBox>
+                <dxe:CheckEdit Name="chbMarkers" Content="Show Markers" Margin="0,8,0,0" IsChecked="True" />
+                <GroupBox Header="Marker Size" Margin="0,5,0,0" IsEnabled="{Binding ElementName=chbMarkers, Path=IsChecked}">
+                    <StackPanel>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Text="10" HorizontalAlignment="Left" />
+                            <TextBlock Grid.Column="1" Text="25" HorizontalAlignment="Center" />
+                            <TextBlock Grid.Column="2" Text="40" HorizontalAlignment="Right" />
+                        </Grid>
+                        <dxe:TrackBarEdit Name="slMarkerSize" Value="20" Minimum="10" Maximum="40" EditValue="20" TickPlacement="None" />
+                    </StackPanel>
+                </GroupBox>
+                <GroupBox Header="Marker" Margin="0,5,0,0">
+                    <dxe:ListBoxEdit Name="lbMarker"
+                                     Background="{x:Null}"
+                                     ShowBorder="False"
+                                     DisplayMember="ModelName"
+                                     ItemsSource="{x:Static local:DemoValuesProvider.PredefinedMarker2DModels}"
+                                     SelectedItem="{x:Static local:DemoValuesProvider.PredefinedCrossMarker2DModel}"
+                                     IsEnabled="{Binding ElementName=chbMarkers, Path=IsChecked}">
+                        <dxe:ListBoxEdit.StyleSettings>
+                            <dxe:RadioListBoxEditStyleSettings />
+                        </dxe:ListBoxEdit.StyleSettings>
+                    </dxe:ListBoxEdit>
+                </GroupBox>
+            </StackPanel>
+        </ScrollViewer>
+        <!--#endregion-->
+        <dxc:ChartControl Name="chart"
+                          BorderThickness="0"
+                          AnimationMode="OnLoad"
+                          CrosshairEnabled="{Binding ElementName=chbVisible, Path=IsChecked, Converter={StaticResource InvertedBoolConverter}}"
+                          DataSource="{x:Static local:PowerConsumption.Data}">
+            <dxc:ChartControl.Diagram>
+                <dxc:XYDiagram2D SeriesDataMember="Branch">
+                    <dxc:XYDiagram2D.AxisY>
+                        <dxc:AxisY2D GridLinesMinorVisible="True">
+                            <dxc:AxisY2D.WholeRange>
+                                <dxc:Range dxc:AxisY2D.AlwaysShowZeroLevel="False" />
+                            </dxc:AxisY2D.WholeRange>
+                            <dxc:AxisY2D.Title>
+                                <dxc:AxisTitle Content="Power, kW" />
+                            </dxc:AxisY2D.Title>
+                        </dxc:AxisY2D>
+                    </dxc:XYDiagram2D.AxisY>
+                    <dxc:XYDiagram2D.AxisX>
+                        <dxc:AxisX2D GridLinesVisible="True">
+                            <dxc:AxisX2D.DateTimeScaleOptions>
+                                <dxc:ContinuousDateTimeScaleOptions />
+                            </dxc:AxisX2D.DateTimeScaleOptions>
+                            <dxc:AxisX2D.WholeRange>
+                                <dxc:Range AutoSideMargins="False" SideMarginsValue="1800000" />
+                            </dxc:AxisX2D.WholeRange>
+                        </dxc:AxisX2D>
+                    </dxc:XYDiagram2D.AxisX>
+                    <dxc:XYDiagram2D.SeriesTemplate>
+                        <dxc:SplineSeries2D LineTension="{Binding ElementName=slLineTension, Path=Value}"
+                                            MarkerSize="{Binding ElementName=slMarkerSize, Path=Value}"
+                                            MarkerVisible="{Binding ElementName=chbMarkers, Path=IsChecked}"
+                                            MarkerModel="{Binding ElementName=lbMarker, Path=SelectedItem}"
+                                            AnimationAutoStartMode="SetStartState"
+                                            ArgumentDataMember="Time"
+                                            ValueDataMember="Power"
+                                            CrosshairLabelPattern="{}{S}: {V}kWt">
+                            <dxc:SplineSeries2D.Label>
+                                <dxc:SeriesLabel ConnectorVisible="False"
+                                                 ResolveOverlappingMode="Default"
+                                                 Indent="{Binding ElementName=slMarkerSize, Path=Value, Converter={StaticResource MarkerSizeToLabelIndentConverter}}"
+                                                 dxc:MarkerSeries2D.Angle="{Binding ElementName=slAngle, Path=Value}"
+                                                 Visible="{Binding ElementName=chbVisible, Path=IsChecked}" />
+                            </dxc:SplineSeries2D.Label>
+                        </dxc:SplineSeries2D>
+                    </dxc:XYDiagram2D.SeriesTemplate>
+                </dxc:XYDiagram2D>
+            </dxc:ChartControl.Diagram>
+            <dxc:ChartControl.Legend>
+                <dxc:Legend HorizontalPosition="Left" />
+            </dxc:ChartControl.Legend>
+            <dxc:ChartControl.Titles>
+                <dxc:Title Dock="Top" HorizontalAlignment="Center" Content="Power Consumption per Working Day" />
+            </dxc:ChartControl.Titles>
+        </dxc:ChartControl>
+    </DockPanel>
+</local:ChartsDemoModule>

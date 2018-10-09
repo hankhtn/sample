@@ -1,0 +1,239 @@
+﻿<local:ChartsDemoModule x:Class="ChartsDemo.EmptyPointsControl"
+                        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+                        xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
+                        xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts"
+                        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+                        xmlns:local="clr-namespace:ChartsDemo"
+                        ModuleLoaded="ChartsDemoModule_ModuleLoaded">
+    <local:ChartsDemoModule.Resources>
+        <dxmvvm:BooleanNegationConverter x:Key="InvertedBoolConverter" />
+        <!--#region Animations-->
+        <dxc:Marker2DFadeInAnimation x:Key="markerFadeInAnimation" BeginTime="00:00:00.200" />
+        <dxc:Marker2DFadeInAnimation x:Key="markerFadeInAnimationEntertainment" BeginTime="00:00:00.400" />
+        <dxc:Marker2DFadeInAnimation x:Key="markerFadeInAnimationTravel" BeginTime="00:00:00.600" />
+
+        <dxc:Line2DBlowUpAnimation x:Key="lineBlowUpAnimation" BeginTime="00:00:00.200" />
+        <dxc:Line2DBlowUpAnimation x:Key="lineBlowUpAnimationEntertainment" BeginTime="00:00:00.400" />
+        <dxc:Line2DBlowUpAnimation x:Key="lineBlowUpAnimationTravel" BeginTime="00:00:00.600" />
+
+        <dxc:Area2DStretchOutAnimation x:Key="areaStretchOutAnimation" BeginTime="00:00:00.200" />
+        <dxc:Area2DStretchOutAnimation x:Key="areaStretchOutAnimationEntertainment" BeginTime="00:00:00.400" />
+        <dxc:Area2DStretchOutAnimation x:Key="areaStretchOutAnimationTravel" BeginTime="00:00:00.600" />
+
+        <dxc:AreaStacked2DFadeInAnimation x:Key="areaStackedFadeInAnimation" BeginTime="00:00:00.200" />
+        <dxc:AreaStacked2DFadeInAnimation x:Key="areaStackedFadeInAnimationEntertainment" BeginTime="00:00:00.400" />
+        <dxc:AreaStacked2DFadeInAnimation x:Key="areaStackedFadeInAnimationTravel" BeginTime="00:00:00.600" />
+        <!--#endregion-->
+        <!--#region Styles-->
+        <Style x:Key="baseSeriesStyle" TargetType="{x:Type dxc:Series}">
+            <Setter Property="AnimationAutoStartMode" Value="SetStartState" />
+            <Setter Property="ArgumentDataMember" Value="Date" />
+            <Setter Property="ArgumentScaleType" Value="DateTime" />
+            <Setter Property="DataSource" Value="{Binding Data}" />
+            <Setter Property="DisplayName" Value="{Binding Category}" />
+            <Setter Property="LabelsVisibility" Value="{Binding Source={x:Reference Name=cheLabelsVisible}, Path=IsChecked}" />
+            <Setter Property="ValueDataMember" Value="{Binding Category}" />
+        </Style>
+        <Style TargetType="{x:Type dxc:SeriesLabel}">
+            <Setter Property="ResolveOverlappingMode" Value="Default" />
+        </Style>
+        <Style x:Key="lineSeriesStyle" BasedOn="{StaticResource baseSeriesStyle}" TargetType="{x:Type dxc:LineSeries2D}">
+            <Setter Property="PointAnimation" Value="{DXBinding 'Category == `Politics` ? @r(markerFadeInAnimation) : Category == `Entertainment` ? @r(markerFadeInAnimationEntertainment) : @r(markerFadeInAnimationTravel)'}" />
+            <Setter Property="SeriesAnimation" Value="{DXBinding 'Category == `Politics` ? @r(lineBlowUpAnimation) : Category == `Entertainment` ? @r(lineBlowUpAnimationEntertainment) : @r(lineBlowUpAnimationTravel)'}" />
+        </Style>
+        <Style x:Key="areaSeriesStyle" BasedOn="{StaticResource baseSeriesStyle}" TargetType="{x:Type dxc:AreaSeries2D}">
+            <Setter Property="PointAnimation" Value="{DXBinding 'Category == `Politics` ? @r(markerFadeInAnimation) : Category == `Entertainment` ? @r(markerFadeInAnimationEntertainment) : @r(markerFadeInAnimationTravel)'}" />
+            <Setter Property="SeriesAnimation" Value="{DXBinding 'Category == `Politics` ? @r(areaStretchOutAnimation) : Category == `Entertainment` ? @r(areaStretchOutAnimationEntertainment) : @r(areaStretchOutAnimationTravel)'}" />
+            <Setter Property="Transparency" Value="0.5" />
+        </Style>
+        <Style x:Key="areaStackedSeriesStyle" BasedOn="{StaticResource baseSeriesStyle}" TargetType="{x:Type dxc:AreaStackedSeries2D}">
+            <Setter Property="PointAnimation" Value="{DXBinding 'Category == `Politics` ? @r(areaStackedFadeInAnimation) : Category == `Entertainment` ? @r(areaStackedFadeInAnimationEntertainment) : @r(areaStackedFadeInAnimationTravel)'}" />
+            <Setter Property="SeriesAnimation" Value="{DXBinding 'Category == `Politics` ? @r(areaStretchOutAnimation) : Category == `Entertainment` ? @r(areaStretchOutAnimationEntertainment) : @r(areaStretchOutAnimationTravel)'}" />
+            <Setter Property="Transparency" Value="0.5" />
+        </Style>
+        <!--#endregion-->
+    </local:ChartsDemoModule.Resources>
+    <DockPanel>
+        <local:ChartsDemoRibbon DockPanel.Dock="Top" Chart="{x:Reference chart}" />
+        <!--#region Options-->
+        <ScrollViewer HorizontalScrollBarVisibility="Disabled"
+                      VerticalScrollBarVisibility="Auto"
+                      Name="PART_Options"
+                      DockPanel.Dock="Right"
+                      dx:ScrollBarExtensions.ScrollBarMode="TouchOverlap"
+                      Focusable="False">
+            <StackPanel Margin="12,8,12,12" MinWidth="210">
+                <dxe:CheckEdit Name="cheLabelsVisible" Content="Show Series Labels" IsChecked="True" />
+                <GroupBox Header="Series Type" Margin="0,5,0,0">
+                    <dxe:ListBoxEdit Name="lbSeriesType"
+                                         Background="{x:Null}"
+                                         ShowBorder="False"
+                                         DisplayMember="Content"
+                                         SelectedIndexChanged="lbSeriesType_SelectedIndexChanged"
+                                         SelectedIndex="0">
+                        <dxe:ListBoxEdit.StyleSettings>
+                            <dxe:RadioListBoxEditStyleSettings />
+                        </dxe:ListBoxEdit.StyleSettings>
+                        <dxe:ListBoxEdit.Items>
+                            <!--#region Line Series-->
+                            <local:SeriesInfo Content="2D Lines" DiagramType="XY">
+                                <DataTemplate>
+                                    <dxc:LineSeries2D Style="{StaticResource lineSeriesStyle}" />
+                                </DataTemplate>
+                            </local:SeriesInfo>
+                            <local:SeriesInfo Content="2D Splines" DiagramType="XY">
+                                <DataTemplate>
+                                    <dxc:SplineSeries2D Style="{StaticResource lineSeriesStyle}" />
+                                </DataTemplate>
+                            </local:SeriesInfo>
+                            <!--#endregion-->
+                            <!--#region Area Series-->
+                            <local:SeriesInfo Content="2D Areas" DiagramType="XY">
+                                <DataTemplate>
+                                    <dxc:AreaSeries2D Style="{StaticResource areaSeriesStyle}" />
+                                </DataTemplate>
+                            </local:SeriesInfo>
+                            <local:SeriesInfo Content="2D Spline Areas" DiagramType="XY">
+                                <DataTemplate>
+                                    <dxc:SplineAreaSeries2D Style="{StaticResource areaSeriesStyle}" />
+                                </DataTemplate>
+                            </local:SeriesInfo>
+                            <!--#endregion-->
+                            <!--#region Area Stacked Series-->
+                            <local:SeriesInfo Content="2D Stacked Areas" DiagramType="XY">
+                                <DataTemplate>
+                                    <dxc:AreaStackedSeries2D Style="{StaticResource areaStackedSeriesStyle}" />
+                                </DataTemplate>
+                            </local:SeriesInfo>
+                            <local:SeriesInfo Content="2D Stacked Spline Areas" DiagramType="XY">
+                                <DataTemplate>
+                                    <dxc:SplineAreaStackedSeries2D Style="{StaticResource areaStackedSeriesStyle}" />
+                                </DataTemplate>
+                            </local:SeriesInfo>
+                            <local:SeriesInfo Content="2D Full-Stacked Areas" DiagramType="XY">
+                                <DataTemplate>
+                                    <dxc:AreaFullStackedSeries2D Style="{StaticResource areaStackedSeriesStyle}">
+                                        <dxc:AreaFullStackedSeries2D.Label>
+                                            <dxc:SeriesLabel TextPattern="{}{VP:P0}" />
+                                        </dxc:AreaFullStackedSeries2D.Label>
+                                    </dxc:AreaFullStackedSeries2D>
+                                </DataTemplate>
+                            </local:SeriesInfo>
+                            <local:SeriesInfo Content="2D Spline Full-Stacked Areas" DiagramType="XY">
+                                <DataTemplate>
+                                    <dxc:SplineAreaFullStackedSeries2D Style="{StaticResource areaStackedSeriesStyle}">
+                                        <dxc:SplineAreaFullStackedSeries2D.Label>
+                                            <dxc:SeriesLabel TextPattern="{}{VP:P0}" />
+                                        </dxc:SplineAreaFullStackedSeries2D.Label>
+                                    </dxc:SplineAreaFullStackedSeries2D>
+                                </DataTemplate>
+                            </local:SeriesInfo>
+                            <!--#endregion-->
+                            <!--#region 3D Series-->
+                            <local:SeriesInfo Content="3D Areas" DiagramType="XY3D">
+                                <DataTemplate>
+                                    <dxc:AreaSeries3D Style="{StaticResource baseSeriesStyle}" />
+                                </DataTemplate>
+                            </local:SeriesInfo>
+                            <local:SeriesInfo Content="3D Stacked Areas" DiagramType="XY3D">
+                                <DataTemplate>
+                                    <dxc:AreaStackedSeries3D Style="{StaticResource baseSeriesStyle}" />
+                                </DataTemplate>
+                            </local:SeriesInfo>
+                            <local:SeriesInfo Content="3D Full-Stacked Areas" DiagramType="XY3D">
+                                <DataTemplate>
+                                    <dxc:AreaFullStackedSeries3D Style="{StaticResource baseSeriesStyle}">
+                                        <dxc:AreaFullStackedSeries3D.Label>
+                                            <dxc:SeriesLabel TextPattern="{}{VP:P0}" />
+                                        </dxc:AreaFullStackedSeries3D.Label>
+                                    </dxc:AreaFullStackedSeries3D>
+                                </DataTemplate>
+                            </local:SeriesInfo>
+                            <!--#endregion-->
+                        </dxe:ListBoxEdit.Items>
+                    </dxe:ListBoxEdit>
+                </GroupBox>
+            </StackPanel>
+        </ScrollViewer>
+        <!--#endregion-->
+        <Grid>
+            <Grid.Resources>
+                <!--#region Diagram2D-->
+                <dxc:XYDiagram2D x:Key="diagram2D"
+                                 SeriesItemsSource="{x:Static local:WebSiteData.Categories}"
+                                 SeriesItemTemplate="{Binding ElementName=lbSeriesType, Path=SelectedItem.SeriesTemplate}">
+                    <dxc:XYDiagram2D.AxisX>
+                        <dxc:AxisX2D>
+                            <dxc:AxisX2D.Label>
+                                <dxc:AxisLabel TextPattern="{}{A:m}" />
+                            </dxc:AxisX2D.Label>
+                        </dxc:AxisX2D>
+                    </dxc:XYDiagram2D.AxisX>
+                    <dxc:XYDiagram2D.AxisY>
+                        <dxc:AxisY2D>
+                            <dxc:AxisY2D.Label>
+                                <dxc:AxisLabel TextPattern="{DXBinding '(@e(lbSeriesType).SelectedItem.Content == `2D Full-Stacked Areas` or @e(lbSeriesType).SelectedItem.Content == `2D Spline Full-Stacked Areas`) ? `{VP:P0}` : ``'}" />
+                            </dxc:AxisY2D.Label>
+                            <dxc:AxisY2D.Title>
+                                <dxc:AxisTitle Content="Number of visitors"
+                                               Visible="{DXBinding '!(@e(lbSeriesType).SelectedItem.Content == `2D Full-Stacked Areas` or @e(lbSeriesType).SelectedItem.Content == `2D Spline Full-Stacked Areas`)'}" />
+                            </dxc:AxisY2D.Title>
+                        </dxc:AxisY2D>
+                    </dxc:XYDiagram2D.AxisY>
+                </dxc:XYDiagram2D>
+                <!--#endregion-->
+                <!--#region Diagram3D-->
+                <dxc:XYDiagram3D x:Key="diagram3D"
+                                 SeriesItemsSource="{x:Static local:WebSiteData.Categories}"
+                                 SeriesItemTemplate="{Binding ElementName=lbSeriesType, Path=SelectedItem.SeriesTemplate}">
+                    <dxc:XYDiagram3D.AxisX>
+                        <dxc:AxisX3D>
+                            <dxc:AxisX3D.Label>
+                                <dxc:AxisLabel TextPattern="{}{A:m}" />
+                            </dxc:AxisX3D.Label>
+                        </dxc:AxisX3D>
+                    </dxc:XYDiagram3D.AxisX>
+                    <dxc:XYDiagram3D.AxisY>
+                        <dxc:AxisY3D>
+                            <dxc:AxisY3D.Label>
+                                <dxc:AxisLabel TextPattern="{DXBinding '(@e(lbSeriesType).SelectedItem.Content == `3D Full-Stacked Areas`) ? `{VP:P0}` : ``'}" />
+                            </dxc:AxisY3D.Label>
+                            <dxc:AxisY3D.Title>
+                                <dxc:AxisTitle Content="Number of visitors" Visible="{DXBinding '@e(lbSeriesType).SelectedItem.Content != `3D Full-Stacked Areas`'}" />
+                            </dxc:AxisY3D.Title>
+                        </dxc:AxisY3D>
+                    </dxc:XYDiagram3D.AxisY>
+                </dxc:XYDiagram3D>
+                <!--#endregion-->
+            </Grid.Resources>
+            <dxc:ChartControl Name="chart"
+                              BorderThickness="0"
+                              CrosshairEnabled="{Binding ElementName=cheLabelsVisible, Path=IsChecked, Converter={StaticResource InvertedBoolConverter}}"
+                              AnimationMode="OnLoad">
+                <dxmvvm:Interaction.Behaviors>
+                    <local:ChartAnimationService x:Name="animationService" />
+                </dxmvvm:Interaction.Behaviors>
+                <!--#region Legend and Titles-->
+                <dxc:ChartControl.Legend>
+                    <dxc:Legend HorizontalPosition="RightOutside" />
+                </dxc:ChartControl.Legend>
+                <dxc:ChartControl.Titles>
+                    <dxc:Title Dock="Top" HorizontalAlignment="Center" FontSize="24" Content="News Website Popularity" />
+                </dxc:ChartControl.Titles>
+                <!--#endregion-->
+                <dxc:ChartControl.Style>
+                    <Style TargetType="dxc:ChartControl">
+                        <Setter Property="Diagram" Value="{StaticResource diagram2D}" />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ElementName=lbSeriesType, Path=SelectedItem.DiagramType}" Value="XY3D">
+                                <Setter Property="Diagram" Value="{StaticResource diagram3D}" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </dxc:ChartControl.Style>
+            </dxc:ChartControl>
+        </Grid>
+    </DockPanel>
+</local:ChartsDemoModule>

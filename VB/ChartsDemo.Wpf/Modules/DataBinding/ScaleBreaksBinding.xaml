@@ -1,0 +1,57 @@
+﻿<local:ChartsDemoModule x:Class="ChartsDemo.ScaleBreaksBinding"
+                        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                        xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts"
+                        xmlns:local="clr-namespace:ChartsDemo"
+                        ModuleLoaded="ChartsDemoModule_ModuleLoaded">
+    <local:ChartsDemoModule.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/ChartsDemo;component/Themes/Common.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </local:ChartsDemoModule.Resources>
+    <DockPanel>
+        <local:ChartsDemoRibbon DockPanel.Dock="Top" Chart="{x:Reference chart}" />
+        <dxc:ChartControl AnimationMode="OnLoad" BorderThickness="0" CrosshairEnabled="False" Name="chart">
+            <dxc:ChartControl.Titles>
+                <dxc:Title Content="Number of Moons of the Planets of the Solar System" HorizontalAlignment="Center" />
+            </dxc:ChartControl.Titles>
+            <dxc:ChartControl.Diagram>
+                <dxc:XYDiagram2D>
+                    <dxc:XYDiagram2D.AxisY>
+                        <dxc:AxisY2D Interlaced="True" MinorCount="3" ScaleBreakItemsSource="{x:Static local:PlanetData.MoonScaleBreaks}">
+                            <dxc:AxisY2D.ScaleBreakItemTemplate>
+                                <DataTemplate>
+                                    <dxc:ScaleBreak Edge1="{Binding Min}" Edge2="{Binding Max}" />
+                                </DataTemplate>
+                            </dxc:AxisY2D.ScaleBreakItemTemplate>
+                            <dxc:AxisY2D.Title>
+                                <dxc:AxisTitle Content="Number of Moons" />
+                            </dxc:AxisY2D.Title>
+                        </dxc:AxisY2D>
+                    </dxc:XYDiagram2D.AxisY>
+                    <dxc:XYDiagram2D.Series>
+                        <dxc:BarSideBySideSeries2D ArgumentDataMember="Planet"
+                                                   ValueDataMember="MoonsNumber"
+                                                   DataSource="{x:Static local:PlanetData.Data}"
+                                                   ColorEach="True"
+                                                   LegendTextPattern="{}{A}: {V}"
+                                                   LabelsVisibility="True"
+                                                   AnimationAutoStartMode="SetStartState">
+                            <dxc:BarSideBySideSeries2D.Label>
+                                <dxc:SeriesLabel dxc:BarSeries2D.ShowZeroValueLabels="True" />
+                            </dxc:BarSideBySideSeries2D.Label>
+                            <dxc:BarSideBySideSeries2D.PointAnimation>
+                                <dxc:Bar2DSlideFromLeftAnimation PointOrder="Inverted" />
+                            </dxc:BarSideBySideSeries2D.PointAnimation>
+                        </dxc:BarSideBySideSeries2D>
+                    </dxc:XYDiagram2D.Series>
+                </dxc:XYDiagram2D>
+            </dxc:ChartControl.Diagram>
+            <dxc:ChartControl.Legend>
+                <dxc:Legend />
+            </dxc:ChartControl.Legend>
+        </dxc:ChartControl>
+    </DockPanel>
+</local:ChartsDemoModule>

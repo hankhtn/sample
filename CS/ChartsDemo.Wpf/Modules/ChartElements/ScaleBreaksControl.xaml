@@ -1,0 +1,81 @@
+﻿<local:ChartsDemoModule x:Class="ChartsDemo.ScaleBreaksControl"
+                        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+                        xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts"
+                        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+                        xmlns:local="clr-namespace:ChartsDemo"
+                        ModuleLoaded="ChartsDemoModule_ModuleLoaded">
+    <local:ChartsDemoModule.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/ChartsDemo;component/Themes/Common.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </local:ChartsDemoModule.Resources>
+    <DockPanel>
+        <local:ChartsDemoRibbon DockPanel.Dock="Top" Chart="{x:Reference chart}" />
+        <ScrollViewer HorizontalScrollBarVisibility="Disabled"
+                      VerticalScrollBarVisibility="Auto"
+                      Name="PART_Options"
+                      DockPanel.Dock="Right"
+                      dx:ScrollBarExtensions.ScrollBarMode="TouchOverlap"
+                      Focusable="False">
+            <StackPanel Margin="12,8,12,12" MinWidth="210">
+                <dxe:CheckEdit Name="chbVisible" Content="Show Scale Breaks" IsChecked="True" />
+                <GroupBox IsEnabled="{Binding ElementName=chbVisible, Path=IsChecked}" Header="Max Count:" Margin="0,5,0,0">
+                    <dxe:SpinEdit Name="spnMaxCount" MaxValue="4" MinValue="1" Value="4" AllowNullInput="False" IsTextEditable="False" />
+                </GroupBox>
+                <GroupBox IsEnabled="{Binding ElementName=chbVisible, Path=IsChecked}" Header="Style:" Margin="0,5,0,0">
+                    <dxe:ComboBoxEdit Name="cbStyle"
+                                      AllowNullInput="False"
+                                      IsTextEditable="False"
+                                      EditValue="{x:Static dxc:ScaleBreakStyle.Ragged}"
+                                      ItemsSource="{dxe:EnumItemsSource EnumType=dxc:ScaleBreakStyle, SortMode=DisplayName}" />
+                </GroupBox>
+                <GroupBox IsEnabled="{Binding ElementName=chbVisible, Path=IsChecked}" Header="Size:" Margin="0,5,0,0">
+                    <dxe:SpinEdit Name="spnSize" MaxValue="50" MinValue="-1" Value="4" AllowNullInput="False" IsTextEditable="False" />
+                </GroupBox>
+                <dxe:CheckEdit Name="chbLabels" Content="Show Labels" Margin="0,8,0,0" />
+            </StackPanel>
+        </ScrollViewer>
+        <dxc:ChartControl AnimationMode="OnLoad" BorderThickness="0" Name="chart" CrosshairEnabled="{DXBinding !@e(chbLabels).IsChecked}">
+            <dxc:ChartControl.Titles>
+                <dxc:Title Content="Mass of Planets in the Solar System" HorizontalAlignment="Center" />
+            </dxc:ChartControl.Titles>
+            <dxc:ChartControl.Diagram>
+                <dxc:XYDiagram2D>
+                    <dxc:XYDiagram2D.AxisY>
+                        <dxc:AxisY2D Interlaced="True" MinorCount="3">
+                            <dxc:AxisY2D.Title>
+                                <dxc:AxisTitle Content="Mass (Earth's)" />
+                            </dxc:AxisY2D.Title>
+                            <dxc:AxisY2D.AutoScaleBreaks>
+                                <dxc:AutoScaleBreaks Enabled="{Binding ElementName=chbVisible, Path=IsChecked}" MaxCount="{Binding ElementName=spnMaxCount, Path=Value}" />
+                            </dxc:AxisY2D.AutoScaleBreaks>
+                            <dxc:AxisY2D.ScaleBreakOptions>
+                                <dxc:ScaleBreakOptions Style="{Binding ElementName=cbStyle, Path=EditValue}" SizeInPixels="{Binding ElementName=spnSize, Path=Value}" />
+                            </dxc:AxisY2D.ScaleBreakOptions>
+                        </dxc:AxisY2D>
+                    </dxc:XYDiagram2D.AxisY>
+                    <dxc:XYDiagram2D.Series>
+                        <dxc:BarSideBySideSeries2D ArgumentDataMember="Planet"
+                                                   ValueDataMember="Mass"
+                                                   DataSource="{x:Static local:PlanetData.Data}"
+                                                   ColorEach="True"
+                                                   LegendTextPattern="{}{A}: {V}"
+                                                   LabelsVisibility="{Binding ElementName=chbLabels, Path=IsChecked}"
+                                                   AnimationAutoStartMode="SetStartState">
+                            <dxc:BarSideBySideSeries2D.PointAnimation>
+                                <dxc:Bar2DSlideFromLeftAnimation PointOrder="Inverted" />
+                            </dxc:BarSideBySideSeries2D.PointAnimation>
+                        </dxc:BarSideBySideSeries2D>
+                    </dxc:XYDiagram2D.Series>
+                </dxc:XYDiagram2D>
+            </dxc:ChartControl.Diagram>
+            <dxc:ChartControl.Legend>
+                <dxc:Legend />
+            </dxc:ChartControl.Legend>
+        </dxc:ChartControl>
+    </DockPanel>
+</local:ChartsDemoModule>

@@ -1,0 +1,3 @@
+DevExpress.Xpf.DocumentViewer.v{DXVersion}.Core
+DevExpress.Xpf.PdfViewer.v{DXVersion}
+DevExpress.Pdf.v{DXVersion}.Drawing

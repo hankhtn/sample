@@ -1,0 +1,9 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:ChartsDemo">
+
+    <Style TargetType="Hyperlink">
+        <Setter Property="Foreground" Value="#094092" />
+        <Setter Property="ToolTip" Value="{Binding Path=NavigateUri, RelativeSource={RelativeSource Self}}" />
+    </Style>
+</ResourceDictionary>

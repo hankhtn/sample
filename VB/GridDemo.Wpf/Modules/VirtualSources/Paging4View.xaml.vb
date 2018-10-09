@@ -1,0 +1,102 @@
+Imports DevExpress.Data.Filtering
+Imports DevExpress.Xpf.Data
+Imports System
+Imports System.ComponentModel
+Imports System.Linq
+Imports System.Windows.Controls
+
+Namespace GridDemo.VirtualSources
+    Partial Public Class Paging4View
+        Inherits UserControl
+
+        Public Sub New()
+            InitializeComponent()
+
+'                #Region "!"
+'                #End Region
+            Dim source = New PagedAsyncSource() With {.ElementType = GetType(IssueData), .PageSize = 10, .PageNavigationMode = PageNavigationMode.ArbitraryWithTotalPageCount}
+            AddHandler Unloaded, Sub(o, e) source.Dispose()
+
+'            #Region "fetch page"
+            AddHandler source.FetchPage, Sub(o, e)
+'                #Region "sorting"
+                Dim sortOrder As IssueSortOrder = IssueSortOrder.Default
+                If e.SortOrder.Length > 0 Then
+                    Dim sort = e.SortOrder.Single()
+                    If sort.PropertyName = "Created" Then
+                        If sort.Direction <> ListSortDirection.Descending Then
+                            Throw New InvalidOperationException()
+                        End If
+                        sortOrder = IssueSortOrder.CreatedDescending
+                    End If
+                    If sort.PropertyName = "Votes" Then
+                        sortOrder = If(sort.Direction = ListSortDirection.Ascending, IssueSortOrder.VotesAscending, IssueSortOrder.VotesDescending)
+                    End If
+                End If
+'                #End Region
+
+                Dim filter As IssueFilter = MakeIssueFilter(e.Filter)
+
+'                #Region "service request"
+                Dim issuesTask = IssuesService.GetIssuesAsync(page:= e.Skip / e.Take, pageSize:= e.Take, sortOrder:= sortOrder, filter:= filter)
+
+                e.Result = issuesTask.ContinueWith(Function(t) New FetchRowsResult(t.Result, hasMoreRows:= t.Result.Length = e.Take))
+'                #End Region
+            End Sub
+'            #End Region
+
+'            #Region "unique filter values"
+            AddHandler source.GetUniqueValues, Sub(o, e)
+                If e.PropertyName = "Priority" Then
+                    Dim values = System.Enum.GetValues(GetType(Priority)).Cast(Of Object)().ToArray()
+                    e.Result = System.Threading.Tasks.Task.Factory.StartNew(Function() values)
+                Else
+                    Throw New InvalidOperationException()
+                End If
+            End Sub
+'            #End Region
+
+'            #Region "!"
+            AddHandler source.GetTotalSummaries, Sub(o, e)
+                Dim filter As IssueFilter = MakeIssueFilter(e.Filter)
+                Dim summariesTask = IssuesService.GetSummariesAsync(filter)
+                e.Result = summariesTask.ContinueWith(Function(t)
+                    Return e.Summaries.Select(Function(x)
+                        If x.SummaryType = SummaryType.Count Then
+                            Return DirectCast(t.Result.Count, Object)
+                        End If
+                        If x.SummaryType = SummaryType.Max AndAlso x.PropertyName = "Created" Then
+                            Return t.Result.LastCreated
+                        End If
+                        Throw New InvalidOperationException()
+                    End Function).ToArray()
+                End Function)
+            End Sub
+'            #End Region
+
+            grid.ItemsSource = source
+        End Sub
+
+        #Region "MakeIssueFilter"
+        Private Shared Function MakeIssueFilter(ByVal filter As CriteriaOperator) As IssueFilter
+            Return filter.Match(binary:= Function(propertyName, value, type)
+                If propertyName = "Votes" AndAlso type = BinaryOperatorType.GreaterOrEqual Then
+                    Return New IssueFilter(minVotes:= CInt((value)))
+                End If
+                If propertyName = "Priority" AndAlso type = BinaryOperatorType.Equal Then
+                    Return New IssueFilter(priority:= CType(value, Priority))
+                End If
+                If propertyName = "Created" Then
+                    If type = BinaryOperatorType.GreaterOrEqual Then
+                        Return New IssueFilter(createdFrom:= CDate(value))
+                    End If
+                    If type = BinaryOperatorType.Less Then
+                        Return New IssueFilter(createdTo:= CDate(value))
+                    End If
+                End If
+                Throw New InvalidOperationException()
+            End Function, and:= Function(filters) New IssueFilter(createdFrom:= filters.Select(Function(x) x.CreatedFrom).SingleOrDefault(Function(x) x IsNot Nothing), createdTo:= filters.Select(Function(x) x.CreatedTo).SingleOrDefault(Function(x) x IsNot Nothing), minVotes:= filters.Select(Function(x) x.MinVotes).SingleOrDefault(Function(x) x IsNot Nothing), priority:= filters.Select(Function(x) x.Priority).SingleOrDefault(Function(x) x IsNot Nothing)), null:= Nothing)
+        End Function
+        #End Region
+    End Class
+End Namespace

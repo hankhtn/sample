@@ -1,0 +1,85 @@
+﻿<local:ChartsDemoModule x:Class="ChartsDemo.CustomDrawControl"
+                        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                        xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts"
+                        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+                        xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
+                        xmlns:local="clr-namespace:ChartsDemo"
+                        DataContext="{dxmvvm:ViewModelSource Type=local:CustomDrawViewModel}"
+                        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core">
+    <dxmvvm:Interaction.Triggers>
+        <dxmvvm:EventToCommand EventName="ModuleLoaded" Command="{Binding OnModuleLoadedCommand}" />
+    </dxmvvm:Interaction.Triggers>
+    <local:ChartsDemoModule.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/ChartsDemo;component/Themes/Common.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </local:ChartsDemoModule.Resources>
+    <DockPanel>
+        <local:ChartsDemoRibbon DockPanel.Dock="Top" Chart="{x:Reference chart}" />
+        <ScrollViewer HorizontalScrollBarVisibility="Disabled"
+                      VerticalScrollBarVisibility="Auto"
+                      Name="PART_Options"
+                      DockPanel.Dock="Right"
+                      dx:ScrollBarExtensions.ScrollBarMode="TouchOverlap"
+                      Focusable="False">
+            <StackPanel Margin="12,8,12,12" MinWidth="210">
+                <dxe:CheckEdit Name="chbVisible" Content="Show Labels" IsChecked="True" />
+                <dxe:CheckEdit Name="chbCustomDraw"
+                               Content="Custom Draw"
+                               Margin="0,4,0,12"
+                               IsChecked="True"
+                               Command="{DXCommand Execute='@e(chart).UpdateData()'}" />
+                <Button Content="Create Bars" Command="{Binding UpdateDataCommand}" />
+            </StackPanel>
+        </ScrollViewer>
+        <dxc:ChartControl Name="chart"
+                          CustomDrawSeriesPoint="chart_CustomDrawSeriesPoint"
+                          BorderThickness="0"
+                          CrosshairEnabled="False"
+                          AnimationMode="OnLoad">
+            <dxmvvm:Interaction.Behaviors>
+                <local:ChartAnimationService />
+            </dxmvvm:Interaction.Behaviors>
+            <dxc:ChartControl.Diagram>
+                <dxc:XYDiagram2D>
+                    <dxc:XYDiagram2D.AxisY>
+                        <dxc:AxisY2D>
+                            <dxc:AxisY2D.NumericScaleOptions>
+                                <dxc:ContinuousNumericScaleOptions GridSpacing="1" />
+                            </dxc:AxisY2D.NumericScaleOptions>
+                            <dxc:AxisY2D.Strips>
+                                <dxc:Strip AxisLabelText="High" MaxLimit="3" MinLimit="2" Brush="#FFFFDBDB" BorderColor="#00BB002F" />
+                                <dxc:Strip AxisLabelText="Middle" MaxLimit="2" MinLimit="1" Brush="#FFFFF6BF" BorderColor="#00BB002F" />
+                                <dxc:Strip AxisLabelText="Low" MaxLimit="1" MinLimit="0" Brush="#FFD6F39F" BorderColor="#00BB002F" />
+                            </dxc:AxisY2D.Strips>
+                            <dxc:AxisY2D.WholeRange>
+                                <dxc:Range MinValue="0" MaxValue="3" SideMarginsValue="0" />
+                            </dxc:AxisY2D.WholeRange>
+                        </dxc:AxisY2D>
+                    </dxc:XYDiagram2D.AxisY>
+                    <dxc:XYDiagram2D.Series>
+                        <dxc:BarSideBySideSeries2D x:Name="Series1"
+                                                   DataSource="{Binding Data}"
+                                                   ArgumentDataMember="Argument"
+                                                   ValueDataMember="Value"
+                                                   ArgumentScaleType="Numerical"
+                                                   AnimationAutoStartMode="SetStartState">
+                            <dxc:BarSideBySideSeries2D.PointAnimation>
+                                <dxc:Bar2DBounceAnimation PointDelay="00:00:00.050" />
+                            </dxc:BarSideBySideSeries2D.PointAnimation>
+                            <dxc:BarSideBySideSeries2D.Label>
+                                <dxc:SeriesLabel ConnectorVisible="True"
+                                                 ResolveOverlappingMode="Default"
+                                                 Visible="{Binding ElementName=chbVisible, Path=IsChecked}"
+                                                 dxc:BarSideBySideSeries2D.LabelPosition="Outside" />
+                            </dxc:BarSideBySideSeries2D.Label>
+                        </dxc:BarSideBySideSeries2D>
+                    </dxc:XYDiagram2D.Series>
+                </dxc:XYDiagram2D>
+            </dxc:ChartControl.Diagram>
+        </dxc:ChartControl>
+    </DockPanel>
+</local:ChartsDemoModule>

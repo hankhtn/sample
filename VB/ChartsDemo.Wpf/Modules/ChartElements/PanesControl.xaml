@@ -1,0 +1,162 @@
+﻿<local:ChartsDemoModule x:Class="ChartsDemo.PanesControl"
+                        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                        xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts"
+                        xmlns:local="clr-namespace:ChartsDemo"
+                        ModuleLoaded="ChartsDemoModule_ModuleLoaded">
+    <!--#region Resources-->
+    <local:ChartsDemoModule.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/ChartsDemo;component/Themes/Common.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </local:ChartsDemoModule.Resources>
+    <!--#endregion-->
+    <DockPanel>
+        <local:ChartsDemoRibbon DockPanel.Dock="Top" Chart="{x:Reference chart}" />
+        <dxc:ChartControl Name="chart"
+                          AnimationMode="OnLoad"
+                          IsManipulationEnabled="True"
+                          DataSource="{x:Static local:WeatherData.Data}"
+                          BorderThickness="0">
+            <!--#region Chart Options-->
+            <dxc:ChartControl.CrosshairOptions>
+                <dxc:CrosshairOptions ShowArgumentLine="True" ArgumentLineBrush="DeepSkyBlue" ShowOnlyInFocusedPane="False">
+                    <dxc:CrosshairOptions.ArgumentLineStyle>
+                        <dxc:LineStyle Thickness="2" />
+                    </dxc:CrosshairOptions.ArgumentLineStyle>
+                </dxc:CrosshairOptions>
+            </dxc:ChartControl.CrosshairOptions>
+            <dxc:ChartControl.Legend>
+                <dxc:Legend VerticalPosition="BottomOutside" HorizontalPosition="Left" Orientation="Horizontal" IndentFromDiagram="1" Padding="1" Margin="10" />
+            </dxc:ChartControl.Legend>
+            <dxc:ChartControl.Titles>
+                <dxc:Title Content="Weather in London" HorizontalAlignment="Center" />
+            </dxc:ChartControl.Titles>
+            <!--#endregion-->
+            <dxc:ChartControl.Diagram>
+                <dxc:XYDiagram2D EnableAxisXNavigation="True">
+                    <!--#region Panes-->
+                    <dxc:XYDiagram2D.PanesPanel>
+                        <ItemsPanelTemplate>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="2*" />
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="1.7*" />
+                                </Grid.RowDefinitions>
+                            </Grid>
+                        </ItemsPanelTemplate>
+                    </dxc:XYDiagram2D.PanesPanel>
+                    <dxc:XYDiagram2D.DefaultPane>
+                        <dxc:Pane x:Name="temperaturePane" Grid.Row="0">
+                            <dxc:Pane.AxisXScrollBarOptions>
+                                <dxc:ScrollBarOptions Visible="False" />
+                            </dxc:Pane.AxisXScrollBarOptions>
+                        </dxc:Pane>
+                    </dxc:XYDiagram2D.DefaultPane>
+                    <dxc:XYDiagram2D.Panes>
+                        <dxc:Pane x:Name="pressurePane" Grid.Row="1">
+                            <dxc:Pane.AxisXScrollBarOptions>
+                                <dxc:ScrollBarOptions Visible="False" />
+                            </dxc:Pane.AxisXScrollBarOptions>
+                        </dxc:Pane>
+                        <dxc:Pane x:Name="humidityPane" Grid.Row="2" />
+                    </dxc:XYDiagram2D.Panes>
+                    <!--#endregion-->
+                    <!--#region Axes-->
+                    <dxc:XYDiagram2D.AxisY>
+                        <dxc:AxisY2D MinorCount="1" GridLinesMinorVisible="True">
+                            <dxc:AxisY2D.Title>
+                                <dxc:AxisTitle Content="Temperature" />
+                            </dxc:AxisY2D.Title>
+                            <dxc:AxisY2D.WholeRange>
+                                <dxc:Range dxc:AxisY2D.AlwaysShowZeroLevel="False" />
+                            </dxc:AxisY2D.WholeRange>
+                        </dxc:AxisY2D>
+                    </dxc:XYDiagram2D.AxisY>
+                    <dxc:XYDiagram2D.SecondaryAxesY>
+                        <dxc:SecondaryAxisY2D x:Name="pressureAxis" Alignment="Near" GridLinesVisible="True" GridLinesMinorVisible="True" MinorCount="3">
+                            <dxc:SecondaryAxisY2D.Title>
+                                <dxc:AxisTitle Content="Pressure" />
+                            </dxc:SecondaryAxisY2D.Title>
+                            <dxc:SecondaryAxisY2D.WholeRange>
+                                <dxc:Range MaxValue="1025" MinValue="1014" SideMarginsValue="0" />
+                            </dxc:SecondaryAxisY2D.WholeRange>
+                        </dxc:SecondaryAxisY2D>
+                        <dxc:SecondaryAxisY2D x:Name="humidityAxis" Alignment="Near" GridLinesVisible="True" GridLinesMinorVisible="True" MinorCount="2">
+                            <dxc:SecondaryAxisY2D.Title>
+                                <dxc:AxisTitle Content="Humidity" />
+                            </dxc:SecondaryAxisY2D.Title>
+                            <dxc:SecondaryAxisY2D.WholeRange>
+                                <dxc:Range MaxValue="120" MinValue="0" SideMarginsValue="0" />
+                            </dxc:SecondaryAxisY2D.WholeRange>
+                        </dxc:SecondaryAxisY2D>
+                    </dxc:XYDiagram2D.SecondaryAxesY>
+                    <dxc:XYDiagram2D.AxisX>
+                        <dxc:AxisX2D Visible="True" GridLinesVisible="True" Interlaced="True">
+                            <dxc:AxisX2D.DateTimeScaleOptions>
+                                <dxc:ManualDateTimeScaleOptions AutoGrid="False" MeasureUnit="Hour" GridAlignment="Hour" GridSpacing="6" />
+                            </dxc:AxisX2D.DateTimeScaleOptions>
+                            <dxc:AxisX2D.Label>
+                                <dxc:AxisLabel TextPattern="{}{A:dd/MM HH:mm}" />
+                            </dxc:AxisX2D.Label>
+                            <dxc:AxisX2D.VisualRange>
+                                <dxc:Range MaxValue="06/08/2008 21:00:00.000" />
+                            </dxc:AxisX2D.VisualRange>
+                            <dxc:AxisX2D.VisibilityInPanes>
+                                <dxc:VisibilityInPane Pane="{Binding ElementName=pressurePane}" Visible="False" />
+                                <dxc:VisibilityInPane Pane="{Binding ElementName=temperaturePane}" Visible="False" />
+                            </dxc:AxisX2D.VisibilityInPanes>
+                        </dxc:AxisX2D>
+                    </dxc:XYDiagram2D.AxisX>
+                    <!--#endregion-->
+                    <!--#region Series-->
+                    <dxc:XYDiagram2D.Series>
+                        <dxc:LineSeries2D ArgumentDataMember="Timestamp"
+                                          ValueDataMember="Temperature"
+                                          DisplayName="Temperature (F)"
+                                          ArgumentScaleType="DateTime"
+                                          AnimationAutoStartMode="SetStartState">
+                            <dxc:LineSeries2D.SeriesAnimation>
+                                <dxc:Line2DStretchFromNearAnimation Duration="0:0:2" />
+                            </dxc:LineSeries2D.SeriesAnimation>
+                            <dxc:LineSeries2D.PointAnimation>
+                                <dxc:Marker2DSlideFromTopAnimation Duration="0:0:2" />
+                            </dxc:LineSeries2D.PointAnimation>
+                            <dxc:LineSeries2D.Label>
+                                <dxc:SeriesLabel dxc:MarkerSeries2D.Angle="90" />
+                            </dxc:LineSeries2D.Label>
+                        </dxc:LineSeries2D>
+                        <dxc:AreaSeries2D ArgumentDataMember="Timestamp"
+                                          ValueDataMember="Pressure"
+                                          DisplayName="Pressure (mbar)"
+                                          ArgumentScaleType="DateTime"
+                                          MarkerVisible="False"
+                                          AxisY="{Binding ElementName=pressureAxis}"
+                                          Pane="{x:Reference Name=pressurePane}"
+                                          AnimationAutoStartMode="SetStartState">
+                            <dxc:AreaSeries2D.SeriesAnimation>
+                                <dxc:Area2DUnwindAnimation Duration="0:0:2" />
+                            </dxc:AreaSeries2D.SeriesAnimation>
+                        </dxc:AreaSeries2D>
+                        <dxc:BarSideBySideSeries2D ArgumentDataMember="Timestamp"
+                                                   ValueDataMember="RelativeHumidity"
+                                                   DisplayName="Relative humidity (%)"
+                                                   ArgumentScaleType="DateTime"
+                                                   BarWidth="1.5"
+                                                   AxisY="{Binding ElementName=humidityAxis}"
+                                                   Pane="{x:Reference Name=humidityPane}"
+                                                   AnimationAutoStartMode="SetStartState">
+                            <dxc:BarSideBySideSeries2D.PointAnimation>
+                                <dxc:Bar2DGrowUpAnimation PointDelay="0" Duration="0:0:2" />
+                            </dxc:BarSideBySideSeries2D.PointAnimation>
+                        </dxc:BarSideBySideSeries2D>
+                    </dxc:XYDiagram2D.Series>
+                    <!--#endregion-->
+                </dxc:XYDiagram2D>
+            </dxc:ChartControl.Diagram>
+        </dxc:ChartControl>
+    </DockPanel>
+</local:ChartsDemoModule>

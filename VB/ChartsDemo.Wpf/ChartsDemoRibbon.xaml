@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="ChartsDemo.ChartsDemoRibbon"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+             xmlns:local="clr-namespace:ChartsDemo"
+             xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon"
+             xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
+             mc:Ignorable="d"
+             d:DesignHeight="450"
+             d:DesignWidth="320">
+    <dxr:RibbonControl>
+        <dxr:RibbonPage Caption="Demo">
+            <dxr:RibbonPageGroup Caption="Appearance">
+                <dxb:BarSubItem Content="Palette"
+                                LargeGlyph="{dx:DXImage Image=Palette_32x32.png}"
+                                Glyph="{dx:DXImage Image=Palette_16x16.png}"
+                                RibbonStyle="Large"
+                                ItemLinksSource="{Binding Palettes}">
+                    <dxb:BarSubItem.ItemTemplate>
+                        <DataTemplate>
+                            <ContentControl>
+                                <dxb:BarCheckItem Content="{Binding Name}"
+                                                  IsChecked="{Binding IsActualPalette, Mode=TwoWay}"/>
+                            </ContentControl>
+                        </DataTemplate>
+                    </dxb:BarSubItem.ItemTemplate>
+                </dxb:BarSubItem>
+            </dxr:RibbonPageGroup>
+        </dxr:RibbonPage>
+    </dxr:RibbonControl>
+</UserControl>

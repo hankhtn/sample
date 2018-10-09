@@ -1,0 +1,114 @@
+﻿<local:DialogsDemoModule x:Class="DialogsDemo.DXWindowCustomHeaderButton"
+                         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                         xmlns:local="clr-namespace:DialogsDemo"
+                         xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+                         xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+                         mc:Ignorable="d"
+                         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                         d:DesignHeight="173"
+                         d:DesignWidth="420">
+    <DockPanel>
+        <ScrollViewer HorizontalScrollBarVisibility="Disabled"
+                      VerticalScrollBarVisibility="Auto"
+                      Name="PART_Options"
+                      DockPanel.Dock="Right"
+                      dx:ScrollBarExtensions.ScrollBarMode="TouchOverlap"
+                      Focusable="False">
+            <StackPanel Margin="12,5,12,12" MinWidth="300">
+                <GroupBox Header="Border Highlighting">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <dxe:CheckEdit Grid.Row="1"
+                                       Grid.Column="0"
+                                       Content="Customize the Border Highlighting Effect"
+                                       IsChecked="true"
+                                       x:Name="enableCustomization"
+                                       Margin="0,0,0,4"
+                                       EditValueChanged="EnableCustomizationEditValueChanged" />
+                        <Grid IsEnabled="{Binding ElementName=enableCustomization, Path=IsChecked}" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,5,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="0" Grid.Column="0" Content="Active Color:" Margin="0,0,0,4" />
+                            <dxe:PopupColorEdit Grid.Row="0" Grid.Column="1" x:Name="activeColor" Margin="0,0,0,4" Color="Red" ColorChanged="ActiveColorColorChanged" />
+
+                            <Label Grid.Row="1" Grid.Column="0" Content="Inactive Color:" Margin="0,0,6,4" />
+                            <dxe:PopupColorEdit Grid.Row="1" Grid.Column="1" x:Name="inactiveColor" Margin="0,0,0,4" Color="Green" ColorChanged="InactiveColorColorChanged" />
+                        </Grid>
+                    </Grid>
+                </GroupBox>
+                <GroupBox Header="DXMessageBox" Margin="0,5,0,0">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Label Content="Caption: " VerticalAlignment="Center" Margin="0,0,0,4" />
+                        <dxe:TextEdit Grid.Column="1" HorizontalAlignment="Stretch" Text="DXMessageBox" x:Name="captionEdit" Margin="0,0,0,4" />
+                        <Label Grid.Row="1" Content="Text: " VerticalAlignment="Center" Margin="0,0,0,4" />
+                        <dxe:TextEdit Grid.Column="1" Grid.Row="1" VerticalAlignment="Stretch" Text="Hello world!" x:Name="contentEdit" Margin="0,0,0,4" />
+                        <Label Grid.Row="2" Content="Buttons: " VerticalAlignment="Center" Margin="0,0,0,4" />
+                        <dxe:ComboBoxEdit Grid.Row="2" Grid.Column="1" x:Name="buttons" IsTextEditable="False" ShowSizeGrip="False" SelectedIndex="0" Margin="0,0,0,4" />
+                        <Label Grid.Row="3" Content="Icon: " VerticalAlignment="Center" Margin="0,0,0,4" />
+                        <dxe:ComboBoxEdit Grid.Row="3" Grid.Column="1" x:Name="icons" IsTextEditable="False" ShowSizeGrip="False" SelectedIndex="0" Margin="0,0,0,4" />
+                        <Label Grid.Row="4" Content="Floating mode: " x:Name="floatingModeLabel" VerticalAlignment="Center" Margin="0,0,6,4" />
+                        <dxe:ComboBoxEdit Grid.Row="4" Grid.Column="1" x:Name="floatingMode" IsTextEditable="False" ShowSizeGrip="False" Margin="0,0,0,4" />
+                    </Grid>
+                </GroupBox>
+            </StackPanel>
+        </ScrollViewer>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Button SnapsToDevicePixels="True"
+                    Content="Show Window with custom header"
+                    Click="Button_Click"
+                    Grid.Row="0"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Height="50"
+                    Width="300" />
+            <Button SnapsToDevicePixels="True"
+                    Content="Show Window with border highlighting"
+                    Click="ButtonEffectsClick"
+                    Grid.Row="1"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Height="50"
+                    Width="300" />
+            <Button SnapsToDevicePixels="True"
+                    Content="Show Message Box"
+                    Click="ButtonMessage_Click"
+                    Grid.Row="2"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Height="50"
+                    Width="300" />
+        </Grid>
+    </DockPanel>
+</local:DialogsDemoModule>

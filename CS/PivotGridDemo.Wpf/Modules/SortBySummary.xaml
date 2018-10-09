@@ -1,0 +1,48 @@
+﻿<local:PivotGridDemoModule x:Class="PivotGridDemo.SortBySummary"
+                           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                           xmlns:local="clr-namespace:PivotGridDemo"
+                           xmlns:dxpg="http://schemas.devexpress.com/winfx/2008/xaml/pivotgrid"
+                           xmlns:dxdd="clr-namespace:DevExpress.DemoData"
+                           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                           mc:Ignorable="d"
+                           d:DesignHeight="300"
+                           d:DesignWidth="600">
+
+    <dxpg:PivotGridControl x:Name="pivotGrid"
+                           DataSource="{x:Static dxdd:NWindDataProvider.SalesPersons}"
+                           local:FieldAreaHelper.FixAreas="True"
+                           RowTreeWidth="220"
+                           ShowBorder="False"
+                           Loaded="{DXEvent '@Self.BestFit($dxpg:FieldArea.ColumnArea, true, false)'}">
+        <dxpg:PivotGridControl.Fields>
+            <dxpg:PivotGridField x:Name="fieldQuarter"
+                                 FieldName="OrderDate"
+                                 Area="RowArea"
+                                 AreaIndex="0"
+                                 UnboundFieldName="fieldQuarter"
+                                 GroupInterval="DateMonth"
+                                 Width="130"
+                                 Caption="Order Month" />
+            <dxpg:PivotGridField x:Name="fieldSalesPerson"
+                                 FieldName="FullName"
+                                 Area="RowArea"
+                                 AreaIndex="1"
+                                 Width="130"
+                                 Caption="Sales Person"
+                                 SortOrder="Descending"
+                                 HeaderImage="/PivotGridDemo;component/Images/HeaderIcons/Person.png" />
+            <dxpg:PivotGridField x:Name="fieldExtendedPrice" FieldName="ExtendedPrice" Area="DataArea" AreaIndex="0" Caption="Order Amount" CellFormat="c" />
+            <dxpg:PivotGridField x:Name="fieldCategoryName" Area="ColumnArea" Caption="Category Name" FieldName="CategoryName" />
+            <dxpg:PivotGridField x:Name="fieldQuantity" FieldName="Quantity" Area="DataArea" AreaIndex="1" Caption="Quantity" />
+            <dxpg:PivotGridField x:Name="fieldDiscount"
+                                 FieldName="Discount"
+                                 Area="DataArea"
+                                 AreaIndex="2"
+                                 Caption="Discount (Avg)"
+                                 CellFormat="p"
+                                 SummaryType="Average" />
+        </dxpg:PivotGridControl.Fields>
+    </dxpg:PivotGridControl>
+</local:PivotGridDemoModule>

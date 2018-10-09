@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="VisualStudioDocking.SplashScreenWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:VisualStudioDocking"
+             mc:Ignorable="d" Background="#FF2D2D30"
+             Height="600" Width="460"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid Margin="34,30">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Vertical">
+            <Image Source="/VisualStudioDocking;component/Images/Docking/DevExpressLogo.png"
+                   Stretch="None" VerticalAlignment="Top" HorizontalAlignment="Left" />
+            <TextBlock Text="Visual Studio Inspired UI Demo" Foreground="White" VerticalAlignment="Center"
+                       Margin="0,36" HorizontalAlignment="Left" FontSize="24" FontFamily="Segoe UI" />
+        </StackPanel>
+        <TextBlock Foreground="LightGray" Grid.Row="1" Margin="0,0,0,15" Name="copyrightText"/>
+    </Grid>
+</UserControl>

@@ -1,0 +1,7 @@
+DevExpress.Dialogs.v{DXVersion}.Core
+DevExpress.Xpf.Dialogs.v{DXVersion}
+DevExpress.Xpf.Core.v{DXVersion}.Extensions
+DevExpress.DataAccess.v{DXVersion}
+DevExpress.Xpo.v{DXVersion}
+DevExpress.RichEdit.v{DXVersion}.Core
+DevExpress.Office.v{DXVersion}.Core

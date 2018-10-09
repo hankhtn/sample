@@ -1,0 +1,83 @@
+﻿<local:SchedulerDemoModule x:Class="SchedulerDemo.GroupByDate"
+                           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                           xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+                           xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+                           xmlns:dxsch="http://schemas.devexpress.com/winfx/2008/xaml/scheduler"
+                           xmlns:dxschcore="http://schemas.devexpress.com/winfx/2008/xaml/scheduling/core"
+                           xmlns:local="clr-namespace:SchedulerDemo">
+    <DockPanel>
+        <ScrollViewer HorizontalScrollBarVisibility="Disabled"
+                      VerticalScrollBarVisibility="Auto"
+                      Name="PART_Options"
+                      DockPanel.Dock="Right"
+                      dx:ScrollBarExtensions.ScrollBarMode="TouchOverlap"
+                      Focusable="False">
+            <StackPanel Margin="12,5,12,12" MinWidth="210">
+                <GroupBox Header="View Types" MinWidth="150">
+                    <dxe:ListBoxEdit x:Name="viewType"
+                                     Background="{x:Null}"
+                                     ShowBorder="False"
+                                     ValueMember="ViewType"
+                                     DisplayMember="Caption"
+                                     EditValue="{Binding Path=ActiveViewType, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                        <dxe:ListBoxEdit.StyleSettings>
+                            <dxe:RadioListBoxEditStyleSettings />
+                        </dxe:ListBoxEdit.StyleSettings>
+                        <dxe:ListBoxEdit.ItemsSource>
+                            <local:ObjectList>
+                                <local:DemoViewTypeListItem Caption="Day View" ViewType="Day" />
+                                <local:DemoViewTypeListItem Caption="Work Week" ViewType="WorkWeek" />
+                                <local:DemoViewTypeListItem Caption="Full Week View" ViewType="FullWeek" />
+                                <local:DemoViewTypeListItem Caption="Month View" ViewType="Month" />
+                                <local:DemoViewTypeListItem Caption="Timeline View" ViewType="Timeline" />
+                            </local:ObjectList>
+                        </dxe:ListBoxEdit.ItemsSource>
+                    </dxe:ListBoxEdit>
+                </GroupBox>
+                <GroupBox Header="Resource Navigator Options" MinWidth="150" Margin="0,5,0,0">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Text="Visibility:" VerticalAlignment="Center" />
+                        <dxe:ComboBoxEdit Grid.Column="1"
+                                          VerticalAlignment="Center"
+                                          HorizontalAlignment="Stretch"
+                                          IsTextEditable="False"
+                                          SelectedItem="{Binding Path=ResourceNavigator.Visibility, Mode=TwoWay}">
+                            <dxe:ComboBoxEdit.ItemsSource>
+                                <local:ResourceNavigatorVisibilityTypes>
+                                    <dxschcore:ResourceNavigatorVisibility>Always</dxschcore:ResourceNavigatorVisibility>
+                                    <dxschcore:ResourceNavigatorVisibility>Never</dxschcore:ResourceNavigatorVisibility>
+                                    <dxschcore:ResourceNavigatorVisibility>Auto</dxschcore:ResourceNavigatorVisibility>
+                                </local:ResourceNavigatorVisibilityTypes>
+                            </dxe:ComboBoxEdit.ItemsSource>
+                        </dxe:ComboBoxEdit>
+                    </Grid>
+                </GroupBox>
+            </StackPanel>
+        </ScrollViewer>
+        <dxsch:SchedulerControl x:Name="scheduler" ActiveViewType="Day" VerticalAlignment="Stretch" GroupType="Date">
+            <dxsch:SchedulerControl.DayView>
+                <dxsch:DayView ResourcesPerPage="2" DayCount="3" />
+            </dxsch:SchedulerControl.DayView>
+            <dxsch:SchedulerControl.WorkWeekView>
+                <dxsch:WorkWeekView ResourcesPerPage="2" />
+            </dxsch:SchedulerControl.WorkWeekView>
+            <dxsch:SchedulerControl.WeekView>
+                <dxsch:WeekView ResourcesPerPage="2" Enabled="True" />
+            </dxsch:SchedulerControl.WeekView>
+            <dxsch:SchedulerControl.FullWeekView>
+                <dxsch:FullWeekView ResourcesPerPage="2" Enabled="True" />
+            </dxsch:SchedulerControl.FullWeekView>
+            <dxsch:SchedulerControl.MonthView>
+                <dxsch:MonthView ResourcesPerPage="2" />
+            </dxsch:SchedulerControl.MonthView>
+            <dxsch:SchedulerControl.TimelineView>
+                <dxsch:TimelineView ResourcesPerPage="2" />
+            </dxsch:SchedulerControl.TimelineView>
+        </dxsch:SchedulerControl>
+    </DockPanel>
+</local:SchedulerDemoModule>

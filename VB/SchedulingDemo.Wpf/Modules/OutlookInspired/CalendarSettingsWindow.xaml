@@ -1,0 +1,121 @@
+﻿<dx:DXDialogWindow x:Class="SchedulingDemo.CalendarSettingsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+        xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
+        xmlns:dxsch="http://schemas.devexpress.com/winfx/2008/xaml/scheduling"
+        Title = "View Settings"
+        MinHeight="400" MinWidth="400"
+        Height="400" Width="400">
+    <dxlc:LayoutControl>
+        <dxlc:LayoutItem Width="120" VerticalAlignment="Stretch" >
+            <dxe:ListBoxEdit x:Name="groupListBox" SelectedIndex="0">
+                <dxe:ListBoxEdit.Items>
+                    <dxe:ListBoxEditItem Content="Common"/>
+                    <dxe:ListBoxEditItem Content="Day View"/>
+                    <dxe:ListBoxEditItem Content="Work Week View"/>
+                    <dxe:ListBoxEditItem Content="Month View"/>
+                    <dxe:ListBoxEditItem Content="Timeline View"/>
+                </dxe:ListBoxEdit.Items>
+            </dxe:ListBoxEdit>
+        </dxlc:LayoutItem>
+        <dxlc:LayoutControl Orientation="Vertical" VerticalAlignment="Top">
+            <dxlc:LayoutGroup Orientation="Vertical" Margin="0" Padding="0" Visibility="{DXBinding '@ElementName(groupListBox).SelectedIndex eq 0', Converter={dxmvvm:BooleanToVisibilityConverter}}">
+                <dxlc:LayoutItem Label="Snap To Cells Mode: ">
+                    <dxe:ComboBoxEdit EditValue="{Binding SnapToCellsMode}"
+                            ItemsSource="{dxe:EnumItemsSource EnumType=dxsch:SnapToCellsMode}" IsTextEditable="False"/>
+                </dxlc:LayoutItem>
+                <dxlc:LayoutItem>
+                    <dxe:CheckEdit Content="Show Day Headers" IsChecked="{Binding ShowDayHeaders, Mode=TwoWay}"/>
+                </dxlc:LayoutItem>
+                <dxlc:LayoutItem>
+                    <dxe:CheckEdit Content="Show Resource Headers" IsChecked="{Binding ShowResourceHeaders, Mode=TwoWay}"/>
+                </dxlc:LayoutItem>
+                <dxlc:LayoutItem>
+                    <dxe:CheckEdit Content="Show Resource Navigator" IsChecked="{Binding ShowResourceNavigator, Mode=TwoWay}"/>
+                </dxlc:LayoutItem>
+            </dxlc:LayoutGroup>
+            <dxlc:LayoutGroup Orientation="Vertical" Margin="0" Padding="0"  Visibility="{DXBinding '@ElementName(groupListBox).SelectedIndex eq 1', Converter={dxmvvm:BooleanToVisibilityConverter}}">
+                <dxlc:LayoutItem>
+                    <dxe:CheckEdit Content="Show All Day Area" IsChecked="{Binding ShowAllDayArea}"/>
+                </dxlc:LayoutItem>
+                <dxlc:LayoutItem Label="Day Count: ">
+                    <dxe:SpinEdit Value="{Binding DayCount, Mode=TwoWay}" MinValue="1" MaxValue="100" IsFloatValue="False"/>
+                </dxlc:LayoutItem>
+                <GroupBox Header="Work Time: ">
+                    <dxlc:LayoutControl Padding="0" Orientation="Vertical">
+                        <dxe:CheckEdit Content="Show Work Time Only" IsChecked="{Binding ShowWorkTimeOnly, Mode=TwoWay}"/>
+                        <dxlc:LayoutItem Label="Start Time: ">
+                            <dxe:TextEdit EditValue="{Binding WorkTimeStart, Converter={dxsch:TimeSpanToDateTimeConverter}, Mode=TwoWay}" MaskType="DateTimeAdvancingCaret" Mask="HH:mm" MaskUseAsDisplayFormat="True"/>
+                        </dxlc:LayoutItem>
+                        <dxlc:LayoutItem Label="End Time: ">
+                            <dxe:TextEdit EditValue="{Binding WorkTimeEnd, Converter={dxsch:TimeSpanToDateTimeConverter}, Mode=TwoWay}" MaskType="DateTimeAdvancingCaret" Mask="HH:mm" MaskUseAsDisplayFormat="True"/>
+                        </dxlc:LayoutItem>
+                    </dxlc:LayoutControl>
+                </GroupBox>
+            </dxlc:LayoutGroup>
+            <dxlc:LayoutItem  Visibility="{DXBinding '@ElementName(groupListBox).SelectedIndex eq 2', Converter={dxmvvm:BooleanToVisibilityConverter}}">
+                <GroupBox Header="Work Days">
+                    <dxlc:LayoutControl Padding="0" Orientation="Vertical">
+                        <dxlc:LayoutItem>
+                            <dxe:ListBoxEdit x:Name="workDays" EditValue="{Binding Days, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                    ItemsSource="{dxe:EnumItemsSource EnumType=sys:DayOfWeek}" ShowCustomItems="False" ShowBorder="False">
+                                <dxe:ListBoxEdit.StyleSettings>
+                                    <dxe:CheckedListBoxEditStyleSettings />
+                                </dxe:ListBoxEdit.StyleSettings>
+                            </dxe:ListBoxEdit>
+                        </dxlc:LayoutItem>
+                    </dxlc:LayoutControl>
+                </GroupBox>
+            </dxlc:LayoutItem>
+            <dxlc:LayoutItem  Visibility="{DXBinding '@ElementName(groupListBox).SelectedIndex eq 3', Converter={dxmvvm:BooleanToVisibilityConverter}}">
+                <GroupBox Header="First Day Of Week">
+                    <dxlc:LayoutControl Padding="0" Orientation="Vertical">
+                        <dxlc:LayoutItem>
+                            <dxe:ListBoxEdit x:Name="firstDayOfWeek" EditValue="{Binding FirstDayOfWeek, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" ShowBorder="False"
+                                    ItemsSource="{dxe:EnumItemsSource EnumType=sys:DayOfWeek}">
+                                <dxe:ListBoxEdit.StyleSettings>
+                                    <dxe:RadioListBoxEditStyleSettings />
+                                </dxe:ListBoxEdit.StyleSettings>
+                            </dxe:ListBoxEdit>
+                        </dxlc:LayoutItem>
+                    </dxlc:LayoutControl>
+                </GroupBox>
+            </dxlc:LayoutItem>
+            <dxlc:LayoutGroup Padding="0" Orientation="Vertical" Visibility="{DXBinding '@ElementName(groupListBox).SelectedIndex eq 4', Converter={dxmvvm:BooleanToVisibilityConverter}}">
+                <dxlc:LayoutItem Label="Interval Count: ">
+                    <dxe:SpinEdit Value="{Binding IntervalCount, Mode=TwoWay}" MinValue="1" MaxValue="100" IsFloatValue="False"/>
+                </dxlc:LayoutItem>
+                <GroupBox Header="Time Scales">
+                    <dxlc:LayoutControl Padding="0" Orientation="Vertical">
+                        <dxlc:LayoutItem>
+                            <dxe:CheckEdit Content="Year Time Scale" IsChecked="{Binding YearTimeScaleIsEnabled, Mode=TwoWay}"/>
+                        </dxlc:LayoutItem>
+                        <dxlc:LayoutItem>
+                            <dxe:CheckEdit Content="Quarter Time Scale" IsChecked="{Binding QuarterTimeScaleIsEnabled, Mode=TwoWay}"/>
+                        </dxlc:LayoutItem>
+                        <dxlc:LayoutItem>
+                            <dxe:CheckEdit Content="Month Time Scale" IsChecked="{Binding MonthTimeScaleIsEnabled, Mode=TwoWay}"/>
+                        </dxlc:LayoutItem>
+                        <dxlc:LayoutItem>
+                            <dxe:CheckEdit Content="Week Time Scale" IsChecked="{Binding WeekTimeScaleIsEnabled, Mode=TwoWay}"/>
+                        </dxlc:LayoutItem>
+                        <dxlc:LayoutItem>
+                            <dxe:CheckEdit Content="Day Time Scale" IsChecked="{Binding DayTimeScaleIsEnabled, Mode=TwoWay}"/>
+                        </dxlc:LayoutItem>
+                        <dxlc:LayoutItem>
+                            <dxe:CheckEdit Content="Hour Time Scale" IsChecked="{Binding HourTimeScaleIsEnabled, Mode=TwoWay}"/>
+                        </dxlc:LayoutItem>
+                    </dxlc:LayoutControl>
+                </GroupBox>
+            </dxlc:LayoutGroup>
+        </dxlc:LayoutControl>
+    </dxlc:LayoutControl>
+    <dx:DXDialogWindow.FooterButtons>
+        <dx:DialogButton DialogResult="OK" IsDefault="True" MinWidth="65" Content="OK" />
+        <dx:DialogButton DialogResult="Cancel" IsCancel="True" Content="Cancel" MinWidth="65"/>
+    </dx:DXDialogWindow.FooterButtons>
+</dx:DXDialogWindow>

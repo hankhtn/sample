@@ -12,7 +12,7 @@ namespace ChartsDemo {
         const int UpdateInterval = 40;
 
         readonly DataCollection dataSource = new DataCollection();
-        readonly DispatcherTimer timer = new DispatcherTimer();
+        readonly DispatcherTimer timer = new DispatcherTimer(DispatcherPriority.Normal);
         readonly Random random = new Random();
         double value1 = 10.0;
         double value2 = -10.0;

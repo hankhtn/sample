@@ -1,17 +1,11 @@
-﻿<UserControl x:Class="DevExpress.VideoRent.Wpf.CustomerEditView"
+<UserControl x:Class="DevExpress.VideoRent.Wpf.CustomerEditView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
-    xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
-    xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon"
     xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"
-    xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
     xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
-    xmlns:dxsch="http://schemas.devexpress.com/winfx/2008/xaml/scheduler"
     xmlns:local="clr-namespace:DevExpress.VideoRent.Wpf"
-    xmlns:rhelpers="clr-namespace:DevExpress.VideoRent.Resources.Helpers;assembly=DevExpress.VideoRent.Resources"
     xmlns:helpers="clr-namespace:DevExpress.VideoRent.Wpf.Helpers">
 
     <UserControl.Resources>

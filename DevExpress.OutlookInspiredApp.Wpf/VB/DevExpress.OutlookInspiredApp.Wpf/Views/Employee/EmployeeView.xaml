@@ -10,7 +10,6 @@
     xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon"
     xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"
     xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
-    xmlns:dxp="http://schemas.devexpress.com/winfx/2008/xaml/printing"
     xmlns:viewmodel="clr-namespace:DevExpress.DevAV.ViewModels"
     xmlns:model="clr-namespace:DevExpress.DevAV;assembly=DevExpress.DevAV.v18.1.Data"
     xmlns:common="clr-namespace:DevExpress.DevAV.Common.View"

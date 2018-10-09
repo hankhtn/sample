@@ -150,7 +150,7 @@
                         </dxdo:LayoutPanel>
                     </dxdo:LayoutGroup>
                     <dxdo:LayoutPanel ItemHeight="Auto" AllowSizing="False">
-                        <dxnav:OfficeNavigationBar x:Name="officeNavBar" NavigationClient="{Binding ElementName=accordion}" AllowItemDragDrop="True" Margin="4,0,0,0" />
+                        <dxnav:OfficeNavigationBar x:Name="officeNavBar" NavigationClient="{Binding ElementName=accordion}" AllowItemDragDrop="True" />
                     </dxdo:LayoutPanel>
                 </dxdo:LayoutGroup>
             </dxdo:DockLayoutManager>

@@ -6,7 +6,6 @@
         xmlns:dxi="http://schemas.devexpress.com/winfx/2008/xaml/core/internal"
         xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
         xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
-        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
         xmlns:dxre="http://schemas.devexpress.com/winfx/2008/xaml/richedit"
         xmlns:views="clr-namespace:DevExpress.DevAV.Views"
         mc:Ignorable="d"

@@ -61,7 +61,7 @@ Namespace TreeListDemo
 
         Public Shared images As New List(Of String)() From {"administration", "inventory", "manufacturing", "quality", "research", "sales"}
         Public Shared Function GetImagePathByGroupName(ByVal groupName As String) As String
-            groupName = groupName.ToLower()
+            groupName = groupName.ToLowerInvariant()
             For Each item As String In images
                 If groupName.Contains(item) Then
                     Return "/TreeListDemo;component/Images/Categories/" & item & ".png"

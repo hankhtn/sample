@@ -1,4 +1,4 @@
-﻿<mb:CustomShowUserControl x:Class="DevExpress.VideoRent.Wpf.RentsPeriodEditView"
+<mb:CustomShowUserControl x:Class="DevExpress.VideoRent.Wpf.RentsPeriodEditView"
     xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"
     xmlns:helpers="clr-namespace:DevExpress.VideoRent.Wpf.Helpers"
     xmlns:mb="clr-namespace:DevExpress.VideoRent.Wpf.ModulesBase"
@@ -7,7 +7,6 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:local="clr-namespace:DevExpress.VideoRent.Wpf"
-    xmlns:viewmodel="clr-namespace:DevExpress.VideoRent.ViewModel;assembly=DevExpress.VideoRent.ViewModel"
     ShowMethodType="{DynamicResource ShowType}" MinWidth="300" helpers:ElementHelper.FixMinHeight="True">
 
     <mb:CustomShowUserControl.Resources>

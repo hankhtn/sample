@@ -1,4 +1,4 @@
-﻿<mb:CustomShowUserControl x:Class="DevExpress.VideoRent.Wpf.MovieItemsEditView"
+<mb:CustomShowUserControl x:Class="DevExpress.VideoRent.Wpf.MovieItemsEditView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -10,7 +10,6 @@
     xmlns:videorent="clr-namespace:DevExpress.VideoRent;assembly=DevExpress.VideoRent"
     xmlns:local="clr-namespace:DevExpress.VideoRent.Wpf"
     xmlns:helpers="clr-namespace:DevExpress.VideoRent.Wpf.Helpers"
-    xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
     Width="922" Height="670"
     ShowMethodType="{DynamicResource ShowType}">
 

@@ -11,6 +11,7 @@ using System.Windows.Shapes;
 using DevExpress.Xpf.Core.Native;
 using DevExpress.Xpf.DemoBase.Helpers;
 using DevExpress.Xpf.Editors;
+using DevExpress.Xpf.Editors.Internal;
 using Microsoft.Win32;
 
 namespace EditorsDemo {
@@ -332,6 +333,7 @@ namespace EditorsDemo {
         void IColorEdit.AddCustomColor(Color color) {
             Tool.Color = color;
         }
+        ColorPickerColorMode IColorEdit.ColorMode { get; set; }
         Color IColorEdit.Color {
             get { return Tool.Color; }
             set { }

@@ -11,9 +11,7 @@
     xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"
     xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
     xmlns:view="clr-namespace:DevExpress.MailClient.View"
-    xmlns:behaviors="clr-namespace:DevExpress.MailClient.Behaviors"
     xmlns:viewmodel="clr-namespace:DevExpress.MailClient.ViewModel"
-    xmlns:sys="clr-namespace:System;assembly=mscorlib"
     mc:Ignorable="d" d:DataContext="{dxmvvm:ViewModelSource viewmodel:ContactsViewModel}"
     d:DesignHeight="700" d:DesignWidth="1000">
     <UserControl.Resources>

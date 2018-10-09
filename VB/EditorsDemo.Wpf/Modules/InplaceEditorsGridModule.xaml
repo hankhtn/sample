@@ -24,8 +24,8 @@
                       DockPanel.Dock="Right"
                       dx:ScrollBarExtensions.ScrollBarMode="TouchOverlap"
                       Focusable="False">
-            <GroupBox Margin="12,5,12,12" Header="Highlighted Editor" MinWidth="210">
-                <RichTextBox x:Name="descriptionRichTextBox" Background="Transparent" BorderThickness="0" IsReadOnly="True" />
+            <GroupBox x:Name="groupBox" Margin="12,5,12,12" Header="Highlighted Editor" MinWidth="210">
+                <RichTextBox x:Name="descriptionRichTextBox" Foreground="{Binding Path=Foreground, ElementName=groupBox}" Background="Transparent" BorderThickness="0" IsReadOnly="True" />
             </GroupBox>
         </ScrollViewer>
         <dxg:GridControl Name="grid" ShowBorder="False">

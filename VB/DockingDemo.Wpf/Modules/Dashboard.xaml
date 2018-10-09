@@ -71,7 +71,7 @@
                     </dxm:MapControl>
                 </dxdo:LayoutPanel>
                 <dxdo:LayoutPanel Caption="Product Sales YTD" ItemWidth="5*">
-                    <dxg:GridControl ItemsSource="{Binding CurrentTotalSales}" AutoGenerateColumns="None" dx:ScrollViewerTouchBehavior.IsEnabled="True">
+                    <dxg:GridControl ItemsSource="{Binding CurrentTotalSales}" AutoGenerateColumns="None" dx:ScrollViewerTouchBehavior.IsEnabled="True" ShowBorder="False">
                         <dxg:GridControl.Columns>
                             <dxg:GridColumn FieldName="Category" AllowCellMerge="True" Width="80" SortIndex="0" />
                             <dxg:GridColumn FieldName="Product" Width="180" />
@@ -182,7 +182,7 @@
                     </ScrollViewer>
                 </dxdo:LayoutPanel>
                 <dxdo:LayoutPanel Caption="Top 5 Products - Monthly Sales" ItemWidth="3*">
-                    <dxc:ChartControl>
+                    <dxc:ChartControl BorderThickness="0">
                         <dxc:ChartControl.Diagram>
                             <dxc:XYDiagram2D SeriesItemsSource="{Binding TopSales}">
                                 <dxc:XYDiagram2D.AxisY>
@@ -212,7 +212,7 @@
                     </dxc:ChartControl>
                 </dxdo:LayoutPanel>
                 <dxdo:LayoutPanel Caption="Product Categories - YTD Sales" ItemWidth="2*">
-                    <dxc:ChartControl SelectionMode="Single" Padding="0,8,16,16" IsManipulationEnabled="True">
+                    <dxc:ChartControl SelectionMode="Single" Padding="0,8,16,16" IsManipulationEnabled="True" BorderThickness="0">
                         <dxc:ChartControl.Titles>
                             <dxc:Title Content="Revenue" HorizontalAlignment="Center" Margin="0" />
                         </dxc:ChartControl.Titles>

@@ -8,9 +8,7 @@
         xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
         xmlns:dxdo="http://schemas.devexpress.com/winfx/2008/xaml/docking"
         xmlns:dxgt="http://schemas.devexpress.com/winfx/2008/xaml/grid/themekeys"
-        xmlns:dxgi="http://schemas.devexpress.com/winfx/2008/xaml/grid/internal"
-        xmlns:local="clr-namespace:DevExpress.StockMarketTrader"
-        xmlns:sys="clr-namespace:System;assembly=mscorlib" UseLayoutRounding="True">
+        xmlns:local="clr-namespace:DevExpress.StockMarketTrader">
     <UserControl.Resources>
         <local:StringToGridLengthConverter x:Key="StringToGridLengthConverter"/>
         <SolidColorBrush x:Key="metroThemeOrangeBrush" Color="#F78A09"/>

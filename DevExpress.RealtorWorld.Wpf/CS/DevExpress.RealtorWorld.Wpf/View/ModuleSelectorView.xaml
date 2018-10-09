@@ -6,7 +6,6 @@
         xmlns:ViewModel="clr-namespace:DevExpress.RealtorWorld.Xpf.ViewModel"
         xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"
         xmlns:dxwui="http://schemas.devexpress.com/winfx/2008/xaml/windowsui"
-        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
         xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
         mc:Ignorable="d"
         d:DesignHeight="610.1" d:DesignWidth="1233.85">

@@ -13,7 +13,7 @@ Namespace ChartsDemo
 
 
         Private ReadOnly dataSource_Renamed As New DataCollection()
-        Private ReadOnly timer As New DispatcherTimer()
+        Private ReadOnly timer As New DispatcherTimer(DispatcherPriority.Normal)
         Private ReadOnly random As New Random()
         Private value1 As Double = 10.0
         Private value2 As Double = -10.0

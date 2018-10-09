@@ -1,11 +1,9 @@
-﻿<ResourceDictionary xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+<ResourceDictionary xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
-    xmlns:rhelpers="clr-namespace:DevExpress.VideoRent.Resources.Helpers;assembly=DevExpress.VideoRent.Resources"
     xmlns:helpers="clr-namespace:DevExpress.VideoRent.Wpf.Helpers"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:local="clr-namespace:DevExpress.VideoRent.Wpf"
-    xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars">
+    xmlns:local="clr-namespace:DevExpress.VideoRent.Wpf">
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="/DevExpress.VideoRent.Wpf;component/Themes/Helpers/AddDeleteBar.xaml" />

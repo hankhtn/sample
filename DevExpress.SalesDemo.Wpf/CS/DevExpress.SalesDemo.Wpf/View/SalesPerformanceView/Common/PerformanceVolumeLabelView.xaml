@@ -1,7 +1,6 @@
 ﻿<Controls:VolumeLabelControl x:Class="DevExpress.SalesDemo.Wpf.View.Common.PerformanceVolumeLabelView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts"
              xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
              xmlns:ViewModel="clr-namespace:DevExpress.SalesDemo.Wpf.ViewModel"
              xmlns:Controls="clr-namespace:DevExpress.SalesDemo.Wpf.Controls"

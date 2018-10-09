@@ -12,7 +12,6 @@
              xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
              xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
              xmlns:dxt="http://schemas.devexpress.com/winfx/2008/xaml/core/themekeys"
-             xmlns:dxdo="http://schemas.devexpress.com/winfx/2008/xaml/docking"
              mc:Ignorable="d"
              dx:ScrollBarExtensions.ScrollBarMode="TouchOverlap"
              d:DesignHeight="392" d:DesignWidth="699">

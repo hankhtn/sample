@@ -11,6 +11,7 @@ Imports System.Globalization
 Imports System.Collections
 Imports System.Windows.Markup
 Imports DevExpress.Xpf.RichEdit
+Imports DevExpress.Images
 
 Namespace DevExpress.DevAV.Views
     Partial Public Class EmployeeMailMergeView
@@ -99,9 +100,12 @@ Namespace DevExpress.DevAV.Views
             { "Fixed Column Width", "TableAutoFitContents_32x32.png" }
         }
         Private Function GetImage(ByVal name As String) As System.Windows.Media.ImageSource
-            Dim richEditCoreAssembly = System.Reflection.Assembly.Load(AssemblyInfo.SRAssemblyRichEditCore + AssemblyInfo.FullAssemblyVersionExtension)
-            Dim uri = richEditCoreAssembly.GetManifestResourceNames().FirstOrDefault(Function(x) x.EndsWith(name))
-            Using stream = richEditCoreAssembly.GetManifestResourceStream(uri)
+            Dim stream = ImageResourceCache.Default.GetResourceByFileName(name, Utils.Design.ImageType.Colored)
+            If stream Is Nothing Then
+                Return Nothing
+            End If
+
+            Using stream
                 Dim res = New BitmapImage()
                 res.BeginInit()
                 res.StreamSource = stream

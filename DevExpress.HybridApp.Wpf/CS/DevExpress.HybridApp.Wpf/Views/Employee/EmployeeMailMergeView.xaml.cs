@@ -11,6 +11,7 @@ using System.Globalization;
 using System.Collections;
 using System.Windows.Markup;
 using DevExpress.Xpf.RichEdit;
+using DevExpress.Images;
 
 namespace DevExpress.DevAV.Views {
     public partial class EmployeeMailMergeView : UserControl {
@@ -94,9 +95,11 @@ namespace DevExpress.DevAV.Views {
             { "Fixed Column Width", "TableAutoFitContents_32x32.png" },
         };
         System.Windows.Media.ImageSource GetImage(string name) {
-            var richEditCoreAssembly = Assembly.Load(AssemblyInfo.SRAssemblyRichEditCore + AssemblyInfo.FullAssemblyVersionExtension);
-            var uri = richEditCoreAssembly.GetManifestResourceNames().FirstOrDefault(x => x.EndsWith(name));
-            using(var stream = richEditCoreAssembly.GetManifestResourceStream(uri)) {
+            var stream = ImageResourceCache.Default.GetResourceByFileName(name, Utils.Design.ImageType.Colored);
+            if (stream == null)
+                return null;
+
+            using (stream) {
                 var res = new BitmapImage();
                 res.BeginInit();
                 res.StreamSource = stream;

@@ -527,7 +527,11 @@ namespace DevExpress.DevAV {
                    select s;
         }
         public static IEnumerable<OrderItem> GetRevenueReportItems(IQueryable<OrderItem> orderItems) {
-            return orderItems.Where(x => x.Order.OrderDate.Month == DateTime.Now.Month && x.Order.OrderDate.Year == DateTime.Now.Year).ToList();
+            bool hasItemsInCurrentMonth = orderItems.Where(x => x.Order.OrderDate.Month == DateTime.Now.Month && x.Order.OrderDate.Year == DateTime.Now.Year).Any();
+            var dateOfLastOrder = orderItems.Max(x => x.Order.OrderDate);
+            var revenueMonth = hasItemsInCurrentMonth ? DateTime.Now.Month : dateOfLastOrder.Month;
+            var revenueYear = hasItemsInCurrentMonth ? DateTime.Now.Year : dateOfLastOrder.Year;
+            return orderItems.Where(x => x.Order.OrderDate.Month == revenueMonth && x.Order.OrderDate.Year == revenueYear).ToList();
         }
         public static IEnumerable<OrderItem> GetRevenueAnalysisReportItems(IQueryable<OrderItem> orderItems, long storeId) {
             return orderItems.Where(x => x.Order.StoreId.Value == storeId).ToList();

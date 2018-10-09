@@ -4,7 +4,6 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:dxsps="http://schemas.devexpress.com/winfx/2008/xaml/spreadsheet"
-    xmlns:sys="clr-namespace:System;assembly=mscorlib"
     xmlns:local="clr-namespace:ProductsDemo.Modules"
     xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars" xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon" xmlns:dxo="http://schemas.devexpress.com/winfx/2008/xaml/office" xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
     x:Class="ProductsDemo.Modules.SpreadsheetModule"

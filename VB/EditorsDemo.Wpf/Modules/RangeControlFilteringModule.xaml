@@ -53,6 +53,8 @@
                               Margin="20"
                               RangeStart="{Binding StartDate, Mode=TwoWay}"
                               RangeEnd="{Binding EndDate, Mode=TwoWay}"
+                              VisibleRangeStart="{Binding VisibleStartDate}"
+                              VisibleRangeEnd="{Binding VisibleEndDate}"
                               SelectionRangeStart="{Binding SelectedStart, Mode=TwoWay}"
                               SelectionRangeEnd="{Binding SelectedEnd, Mode=TwoWay}">
                 <dxe:CalendarClient FontSize="17">

@@ -4,7 +4,6 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
-             xmlns:dxre="http://schemas.devexpress.com/winfx/2008/xaml/richedit"
              xmlns:views="clr-namespace:DevExpress.DevAV.Views"
              xmlns:devav="clr-namespace:DevExpress.DevAV"
              mc:Ignorable="d"

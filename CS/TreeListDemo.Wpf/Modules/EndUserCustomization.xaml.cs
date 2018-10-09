@@ -52,7 +52,7 @@ namespace TreeListDemo {
 
         public static List<string> images = new List<string> { "administration", "inventory", "manufacturing", "quality", "research", "sales" };
         public static string GetImagePathByGroupName(string groupName) {
-            groupName = groupName.ToLower();
+            groupName = groupName.ToLowerInvariant();
             foreach(string item in images) {
                 if(groupName.Contains(item)) {
                     return "/TreeListDemo;component/Images/Categories/" + item + ".png";

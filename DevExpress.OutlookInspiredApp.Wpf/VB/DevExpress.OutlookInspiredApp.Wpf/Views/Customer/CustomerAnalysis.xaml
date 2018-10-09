@@ -6,8 +6,6 @@
         xmlns:dxsps="http://schemas.devexpress.com/winfx/2008/xaml/spreadsheet"
         xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
         xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon"
-        xmlns:dxo="http://schemas.devexpress.com/winfx/2008/xaml/office"
-        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
         xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
         xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
         xmlns:viewmodel="clr-namespace:DevExpress.DevAV.ViewModels"

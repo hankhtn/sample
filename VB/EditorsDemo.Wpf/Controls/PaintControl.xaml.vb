@@ -11,6 +11,7 @@ Imports System.Windows.Shapes
 Imports DevExpress.Xpf.Core.Native
 Imports DevExpress.Xpf.DemoBase.Helpers
 Imports DevExpress.Xpf.Editors
+Imports DevExpress.Xpf.Editors.Internal
 Imports Microsoft.Win32
 
 Namespace EditorsDemo
@@ -420,6 +421,7 @@ Namespace EditorsDemo
         Private Sub IColorEdit_AddCustomColor(ByVal color As Color) Implements IColorEdit.AddCustomColor
             Tool.Color = color
         End Sub
+        Private Property IColorEdit_ColorMode() As ColorPickerColorMode Implements IColorEdit.ColorMode
         Private Property IColorEdit_Color() As Color Implements IColorEdit.Color
             Get
                 Return Tool.Color

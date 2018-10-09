@@ -10,7 +10,6 @@
         xmlns:View="clr-namespace:DevExpress.RealtorWorld.Xpf.View"
         xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts"
         xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
-        xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
         mc:Ignorable="d"
         d:DesignHeight="596" d:DesignWidth="1201">
 

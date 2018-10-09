@@ -10,12 +10,9 @@
         xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
         xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon"
         xmlns:dxdo="http://schemas.devexpress.com/winfx/2008/xaml/docking"
-        xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"
         xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
         xmlns:viewmodel="clr-namespace:DevExpress.DevAV.ViewModels"
-        xmlns:common="clr-namespace:DevExpress.DevAV.Common.View"
         xmlns:local="clr-namespace:DevExpress.DevAV"
-        xmlns:devav="clr-namespace:DevExpress.DevAV"
         mc:Ignorable="d"
         d:DesignHeight="600" d:DesignWidth="800"
         DataContext="{dxmvvm:ViewModelSource viewmodel:ProductCollectionViewModel}">
